@@ -5,10 +5,10 @@
 
 ---
 
-**Play to this game**
+**Play to this game:**
 	This game is available at culpritgame.herokuapp.com/ .
 
-**Deploy the game locallye**
+**Deploy the game locally:**
 	Download and install Node.js : https://nodejs.org/en/ (includes npm).
 	Go to the root folder of the game and enter the commands :
 
