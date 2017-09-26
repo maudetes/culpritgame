@@ -8,7 +8,9 @@
 **Deploy the game**
 	Download and install Node.js : https://nodejs.org/en/ (includes npm).
 	Go to the root folder of the game and enter the commands :
+
 	 npm install 
+	 
 	 node index.js (to start the server)
 
 	Open a browser to http://localhost:3000/ (or replace 'localhost' by the IP address of the computer hosting the server).
