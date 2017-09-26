@@ -12,17 +12,17 @@ function Start(){
 
 	//////////////////////////////
 
-	N("<b>COMING OUT SIMULATOR</b>");
-	N("A half-true story about half-truths.");
-	N("Hey there, player. Glad to have you for the next 20 minutes, I guess.");
-	N("What would you like to do now?");
+	N("<b>CULPRIT GAME</b>");
+	N("Un jeu pour briser les amitiés.");
+	N("Est-ce que tu as 20 minutes et un ami pour y jouer ?");
+	N("Est-tu prêt ?");
 
 	Choose({
-		"Let's play this thing!": Play,
-		"Who are you? (About Me)": function(){
+		"C'est parti !": Play,
+		"Pourquoi ce jeu ?": function(){
 			Credits("Who are you?");
 		},
-		"Hm, tell me more. (About This Game)": function(){
+		"C'est quoi ce jeu ?": function(){
 			About("Hm, tell me more.");
 		}
 	});
@@ -201,31 +201,24 @@ function Credits(message){
 	if($.asked_about){
 		SipCoffee(message);
 	}else{
-		SipCoffee("Who are you?");
+		SipCoffee("Pourquoi ce jeu ?");
 	}
 	
-	N("Ah, how rude of me! Let me introduce myself.");
-	N("Hi, I'm Nicky Case.");
-	N("That's not my legal name, it's just my REAL name.");
+	N("Ah, eh bien ce jeu est un projet étudiant pour le cours IC06 !");
+	N("C'est un cours sur l'industrie et la conception de jeux vidéo.");
+	N("Il est enseigné à l'UTC.");
+	p("...");
+	N("Université de Technologie de Compiègne");
 
-	p("That's totes weird, dude.");
-	if($.asked_about){
-		p("And like you just told me, this is your personal story?");
-	}else{
-		p("And you made this game?");
-	}
+	p("Et c'est vous qui l'avez fait ?");
 
-	N("Yep, I am the sole writer / programmer / artist of Coming Out Simulator.");
+	N("Nous sommes les trois scénaristes / programmeurs / artistes de ce jeu");
 
-	if($.asked_about){
-		p("All of this yourself?");
-		p("I said it before and I'll say it again...");
-		p("Of course. You narcissist.");
-		N("Well it's not ALL me.");
-		N("The sounds & audio are from various public domain sources.");
-	}else{
-		N("The sounds & audio, though, are from various public domain sources.");
-	}
+	p("Wow ! Vous avez tout fait vous-même ?");
+
+	N("Non, pas TOUT !");
+	N("De nombreuses inspirations nous viennent du domaine public.")
+	N("Toutes nos sources ou inspirations sont citées dans les crédits.")
 
 	N("But although it's mostly just me behind this game...");
 	N("...there's a lot of people behind this game's story.");
