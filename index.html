@@ -15,7 +15,9 @@
 
     <script>
       var socket = io();
-      var player = 1;
+      var player;
+      var room;
+      var ready = false;
 
       function send(e){
         var socket = io();
@@ -30,10 +32,7 @@
         window.scrollTo(0, document.body.scrollHeight);
       });
 
-      socket.on('player2', function(){
-        player = 2;
-        console.log("Changed to Player 2");
-      })
+
     </script>
 
     <div id="game_container">
@@ -64,8 +63,8 @@
 
 <script src="js/game/menu.js"></script>
 <script src="js/game/scene_1.js"></script>
+<script src="js/game/utils.js"></script>
 
 <script src="js/main.js"></script>
-<script src="info.js"></script>
 
 </html>

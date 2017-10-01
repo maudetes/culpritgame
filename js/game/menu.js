@@ -4,7 +4,10 @@ function Start(){
 	
 	/////// SET UP SCENE ////////
 
-	Show("background","interrogation_room_male");
+	if (player == 1)
+		Show("background","interrogation_room_male");
+	else
+		Show("background","interrogation_room_female");
 
 	//////////////////////////////
 
@@ -21,15 +24,21 @@ function Start(){
 
 function Play(message){
 
-	P(message);
-
 	if(player == 1){
-		N("Tu es le joueur 1 (ajouter le nom).");
-		N("Tu es en attente d'un autre joueur.");
-		Wait(1000);
+		if (!ready){
+			P(message);
+			N("Tu es le joueur 1 (ajouter le nom).");	
+			N("Tu es en attente d'un autre joueur.");
+			ready = true;
+		}
+		else{
+			N("Un autre joueur t'a rejoint.");
+			Launch_Game();
+		}
 	}
 	else{
-		N("Tu es le joueur 	2 (ajouter le nom).");
+		P(message);
+		N("Tu es le joueur 2 (ajouter le nom).");
 		N("La partie va bientôt commencer !");
 		Launch_Game();
 	}

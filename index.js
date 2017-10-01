@@ -10,20 +10,25 @@ app.get('/', function(req, res){
 });
 
 var numUsers = 0;
+var player;
 
 io.on('connection', function(socket){
   ++numUsers; 
 
   if (numUsers % 2){ //odd -> create new room
   	socket.room ='room'+ ((numUsers + 1) / 2);
+  	player = 1;
   } 
   else {
 	socket.room ='room' + (numUsers/2);
-	// notify the user that he is user 2
-	socket.broadcast.to(socket.room).emit('player2');
+	// notify the user that he arrived
+	socket.broadcast.to(socket.room).emit('arrived');
+	player = 2;
   }
 
-  socket.join(socket.room)
+  socket.emit('info', {'player': player, 'room': socket.room});
+
+  socket.join(socket.room);
 
   console.log('a user connected: '+numUsers+' user(s), room: '+socket.room);
   socket.on('chat message', function(msg){

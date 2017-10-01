@@ -6,17 +6,23 @@ function Start_Scene_1(){
 	
 	/////// SET UP SCENE ////////
 
-	Show("background","interrogation_room_female");
+	Clear();
+	if (player == 1)
+		Show("background","interrogation_room_male");
+	else
+		Show("background","interrogation_room_female");
 
 	/////////////////////////////
 
-	I("ADD DIALOGUE");
-	P("ADD DIALOGUE ?");
+	I("Sais-tu pourquoi tu es ici ?");	
+	P("Parce que j'ai fait quelque chose de mal ?");
+
+	I("Disons que tu es soupçonné" + Genderize());
 
 	Choose({
-		"Choice 1.": Choice_1,
-		"Choice 2.": Choice_2,
-		"Choice 3.": Choice_3
+		"Encore une histoire de traffic ?": Choice_1,
+		"C'est pas moi je promets ! ": Choice_2,
+		"Pas un meurtre quand même ?": Choice_3
 	});
 
 }
@@ -25,7 +31,9 @@ function Choice_1(message){
 
 	// Rename this function
 
-	$.inception_answer = "dream";
+	$.suspicion_answer = "traffic";
+
+	// SendChoice(room, 'suspicion', $.suspicion_answer);
 
 	P(message);
 	I("So his entire redemption story was a lie?");
@@ -54,7 +62,9 @@ function Choice_1(message){
 }
 function Choice_2(message){
 
-	$.inception_answer = "awake";
+	$.suspicion_answer = "innocent";
+	// SendChoice(room, 'suspicion', $.suspicion_answer);
+
 	$.im_a_poet = true;
 
 	P(message);
@@ -81,7 +91,8 @@ function Choice_2(message){
 }
 function Choice_3(message){
 
-	$.inception_answer = "neither";
+	$.suspicion_answer = "murder";
+	// SendChoice(room, 'suspicion', $.suspicion_answer);
 
 	P(message);
 	I("Oh?");
@@ -152,10 +163,10 @@ function Hiding(){
 
 	I("Nicky, hiding like this is eating away at your soul.");
 
-	if($.inception_answer=="awake"){
+	if($.suspicion_answer=="awake"){
 		I("Like you said, what's the point of living a lie?");
 	}
-	if($.inception_answer=="dream"){
+	if($.suspicion_answer=="dream"){
 		I("It's... how'd you put it... 'a big fat lie'?");
 	}
 
