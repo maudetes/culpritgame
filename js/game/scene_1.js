@@ -6,7 +6,7 @@ function Start_Scene_1(){
 	
 	/////// SET UP SCENE ////////
 
-	Show("background","interrogation_room_1");
+	Show("background","interrogation_room_female");
 
 	/////////////////////////////
 
