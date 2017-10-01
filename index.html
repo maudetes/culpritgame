@@ -8,24 +8,38 @@
   </head>
   <body>
     <ul id="messages"></ul>
-    <form action="">
-      <input id="m" autocomplete="off" /><button>Send</button>
-    </form>
+    <div class="chat">
+      <input id="m" autocomplete="off" /><button onclick="send()">Send</button>
+    </div>
     <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
     <script>
-      $(function () {
+      var socket = io();
+
+      function send(e){
         var socket = io();
-        $('form').submit(function(){
-          socket.emit('chat message', $('#m').val());
-          $('#m').val('');
-          return false;
-        });
-        socket.on('chat message', function(msg){
-          $('#messages').append($('<li>').text(msg));
-          window.scrollTo(0, document.body.scrollHeight);
-        });
+        socket.emit('chat message', document.getElementById('m').value);
+        document.getElementById('m').value = "";
+      }
+
+      socket.on('chat message', function(msg){
+        var existing = document.getElementById('messages').innerHTML;
+        document.getElementById('messages').innerHTML = existing + '<li>'+msg+'</li>';
+        window.scrollTo(0, document.body.scrollHeight);
       });
+
+      // $(function () {
+      //   var socket = io();
+      //   $('form').submit(function(){
+      //     socket.emit('chat message', $('#m').val());
+      //     $('#m').val('');
+      //     return false;
+      //   });
+      //   socket.on('chat message', function(msg){
+      //     $('#messages').append($('<li>').text(msg));
+      //     window.scrollTo(0, document.body.scrollHeight);
+      //   });
+      // });
     </script>
 
 
@@ -33,7 +47,7 @@
     <div id="game_container">
     <div id="game" screen="loading">
       
-      <div id="background"></div>
+      <div id="background" height="352" width="470"></div>
       <div id="dialogue"></div>
       <div id="choices"></div>
 

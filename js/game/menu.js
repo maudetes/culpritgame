@@ -4,9 +4,9 @@ function Start(){
 	
 	/////// SET UP SCENE ////////
 
-	Show("background","coffeehouse");
-	Show("cup","cup_steam",{x:44,y:359});
-	Show("nicky","coffee_nicky_still");
+	Show("background","interrogationroom");
+	// Show("cup","cup_steam",{x:44,y:359});
+	// Show("nicky","coffee_nicky_still");
 
 	PlaySound("bg","coffeehouse",{loop:-1, volume:0.7});
 
