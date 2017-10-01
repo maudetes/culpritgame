@@ -14,35 +14,55 @@ function Start(){
 	N("N'oublie pas de passer en mode plein écran (F11) !");
 
 	Choose({
-		"Créer une partie.": CreateGame,
-		"Rejoindre une partie.": JoinGame,
-		"Quel est ce jeu ?": Credits
+		"Commencer la partie.": Play,
+		"C'est quoi ce jeu ?": Credits
 	});
 }
 
-function CreateGame(message){
+function Play(message){
+
+	P(message);
+
+	if(player == 1){
+		N("Tu es le joueur 1 (ajouter le nom).");
+		N("Tu es en attente d'un autre joueur.");
+		Wait(1000);
+	}
+	else{
+		N("Tu es le joueur 	2 (ajouter le nom).");
+		N("La partie va bientôt commencer !");
+		Launch_Game();
+	}
+}
+
+/*function Create_Game(message){
 	
 	P(message);
 	N("Entre le nom de la partie que tu souhaites créer");
 	N("(c'est avec ce nom que l'autre joueur pourra te rejoindre).");
-
-	// afficher le champ de texte + bouton envoyer + choix du personnage	
-	// récupérer le nom de la partie
-	// appeler la fonction de la scène suivante
 	Play_2();
 }
 
-function JoinGame(message){
+function Join_Game(message){
 
 	P(message);
 	N("Entre le nom de la partie que tu souhaites rejoindre.");
-	// afficher le champ de texte + bouton envoyer
-	// récupérer le nom de la partie
-	// appeler la fonction de la scène suivante
-	Play_2();
-}
 
-function Play_2(){
+	if(player == 1){
+		N("Tu es le joueur 1.");
+		N("Tu es en attente d'un autre joueur.");
+		Wait(1000);
+	}
+	else{
+		N("Tu es le joueur 	2.");
+		N("La partie va bientôt commencer !");
+		Play_2();
+	}
+}*/
+
+function Launch_Game(){
+
+	// le joueur 2 doit dire au joueur 1 que c'est prêt !
 
 	N("OK, c'est parti !");
 
@@ -77,7 +97,6 @@ function Credits(message){
 	N("Es-tu prêt à jouer maintenant ?")
 
 	Choose({
-			"Créer une partie.": CreateGame,
-			"Rejoindre une partie.": JoinGame
+			"Commencer la partie.": Play
 		});
 }
