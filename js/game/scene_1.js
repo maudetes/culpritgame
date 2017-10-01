@@ -33,7 +33,7 @@ function Choice_1(message){
 
 	$.suspicion_answer = "traffic";
 
-	// SendChoice(room, 'suspicion', $.suspicion_answer);
+	SendChoice(room, 'suspicion', $.suspicion_answer);
 
 	P(message);
 	I("So his entire redemption story was a lie?");
@@ -63,7 +63,7 @@ function Choice_1(message){
 function Choice_2(message){
 
 	$.suspicion_answer = "innocent";
-	// SendChoice(room, 'suspicion', $.suspicion_answer);
+	SendChoice(room, 'suspicion', $.suspicion_answer);
 
 	$.im_a_poet = true;
 
@@ -92,7 +92,7 @@ function Choice_2(message){
 function Choice_3(message){
 
 	$.suspicion_answer = "murder";
-	// SendChoice(room, 'suspicion', $.suspicion_answer);
+	SendChoice(room, 'suspicion', $.suspicion_answer);
 
 	P(message);
 	I("Oh?");

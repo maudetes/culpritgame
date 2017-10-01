@@ -6,12 +6,17 @@ function Genderize(){
 
 function SendChoice(room, situation, choice){
 	socket = io();
-	socket.in(room).emit('choice', player, situation, choice);
+	socket.emit('choiceToServer',  {
+		'room': room, 
+		'sender' : player, 
+		'situation' : situation, 
+		'choice' : choice});
 }
 
-socket.on('choice', function(sender, situation, choice){
-	if (sender != player)
-		alert(situation + ': ' + choice);
+socket.on('choice', function(data){
+	console.log('recieved package!!!');
+	if (player != data['sender'])
+		alert(data['situation'] + ': ' + data['choice']);
 })
 
 socket.on('arrived', function(){

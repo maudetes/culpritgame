@@ -30,6 +30,16 @@ io.on('connection', function(socket){
 
   socket.join(socket.room);
 
+  // manage choices
+  socket.on('choiceToServer', function(data){
+  	console.log('recieved message from '+ data['sender']+ '!')
+  	socket.to(data['room']).emit('choice', {
+  		'sender' : data['sender'],
+  		'situation' : data['situation'], 
+		'choice' : data['choice']
+  	});
+  });
+
   console.log('a user connected: '+numUsers+' user(s), room: '+socket.room);
   socket.on('chat message', function(msg){
     console.log('message: ' + msg);
