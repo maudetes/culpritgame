@@ -7,16 +7,21 @@
 
   </head>
   <body>
-    <ul id="messages"></ul>
+    <div class="chat">
+      <input id="m" autocomplete="off" /><button onclick="send()">Send</button>
+    </div>
     <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+
     <script>
       var socket = io();
+      var player = 1;
 
       function send(e){
         var socket = io();
         socket.emit('chat message', document.getElementById('m').value);
         document.getElementById('m').value = "";
+        console.log(player);
       }
 
       socket.on('chat message', function(msg){
@@ -24,6 +29,11 @@
         document.getElementById('messages').innerHTML = existing + '<li>'+msg+'</li>';
         window.scrollTo(0, document.body.scrollHeight);
       });
+
+      socket.on('player2', function(){
+        player = 2;
+        console.log("Changed to Player 2");
+      })
     </script>
 
     <div id="game_container">
@@ -56,5 +66,6 @@
 <script src="js/game/scene_1.js"></script>
 
 <script src="js/main.js"></script>
- 
+<script src="info.js"></script>
+
 </html>
