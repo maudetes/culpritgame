@@ -1,5 +1,5 @@
 **IC06 Co-op game 2017**
-	add a description of the game
+	A game created for the IC06 course. Based on the prisonner's dilemma.
 
 **Created by:** Eumaël Desseaux, Estelle Maudet & Camille Quenin
 

@@ -1,8 +1,8 @@
 {
-  "name": "Socket-Chat-Example",
-  "description": "my first socket.io app",
+  "name": "Culprit-Game",
+  "description": "A game created for the IC06 course. Based on the prisonner's dilemma.",
   "website": "https://github.com/socketio/chat-example",
-  "repository": "https://github.com/socketio/chat-example",
+  "repository": "https://github.com/maudetes/culpritgame",
   "logo": "https://node-js-sample.herokuapp.com/node.svg",
   "success_url": "/",
   "keywords": [

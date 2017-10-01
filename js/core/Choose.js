@@ -171,8 +171,3 @@ function Sound(label,src){
 	_resourcePromises.push(deferred.promise);
 
 }
-
-
-
-
-
