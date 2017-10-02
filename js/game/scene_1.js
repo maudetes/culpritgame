@@ -17,11 +17,11 @@ function Start_Scene_1(){
 	I("Sais-tu pourquoi tu es ici ?");	
 	P("Parce que j'ai fait quelque chose de mal ?");
 
-	I("Disons que tu es soupçonné" + Genderize());
+	I("Disons que tu es soupçonné" + Genderize() + "...");
 
 	Choose({
 		"Encore une histoire de traffic ?": Choice_1,
-		"C'est pas moi je promets ! ": Choice_2,
+		"C'est pas moi je promets !": Choice_2,
 		"Pas un meurtre quand même ?": Choice_3
 	});
 

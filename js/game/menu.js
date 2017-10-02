@@ -16,7 +16,7 @@ function Start(){
 	N("THE CULPRIT GAME");
 	N("Un jeu pour briser les amitiés.");
 	N("Est-ce que tu as 20 minutes et un ami pour y jouer ?");
-	N("N'oublie pas de passer en mode plein écran (F11) !");
+	N("N'oublie pas de passer en mode plein écran (F11).");
 
 	Choose({
 		"Commencer la partie.": Play,
@@ -29,26 +29,27 @@ function Play(message){
 	if(player == 1){
 		if (!ready){
 			P(message);
-			N("Tu es le joueur 1 (ajouter le nom).");	
-			N("Tu es en attente d'un autre joueur.");
+			N("Tu es Frank Delacroix.");
+			N("Tu es en attente d'Alice Dunne.");
 			ready = true;
 		}
 		else{
-			N("Un autre joueur t'a rejoint.");
+			N("Tu es Frank Delacroix.");
+			N("Alice Dunne t'a rejoint.");
 			Launch_Game();
 		}
 	}
 	else{
 		P(message);
-		N("Tu es le joueur 2 (ajouter le nom).");
-		N("La partie va bientôt commencer !");
+		N("Tu es Alice Dunne.");
+		N("Frank Delacroix t'attendait.");
 		Launch_Game();
 	}
 }
 
 function Launch_Game(){
 
-	N("OK, c'est parti !");
+	N("Voici votre histoire...");
 
 	// HACK - Just clear dialogue & stuff.
 	Wait(1000);
