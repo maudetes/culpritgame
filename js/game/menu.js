@@ -4,10 +4,12 @@ function Start(){
 	
 	/////// SET UP SCENE ////////
 
-	if (player == 1)
-		Show("background","interrogation_room_male");
-	else
-		Show("background","interrogation_room_female");
+	// if (player == 1)
+	// 	Show("background","interrogation_room_male");
+	// else
+	// 	Show("background","interrogation_room_female");
+
+	Show("background","starting_room");
 
 	//////////////////////////////
 
