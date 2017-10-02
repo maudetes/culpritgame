@@ -44,34 +44,7 @@ function Play(message){
 	}
 }
 
-/*function Create_Game(message){
-	
-	P(message);
-	N("Entre le nom de la partie que tu souhaites créer");
-	N("(c'est avec ce nom que l'autre joueur pourra te rejoindre).");
-	Play_2();
-}
-
-function Join_Game(message){
-
-	P(message);
-	N("Entre le nom de la partie que tu souhaites rejoindre.");
-
-	if(player == 1){
-		N("Tu es le joueur 1.");
-		N("Tu es en attente d'un autre joueur.");
-		Wait(1000);
-	}
-	else{
-		N("Tu es le joueur 	2.");
-		N("La partie va bientôt commencer !");
-		Play_2();
-	}
-}*/
-
 function Launch_Game(){
-
-	// le joueur 2 doit dire au joueur 1 que c'est prêt !
 
 	N("OK, c'est parti !");
 
