@@ -3,20 +3,14 @@ function Start(){
 	$ = {};
 	
 	/////// SET UP SCENE ////////
-
-	// if (player == 1)
-	// 	Show("background","interrogation_room_male");
-	// else
-	// 	Show("background","interrogation_room_female");
-
 	Show("background","starting_room");
-
 	//////////////////////////////
 
 	N("THE CULPRIT GAME");
 	N("Un jeu pour briser les amitiés.");
 	N("Est-ce que tu as 20 minutes et un ami pour y jouer ?");
 	N("N'oublie pas de passer en mode plein écran (F11).");
+	N("Nous te conseillons aussi d'utiliser des écouteurs.");
 
 	Choose({
 		"Commencer la partie.": Play,
