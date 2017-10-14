@@ -19,9 +19,40 @@ function Start(){
 	N("N'oublie pas de passer en mode plein écran (F11).");
 
 	Choose({
-		"Commencer la partie.": Play,
+		"Commencer une partie.": Room,
 		"C'est quoi ce jeu ?": Credits
 	});
+}
+
+function Room(message){
+	P(message);
+	N("veux-tu rejoindre un ami, attendre un ami ou jouer avec le premier venu ?");
+	Choose({
+		"Rejoindre un ami": FindFriend,
+		"Attendre un ami": WaitFriend,
+		"Jouer avec un inconnu, au dépit de ce que me disait ma maman": FindForeigner
+	});
+}
+
+function FindFriend(message){
+	P(message);
+	N("Ecris un nom de code que tu pourras partager à ton ami pour qu'il te rejoigne");
+	document.getElementById("room_name").style.visibility = "visible";
+	document.getElementById("room_name").title = "findFriend";
+
+}
+
+function WaitFriend(message){
+	P(message);
+	N("Ecris un nom de code que tu pourras partager à ton ami pour qu'il te rejoigne");
+	document.getElementById("room_name").style.visibility = "visible";
+	document.getElementById("room_name").title = "waitForFriend";
+}
+
+function FindForeigner(message){
+	P(message);
+	socket = io();
+	socket.emit('FindForeigner');
 }
 
 function Play(message){

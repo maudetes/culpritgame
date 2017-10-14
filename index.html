@@ -19,18 +19,13 @@
       var room;
       var ready = false;
 
-      function send(e){
-        var socket = io();
-        socket.emit('chat message', document.getElementById('m').value);
-        document.getElementById('m').value = "";
-        console.log(player);
-      }
-
       socket.on('chat message', function(msg){
         var existing = document.getElementById('messages').innerHTML;
         document.getElementById('messages').innerHTML = existing + '<li>'+msg+'</li>';
         window.scrollTo(0, document.body.scrollHeight);
       });
+
+
 
 
     </script>
@@ -41,6 +36,11 @@
         <div id="background" height="352" width="470"></div>
         <div id="dialogue"></div>
         <div id="choices"></div>
+        <div id="room_name" style="visibility: hidden">
+          <p id="other_name_alert"></p>
+          <input id="name_input" type="text" maxlength="20"></input>
+          <button id="name_button" onclick="send()">Envoyer</button>
+        </div>
 
         <div id="blank"></div>
         <div id="loading">
