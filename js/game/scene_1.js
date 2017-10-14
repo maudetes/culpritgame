@@ -5,9 +5,9 @@ function Start_Scene_1(){
 	/////// INTRO ////////
 	Clear();
 	Show("background","black");
-	Wait(1000);
+	Wait(500);
 	PlaySound("sfx","gun_shot");
-	Wait(3000);
+	Wait(2000);
 	PlaySound("sfx","running_footsteps");
 	// Add "Oh shit !" ?
 	Wait(4000);

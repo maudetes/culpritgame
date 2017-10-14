@@ -20,17 +20,17 @@ function Start(){
 
 function Room(message){
 	P(message);
-	N("veux-tu rejoindre un ami, attendre un ami ou jouer avec le premier venu ?");
+	N("Veux-tu rejoindre un ami, attendre un ami ou jouer avec le premier venu ?");
 	Choose({
-		"Rejoindre un ami": FindFriend,
-		"Attendre un ami": WaitFriend,
-		"Jouer avec un inconnu, au dépit de ce que me disait ma maman": FindForeigner
+		"Rejoindre un ami.": FindFriend,
+		"Attendre un ami.": WaitFriend,
+		"Jouer avec un inconnu, au dépit de ce que me disait ma maman.": FindForeigner
 	});
 }
 
 function FindFriend(message){
 	P(message);
-	N("Ecris un nom de code que tu pourras partager à ton ami pour qu'il te rejoigne");
+	N("Ecris le nom de code que t'as donné ton ami pour le rejoindre.");
 	document.getElementById("room_name").style.visibility = "visible";
 	document.getElementById("room_name").title = "findFriend";
 
@@ -38,7 +38,7 @@ function FindFriend(message){
 
 function WaitFriend(message){
 	P(message);
-	N("Ecris un nom de code que tu pourras partager à ton ami pour qu'il te rejoigne");
+	N("Ecris un nom de code que tu pourras partager à ton ami pour qu'il te rejoigne.");
 	document.getElementById("room_name").style.visibility = "visible";
 	document.getElementById("room_name").title = "waitForFriend";
 }

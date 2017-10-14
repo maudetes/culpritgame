@@ -21,9 +21,9 @@ socket.on('choice', function(data){
 
 socket.on('getStarted', function(){
 	if (player == 1)
-		N("Alice Dunne t'a rejoint !")
+		N("Alice Dunne t'a rejoint.");
  	else
- 		N("Frank Prescott t'attendait !")
+ 		N("Frank Prescott t'attendait.");
 	Launch_Game();
 })
 
@@ -31,10 +31,11 @@ socket.on('info', function(info){
 	console.log("infos reçues");
 	player = info['player'];
 	room = info['room'];
-	if (player ==1)
-		N("Tu es Frank Prescott.")
-	else
-		N("Tu es Alice Dunne.")
+	if (player ==1){
+		N("Tu es Frank Prescott.");
+		N("Tu attends ta partenaire...");
+	} else
+		N("Tu es Alice Dunne.");
 })
 
 socket.on('doItAgain', function(data){
