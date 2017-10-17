@@ -105,8 +105,8 @@ io.on('connection', function(socket){
   	console.log('recieved message from '+ data['sender']+ '!')
   	socket.to(data['room']).emit('choice', {
   		'sender' : data['sender'],
-  		'situation' : data['situation'], 
-		'choice' : data['choice']
+		  'choice' : data['choice'],
+      'message': data['message']
   	});
   });
 

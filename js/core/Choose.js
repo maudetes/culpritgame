@@ -86,6 +86,15 @@ function Choose(choices){
 	});
 };
 
+function ChooseIf(character, choices){
+	if ((player == 1 && character == "Frank") || (player == 2 && character == "Anna")){
+		Choose(choices);
+	}
+	else {
+		//add wait ? or wait server message ? or nothing ?
+	}
+}
+
 function Show(){
 	var args = arguments;
 	queue(function(){

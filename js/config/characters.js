@@ -1,5 +1,4 @@
 ////////// CHARACTERS //////////
-
 // The narrator.
 N = new Character({ align:"left", background:"#000", color:"#FFF", sound:"text_mid" });
 

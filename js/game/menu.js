@@ -55,18 +55,18 @@ function Play(message){
 		if (!ready){
 			P(message);
 			N("Tu es Frank Delacroix.");
-			N("Tu es en attente d'Alice Dunne.");
+			N("Tu es en attente d'Anna Collins.");
 			ready = true;
 		}
 		else{
 			N("Tu es Frank Delacroix.");
-			N("Alice Dunne t'a rejoint.");
+			N("Anna Collins t'a rejoint.");
 			Launch_Game();
 		}
 	}
 	else{
 		P(message);
-		N("Tu es Alice Dunne.");
+		N("Tu es Anna Collins.");
 		N("Frank Delacroix t'attendait.");
 		Launch_Game();
 	}
