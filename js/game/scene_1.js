@@ -102,7 +102,8 @@ function AccuseFrank(message){
 	Siren();
 }
 function Siren(){
-	PlaySound("sfx","gun_shot");
+	PlaySound("sfx","police_siren");
+	Wait(2000);
 }
 
 function End_Scene_1(){

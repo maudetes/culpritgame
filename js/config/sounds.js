@@ -6,3 +6,4 @@ Sound("text_high","sounds/sfx/text_high.ogg");
 ////////// SCENE_1 /////////////
 Sound("gun_shot","sounds/sfx/gun_shot.ogg");
 Sound("running_footsteps","sounds/sfx/running_footsteps.ogg");
+Sound("police_siren","sounds/sfx/police_siren.ogg");
