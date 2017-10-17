@@ -81,9 +81,6 @@ function AccuseAnna(message){
 function KateWasInnocent(message){
 	SendChoiceIf("Frank", room, "KateWasInnocent", message);
 	F(message);
-
-
-
 }
 
 function AnnaSavedYou(message){
@@ -94,7 +91,7 @@ function AnnaSavedYou(message){
 
 function AnnaIsNotKidding(message){
 	A(message);
-	A("Si je voualis te faire plonger, tu remonterai pas à la surface !");
+	A("Si je voulais te faire plonger, tu remonterais pas à la surface !");
 	Siren();
 }
 
