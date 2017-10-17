@@ -20,10 +20,10 @@ function Start(){
 
 function Room(message){
 	P(message);
-	N("Veux-tu rejoindre un ami, attendre un ami ou jouer avec le premier venu ?");
+	N("Veux-tu rejoindre la partie d'un ami, créer une partie ou jouer avec le premier venu ?");
 	Choose({
-		"Rejoindre un ami.": FindFriend,
-		"Attendre un ami.": WaitFriend,
+		"Rejoindre la partie d'un ami.": FindFriend,
+		"Créer une partie.": WaitFriend,
 		"Jouer avec un inconnu, au dépit de ce que me disait ma maman.": FindForeigner
 	});
 }
