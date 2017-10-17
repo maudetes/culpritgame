@@ -7,10 +7,9 @@ function Start_Scene_1(){
 	Show("background","black");
 	Wait(500);
 	PlaySound("sfx","gun_shot");
-	Wait(2000);
+	Wait(3000);
 	PlaySound("sfx","running_footsteps");
-	// Add "Oh shit !" ?
-	Wait(4000);
+	Wait(5000);
 	/////////////////////////////
 
 	//Show("background","interrogation_room_male");
