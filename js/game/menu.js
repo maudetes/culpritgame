@@ -49,29 +49,6 @@ function FindForeigner(message){
 	socket.emit('FindForeigner');
 }
 
-function Play(message){
-
-	if(player == 1){
-		if (!ready){
-			P(message);
-			N("Tu es Frank Delacroix.");
-			N("Tu es en attente d'Anna Collins.");
-			ready = true;
-		}
-		else{
-			N("Tu es Frank Delacroix.");
-			N("Anna Collins t'a rejoint.");
-			Launch_Game();
-		}
-	}
-	else{
-		P(message);
-		N("Tu es Anna Collins.");
-		N("Frank Delacroix t'attendait.");
-		Launch_Game();
-	}
-}
-
 function Launch_Game(){
 
 	N("Voici votre histoire...");
@@ -107,6 +84,6 @@ function Credits(message){
 	N("Es-tu prêt à jouer maintenant ?")
 
 	Choose({
-			"Commencer la partie.": Play
+			"Commencer la partie.": Room
 		});
 }
