@@ -36,6 +36,8 @@ socket.on('getStarted', function(){
 		N("Anna Collins t'a rejoint.");
  	else
  		N("Frank Prescott t'attendait.");
+ 	N("Attention, tous vos choix auront une importance !");
+ 	N("Soyez vigilant, chaque détail peut compter.")
 	Launch_Game();
 })
 

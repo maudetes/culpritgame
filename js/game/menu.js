@@ -7,7 +7,7 @@ function Start(){
 	//////////////////////////////
 
 	N("THE CULPRIT GAME");
-	N("Un jeu pour briser les amitiés.");
+	N("Un jeu narratif à partager à 2.");
 	N("Est-ce que tu as 20 minutes et un ami pour y jouer ?");
 	N("N'oublie pas de passer en mode plein écran (F11).");
 	N("Nous te conseillons aussi d'utiliser des écouteurs.");
