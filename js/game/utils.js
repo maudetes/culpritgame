@@ -25,7 +25,6 @@ function SendChoiceIf(character, room, choice, message){
 socket.on('choice', function(data){
 	console.log('recieved package!!!');
 	if (player != data['sender']){
-		alert(data['choice']);
 		map = {"Gang": Gang, "AccuseAnna" : AccuseAnna, "KateWasInnocent" : KateWasInnocent,
 			   "Lovers": Lovers, "HoldUp": HoldUp, "OpenMinded": OpenMinded};
 		map[data["choice"]](data["message"]);
@@ -38,6 +37,13 @@ socket.on('getStarted', function(){
  	else
  		N("Frank Prescott t'attendait.");
 	Launch_Game();
+})
+
+socket.on("disconnected", function(){
+	if (player==1)
+		alert("Oups ! Ta partenaire s'est déconnectée, réactualise pour recommencer une partie !");
+	else
+		alert("Oups ! Ton partenaire s'est déconnecté, réactualise pour recommencer une partie !");
 })
 
 socket.on('info', function(info){

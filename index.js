@@ -110,13 +110,17 @@ io.on('connection', function(socket){
   	});
   });
 
-  console.log('a user connected: '+numUsers+' user(s), room: '+socket.room);
+  console.log('a user connected: '+numUsers+' user(s)');
   socket.on('chat message', function(msg){
     console.log('message: ' + msg);
   });
+
   socket.on('disconnect', function(){
   	--numUsers;
     console.log('user disconnected: '+numUsers+' left');
+    if (socket.room){
+      socket.to(socket.room).emit("disconnected");
+    }
   });
 });
 

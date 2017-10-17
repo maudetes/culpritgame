@@ -17,7 +17,6 @@
       var socket = io();
       var player;
       var room;
-      var ready = false;
 
       socket.on('chat message', function(msg){
         var existing = document.getElementById('messages').innerHTML;
