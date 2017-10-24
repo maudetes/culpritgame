@@ -4,8 +4,11 @@ function Start_Scene_1(){
 	
 	/////// INTRO ////////
 	Clear();
-	Show("background","black");
-	Wait(500);
+	if (player == 1)
+		Show("background","phone_male");
+	else
+		Show("background","phone_female");
+	Wait(3000);
 	PlaySound("sfx","gun_shot");
 	Wait(3000);
 	PlaySound("sfx","running_footsteps");
