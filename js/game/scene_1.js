@@ -12,7 +12,10 @@ function Start_Scene_1(){
 	Wait(5000);
 	/////////////////////////////
 
-	//Show("background","interrogation_room_male");
+	if (player == 1)
+		Show("background","scene1_male");
+	else
+		Show("background","scene1_female");
 
 	F("Putain de merde, non ! Kate !");
 	A("Merde !");
