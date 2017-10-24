@@ -157,18 +157,21 @@ function BothWantCooperation(message){
 function AnnaAnswers(message){
 	SendChoiceIf("Anna", room, "AnnaAnswers", message);
 	A(message);
+	End_Scene_1();
 }
 
 function AnnaCantBeMe(message){
 	SendChoiceIf("Anna", room, "AnnaCantBeMe", message);	
 	A("Mais ça peut pas être moi !");
 	A(message);
+	End_Scene_1();
 }
 
 function AnnaCantGoToPrison(message){
 	SendChoiceIf("Anna", room, "AnnaCantGoToPrison", message);	
 	A("Sérieusement ?!");
 	A(message);
+	End_Scene_1();
 }
 
 function EndingAgreements(){
@@ -204,6 +207,5 @@ function End_Scene_1(){
 	N("Elle vous trouve tous les deux aux côtés de la victime.");
 	N("Vous êtes arrêtés comme suspect et amenés en salle d’interrogation.");
 	N("Tout ce que vous direz pourra être retenu contre vous.");
-
 	Start_Scene_2();
 }
