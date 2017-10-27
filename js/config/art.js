@@ -2,9 +2,9 @@
 Background("starting_room", "/img/backgrounds/starting_room.gif");
 
 ////////// SCENE_1 //////////
-Background("phone_female", "/img/backgrounds/phone_female.PNG");
-Background("phone_male", "/img/backgrounds/phone_male.PNG");
-Background("scene1_female", "/img/backgrounds/Scene1_female.png");
+Background("phone_female", "/img/backgrounds/phone_female.png");
+Background("phone_male", "/img/backgrounds/phone_male.png");
+Background("scene1_female", "/img/backgrounds/Scene1_female.PNG");
 Background("scene1_male", "/img/backgrounds/Scene1_male.PNG");
 
 ////////// SCENE_2 //////////
