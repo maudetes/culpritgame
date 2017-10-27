@@ -61,16 +61,16 @@ socket.on('info', function(info){
 
 	if (player == 1){
 		// Frank Prescott.
-		F = new Character({ align:"right", background:"#C6714F", sound:"text_high" });
+		F = new Character({ align:"right", background:"#C8AE83", sound:"text_high" });
 
 		// Anna Collins.
-		A = new Character({ align:"left", background:"#A9A9F0", sound:"text_high" });
+		A = new Character({ align:"left", background:"#B0B4BF", sound:"text_high" });
 	} else {
 		// Frank Prescott.
-		F = new Character({ align:"left", background:"#C6714F", sound:"text_high" });
+		F = new Character({ align:"left", background:"#C8AE83", sound:"text_high" });
 
 		// Anna Collins.
-		A = new Character({ align:"right", background:"#A9A9F0", sound:"text_high" });
+		A = new Character({ align:"right", background:"#B0B4BF", sound:"text_high" });
 	}
 
 	room = info['room'];

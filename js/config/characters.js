@@ -7,3 +7,5 @@ P = new Character({ align:"right", background:"#333", color:"#bbb", sound:"text_
 
 // The interrogator.
 I = new Character({ align:"left", background:"#FFF", sound:"text_high" });
+
+// Frank Prescott and Anna Collins characters are defined in utils.js, because they depend on the player's role
