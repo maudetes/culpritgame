@@ -9,8 +9,7 @@ function Start(){
 	N("THE CULPRIT GAME");
 	N("Un jeu narratif à partager à 2.");
 	N("Est-ce que tu as 20 minutes et un ami pour y jouer ?");
-	N("N'oublie pas de passer en mode plein écran (F11).");
-	N("Nous te conseillons aussi d'utiliser des écouteurs.");
+	N("N'oublie pas de passer en mode plein écran (F11) et d'utiliser des écouteurs.");
 
 	Choose({
 		"Commencer une partie.": Room,
@@ -80,7 +79,7 @@ function Credits(message){
 
 	N("Non, pas TOUT !");
 	N("De nombreuses inspirations nous viennent du domaine public.")
-	N("Toutes nos sources ou inspirations sont citées dans les crédits.")
+	N("Toutes nos sources et inspirations sont citées dans les crédits.")
 	N("Es-tu prêt à jouer maintenant ?")
 
 	Choose({

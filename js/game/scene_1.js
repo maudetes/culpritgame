@@ -8,6 +8,9 @@ function Start_Scene_1(){
 		Show("background","phone_male");
 	else
 		Show("background","phone_female");
+	Wait(5000);
+	Clear();
+	Show("background","black");
 	Wait(3000);
 	PlaySound("sfx","gun_shot");
 	Wait(3000);
@@ -20,11 +23,11 @@ function Start_Scene_1(){
 	else
 		Show("background","scene1_female");
 
-	F("Putain de merde, non ! Kate !");
+	F("Putain, non ! Kate !");
 	A("Merde !");
 	A("Frank ?!");
 	F("Anna ?!");
-	F("Qu'est c'tu fous là ?!");
+	F("Qu'est ce que tu fous là ?!");
 	A("J'ai reçu un SMS de ta femme...");
 	F("Merde, moi aussi ! Elle a appris pour nous deux.");
 	ChooseIf("Anna", {
@@ -53,16 +56,16 @@ function OpenMinded(message){
 }
 
 function Scene_1_next(){
-	F("Je comprends pas putain !");
+	F("J'en sais rien !");
 	A("Mais qu'est-ce qui s'est passé ?");
 	A("Elle est morte ?!");
 	F("Elle respire plus...");
-	F("Elle s'est pris trois balles en plein coeur...");
+	F("Trois balles en plein coeur...");
 	A("Mais putain qui aurait bien pu lui vouloir du mal ?");
 	ChooseIf("Frank", {
 		"C'est peut-être un coup de ces connards de Costa Nostra.": Gang,
 		"J'ai trop d'ennemis pour en être sûr. Ca pourrait même être toi...": AccuseAnna,
-		"Elle avait rien à voir là dedans putain !": KateWasInnocent
+		"Elle n'avait rien à voir là dedans putain !": KateWasInnocent
 	});
 }
 
@@ -101,7 +104,7 @@ function AnnaSavedYou(message){
 function AnnaIsNotKidding(message){
 	SendChoiceIf("Anna", room, "AnnaIsNotKidding", message);
 	A(message);
-	A("Si je voulais te faire plonger, tu remonterais pas à la surface !");
+	A("Si je voulais te faire plonger, tu remonterais pas à la surface...");
 	Siren();
 }
 
@@ -207,11 +210,10 @@ function EndingAgreementNext(message){
 }
 
 function End_Scene_1(){
-	//ajouter bruit de porte fracassée
 	Clear();
 	N("La police est arrivée sur place.");
 	N("Elle vous trouve tous les deux aux côtés de la victime.");
-	N("Vous êtes arrêtés comme suspect et amenés en salle d’interrogation.");
+	N("Vous êtes arrêtés en tant que suspects et chacun emmenés dans une salle d'interrogatoire différente.");
 	N("Tout ce que vous direz pourra être retenu contre vous.");
 	Start_Scene_2();
 }
