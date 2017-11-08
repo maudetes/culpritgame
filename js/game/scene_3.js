@@ -9,6 +9,9 @@ function Start_Scene_3(){
 	else
 		Show("background","interrogation_room_female");
 	/////////////////////////////
+
+	I("Le reste du jeu n'a pas encore été implémenté.");	
+	I("Vous pouvez réactualiser cette page et recommencer l'aventure !");	
 }
 
 function End_Scene_3(){
