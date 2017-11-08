@@ -26,7 +26,7 @@ socket.on('choice', function(data){
 	console.log('recieved package!!!');
 	if (player != data['sender']){
 		map = {"Gang": Gang, "AccuseAnna" : AccuseAnna, "KateWasInnocent" : KateWasInnocent,
-			   "Lovers": Lovers, "HoldUp": HoldUp, "OpenMinded": OpenMinded,
+			   "SceneOneNext" : SceneOneNext,
 			   "AnnaSavedYou" : AnnaSavedYou, "AnnaIsNotKidding" : AnnaIsNotKidding,
 			   "AnnaAccusesFrank" : AnnaAccusesFrank, "FrankCooperation" : FrankCooperation,
 			    "FrankNoCooperation" : FrankNoCooperation, "FrankAccuses" : FrankAccuses, 

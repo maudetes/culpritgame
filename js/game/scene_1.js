@@ -31,31 +31,15 @@ function Start_Scene_1(){
 	A("J'ai reçu un SMS de ta femme...");
 	F("Merde, moi aussi ! Elle a appris pour nous deux.");
 	ChooseIf("Anna", {
-		"Tu crois qu'elle pensait qu'on était en couple ?": Lovers,
-		"Comment elle a pu être au courant pour le braquage ?": HoldUp,
-		"Pourtant je pensais qu’elle fermait les yeux sur tes magouilles...": OpenMinded
+		"Tu crois qu'elle pensait qu'on était en couple ?": SceneOneNext,
+		"Comment elle a pu être au courant pour le braquage ?": SceneOneNext,
+		"Pourtant je pensais qu’elle fermait les yeux sur tes magouilles...": SceneOneNext
 	});
 }
 
-function Lovers(message){
-	SendChoiceIf("Anna", room, "Lovers", message);
+function SceneOneNext(message){
+	SendChoiceIf("Anna", room, "SceneOneNext", message);
 	A(message);
-	//ajouter un message car sinon bizarre avec "Je comprends pas putain !"
-	Scene_1_next();
-}
-
-function HoldUp(message){
-	SendChoiceIf("Anna", room, "HoldUp", message);
-	A(message);
-	Scene_1_next();
-}
-function OpenMinded(message){
-	SendChoiceIf("Anna", room, "OpenMinded", message);
-	A(message);
-	Scene_1_next();
-}
-
-function Scene_1_next(){
 	F("J'en sais rien !");
 	A("Mais qu'est-ce qui s'est passé ?");
 	A("Elle est morte ?!");
