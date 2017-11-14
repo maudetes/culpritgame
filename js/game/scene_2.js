@@ -1,5 +1,12 @@
 // SCENE_2 : BEGINNING OF THE QUESTIONNING
 
+// Common vars
+var unknownNumber = false;
+var AnnaFrankTogether = false;
+var whoCalledThePolice = false;
+var AnnaYouLiar = 0;
+var AnnaWantsFrankInPrison = false;
+
 function Start_Scene_2(){
 
 	/////// SET UP SCENE ////////
@@ -112,6 +119,8 @@ function PanicKate(message){
 	A("Frank commencait à lui faire peur.");
 	A("Mais, apparement, je suis arrivée trop tard.");
 
+	AnnaWantsFrankInPrison = true;
+
 	I("C'est bizarre, il y a aucune trace cette appel téléphonique dans \
 		le téléphone de Mme Stillwell.");
 	I("Par contre, on a trouvé un SMS accusateur vous étant adressée.");
@@ -121,7 +130,8 @@ function PanicKate(message){
 
 	I("Tout simplement pour tester votre sincérité.");
 	I("Je vous conseille de mieux coopérer pour la suite.");
-	// TODO : variable sur la sincérité de A
+	
+	AnnaYouLiar++;
 
 	I("Maintenant, expliquez moi la signification du SMS.");
 
@@ -140,22 +150,25 @@ function ImportantChoice(){
 	Choose({
 		"Elle s'imaginait des choses entre Frank et moi." : AFnotTogether,
 		"Elle pensait que je participais aux magouilles de Frank" : Fmafiosi,
-		"Elle était au courrant que j'entretenais une relation avec Frank" : AFTogether}
+		"Elle était au courrant que j'entretenais une relation avec Frank" : AFTogether
 	});
 }
 
 function AFnotTogether(message){
+
 	A(message);
 
 	I("Mais alors, qui est Frank pour vous ?");
 
 	A("Juste une connaissance");
 
-	I("Pourquoi elle vous suspectez alors ?");
+	I("Pourquoi elle vous suspectait alors ?");
 
 	A("Pas la moindre idée ...");
 
-	//TODO : faire la suite
+	I("...")
+
+	Scene2Part4();
 }
 
 function Fmafiosi(message){
@@ -175,15 +188,195 @@ function Fmafiosi(message){
 	I("Est-ce le cas ?");
 
 	A("Non.");
+
+	I("...");
+
+	Scene2Part4();
 }
 
 function AFTogether(message){
 	A(message);
 
+	AnnaFrankTogether = true;
+
 	I("Et vous pensez qu'elle aurait pu s'énerver ?");
 
 	A("La relation entre Frank et Kate était sur le point de craquer.");
 	A("Ainsi, je ne pensais pas qu'elle s'enflamerai autant");
+
+	Scene2Part4();
+}
+
+function Scene2Part4(){
+	I("Passon à la suite.");
+	I("Quel était votre lien avec Kate Stillwell ?");
+
+	Choose({
+		"Je ne la connaissais pas personnellement." : KateIsAStranger,
+		"C'était une amie depuis de nombreuses années." : KateIsAFriend,
+		"Pour moi c'était juste la femme de Frank" : KateIsFranksWife
+	});
+}
+
+function KateIsAStranger(message){
+	A(message);
+	A("Je voyais bien qui elle était, mais je ne lui avais jamais parlé.");
+
+	I("Suffisamment pour qu'elle ait votre numéro, non ?");
+
+	A("Je ne sais pas comment elle a pu l'avoir !");
+	A("C'est vraiment surprenant");
+	A("J'ai pour habitude de ne pas donner mon numéro à n'importe qui...");
+
+	unknownNumber = true;
+
+	Scene2Part5();
+}
+
+function KateIsAFriend(message){
+	A(message);
+
+	if (AnnaFrankTogether){
+		I("Votre amie, mais vous entreteniez une relation avec son mari ?");
+
+		A("Je ne crois pas que ce soit illégal, si ?");
+
+		I("...");
+	}
+	else{
+		I("Est-ce que vous avez une idée de pourquoi elle aurait pu être assassinée ?");
+
+		A("Non, pas du tout !");
+		A("Elle n'a jamais mentionnée avoir d'ennemis, et elle était une personne très appréciée.")
+	}
+
+	Scene2Part5();
+}
+
+function KateIsFranksWife(message){
+	A(message);
+
+	I("Mais elle vous connaissait, elle ?");
+
+	A("Non, je ne pense pas.");
+
+	I("Pourtant elle avait votre numéro...");
+
+	A("Je ne sais pas comment elle a pu l'avoir !");
+	A("C'est vraiment surprenant");
+	A("J'ai pour habitude de ne pas donner mon numéro à n'importe qui...");
+
+	unknownNumber = true;
+
+	Scene2Part5();
+}
+
+function Scene2Part5(){
+	I("Continuons.");
+	I("Pouvez-vous me dire à quelle heure vous êtes arrivée chez Kate Stillwell ?");
+
+	Choose({
+		"Un peu après 19h." : After19h,
+		"Entre 21h et 22h." : Between21hAnd22h,
+		"Euuuh... Juste après Frank." : AfterFrank
+	});
+
+}
+
+function After19h(message){
+	A(message);
+
+	I("A peine 2-3 minutes avant l'arrivée de la police, donc ?");
+
+	A("Oui, j'ai juste eu le temps d'entendre des coups de feu et de découvrir le cadavre...");
+
+	I("Et la police est arrivée juste après ?");
+
+	A("Oui.");
+	A("Maintenant que vous le dîtes, ça semble étrange.");
+	A("Surtout que leur maison est en pleine campagne.");
+
+	if (AnnaYouLiar > 0){
+		I("Qu'est-ce que vous insinuez là ?");
+		I("Vous vous rendez bien compte que votre histoire ne tient pas debout ?");
+		I("Vous m'avez déjà menti une fois, je vous avais prévenu de ne pas recommen--");
+		AnnaYouLiar++;
+	} else {
+		A("Est-ce que vous savez qui a prévenu la police ?");
+
+		I("...");
+		I("C'est moi qui pose les questi--");
+
+		whoCalledThePolice = true;
+	}
+
+	Interrupt();
+}
+
+function Between21hAnd22h(message){
+	A(message);	
+
+	I("...");
+	I("Il est 20h45.");
+	AnnaYouLiar++;
+
+	A("Ah. Je me suis peut-être un peu trompée.");
+	A("J'aurais essayé.");
+
+	I("Vous vous rendez bien compte que mentir ne joue pas en votre faveu--");
+
+	Interrupt();
+
+}
+
+function AfterFrank(message){
+	A(message);	
+
+	if(AnnaWantsFrankInPrison){
+		I("Ah bah oui bien sûr.");
+		I("Vous êtes de moins en moins convaincante...");
+		I("Vous lui en voulez vraiment à Frank ?");
+
+		AnnaYouLiar++;
+
+		A("Non, pas du tou--.");
+	}
+	else {
+		I("Il était arrivé depuis longtemps ?");
+
+		A("Je ne sais pas.");
+		A("J'ai juste eu le temps d'entendre des coups de feu et de découvrir le cadavre...");
+
+		I("Et la police est arrivée juste après ?");
+
+		A("Oui.");
+		A("Maintenant que vous le dîtes, ça semble étrange.");
+		A("Surtout que leur maison est en pleine campagne.");
+
+		A("Est-ce que vous savez qui a prévenu la police ?");
+
+		I("...");
+		I("C'est moi qui pose les questi--");
+
+		whoCalledThePolice = true;
+	}
+
+	Interrupt();
+
+}
+
+function Interrupt(){
+	// ADD sounds (knock knock + opening door) 
+
+	I("Excusez-moi.");
+
+	// modify image without the inspector
+	// whispers
+	// modify image to original
+
+	//TODO : final texts
+
+	End_Scene_2();
 }
 
 function End_Scene_2(){
