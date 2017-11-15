@@ -199,5 +199,9 @@ function End_Scene_1(){
 	N("Elle vous trouve tous les deux aux côtés de la victime.");
 	N("Vous êtes arrêtés en tant que suspects et chacun emmenés dans une salle d'interrogatoire différente.");
 	N("Tout ce que vous direz pourra être retenu contre vous.");
-	Start_Scene_2();
+	
+	if(player == 1)
+		Start_Scene_2F();
+	else
+		Start_Scene_2A();
 }
