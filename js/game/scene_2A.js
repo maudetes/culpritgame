@@ -401,6 +401,7 @@ function Scene_2A_Interrupt(){
 	I("Il semble que l'autre interrogatoire ai été très tendu.");
 	I("Mon collègue viendra vous interroger d'ici peu.");
 
+	PlaySound("sfx", "closing_door");
 	Wait(4000);
 	End_Scene_2A();
 }
