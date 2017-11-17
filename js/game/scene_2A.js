@@ -167,6 +167,8 @@ function Scene_2A_AFnotTogether(message){
 	A("Pas la moindre idée ...");
 
 	I("...")
+	PlaySound("sfx", "sigh");
+	Wait(3000);
 
 	Scene_2A_Part4();
 }
@@ -190,6 +192,8 @@ function Scene_2A_Fmafiosi(message){
 	A("Non.");
 
 	I("...");
+	PlaySound("sfx", "sigh");
+	Wait(3000);
 
 	Scene_2A_Part4();
 }
@@ -242,6 +246,8 @@ function Scene_2A_KateIsAFriend(message){
 		A("Je ne crois pas que ce soit illégal, si ?");
 
 		I("...");
+		PlaySound("sfx", "sigh");
+		Wait(3000);
 	}
 	else{
 		I("Est-ce que vous avez une idée de pourquoi elle aurait pu être assassinée ?");
@@ -305,6 +311,8 @@ function Scene_2A_After19h(message){
 		A("Est-ce que vous savez qui a prévenu la police ?");
 
 		I("...");
+		PlaySound("sfx", "sigh");
+		Wait(3000);
 		I("C'est moi qui pose les questi--");
 
 		whoCalledThePolice = true;
@@ -317,6 +325,8 @@ function Scene_2A_Between21hAnd22h(message){
 	A(message);	
 
 	I("...");
+	PlaySound("sfx", "sigh");
+	Wait(3000);
 	I("Il est 20h45.");
 	AnnaYouLiar++;
 
@@ -356,6 +366,8 @@ function Scene_2A_AfterFrank(message){
 		A("Est-ce que vous savez qui a prévenu la police ?");
 
 		I("...");
+		PlaySound("sfx", "sigh");
+		Wait(3000);
 		I("C'est moi qui pose les questi--");
 
 		whoCalledThePolice = true;
@@ -367,12 +379,21 @@ function Scene_2A_AfterFrank(message){
 
 function Scene_2A_Interrupt(){
 	// ADD sounds (knock knock + opening door) 
+	PlaySound("sfx", "knock_door");
+	Wait(3000);
+	PlaySound("sfx", "opening_door");
+	Wait(3000);
 
 	I("Excusez-moi un moment, s'il vous plaît.");
 
 	// modify image without the inspector
-	// whispers
+	PlaySound("sfx", "whispering");
+	Wait(3000);
+	PlaySound("sfx", "closing_door");
+	Wait(3000);
 	// modify image to original
+
+	PlaySound("sfx", "heartbeat");
 
 	I("Nous allons devoir suspendre cet interrogatoire.");
 	I("Je dois aller remplacer mon collègue Mr. Carter.");
