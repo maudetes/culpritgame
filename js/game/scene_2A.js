@@ -6,17 +6,17 @@ var AnnaFrankTogether = false;
 var whoCalledThePolice = false;
 var AnnaYouLiar = 0;
 var AnnaWantsFrankInPrison = false;
+var AnnaYouHacker = false;
 
 function Start_Scene_2A(){
 
 	/////// SET UP SCENE ////////
-	Clear();
-	
+	Clear();	
 	Show("background","interrogation_room_female");
 	/////////////////////////////
 
 	I("Bonjour, je suis l'interrogateur Hawkins.");
-	I("Vous êtes en garde à vue, savez-vous pourquoi vous êtes là ?");
+	I("Vous êtes en garde à vue, comprenez-vous pourquoi ?");
 
 	Choose({
 		"Oui, c'est par rapport au meurtre de Kate." : Scene_2A_KateMurder,
@@ -38,7 +38,7 @@ function Scene_2A_LeaveAlone(message){
 	A(message);
 
 	I("Vous avez été retrouvée sur la scène d'un meurtre.");
-	I("Ceci est suffisant pour vous mettre en garde à vue.")
+	I("C'est largement suffisant pour vous mettre en garde à vue.");
 
 	Scene_2A_Part2();
 }
@@ -59,7 +59,7 @@ function Scene_2A_Part2(){
 
 	Choose({
 		"Oui, je sais ..." : Scene_2A_Aware,
-		"J'ai le droit d'avoir un avocat ?" : Scene_2A_Avocado,
+		"J'ai le droit à un avocat ?" : Scene_2A_Avocado,
 		"Je suis pas sûre qu'il y ait une justice dans ce pays." : Scene_2A_Revolution
 	})
 }
@@ -67,7 +67,7 @@ function Scene_2A_Part2(){
 function Scene_2A_Aware(message){
 	A(message);
 
-	I("Très bien alors, vous savez à quoi vous attendre.");
+	I("Très bien, vous savez à quoi vous attendre.");
 
 	Scene_2A_Part3();
 }
@@ -79,7 +79,7 @@ function Scene_2A_Avocado(message){
 
 	A("...");
 
-	I("Vous savez bien que depuis la réforme jusdiciaire de 1987,\
+	I("Vous savez bien que depuis la réforme judiciaire de 1987,\
 	 les avocats n'existent plus.");
 	I("De ce fait, la justice est beaucoup plus expéditive.");
 
@@ -101,14 +101,14 @@ function Scene_2A_Part3(){
 
 	Choose({
 		"J'ai reçu un SMS de Kate." : Scene_2A_Sms,
-		"Kate m'a appelé paniquée." : Scene_2A_PanicKate,
-		"Je suis venu mettre les choses au clair avec Kate." : Scene_2A_ClarifyingKate
+		"Kate m'a appelée paniquée." : Scene_2A_PanicKate,
+		"Je suis venue mettre les choses au clair avec Kate." : Scene_2A_ClarifyingKate
 	});
 }
 
 function Scene_2A_Sms(message){
 	A(message);
-	A("Elle voulais que j'aille chez elle.");
+	A("Elle voulait que j'aille chez elle.");
 
 	Scene_2A_ImportantChoice();
 }
@@ -121,12 +121,12 @@ function Scene_2A_PanicKate(message){
 
 	AnnaWantsFrankInPrison = true;
 
-	I("C'est bizarre, il y a aucune trace cette appel téléphonique dans \
+	I("C'est bizarre, il y a aucune trace cet appel téléphonique dans \
 		le téléphone de Mme Stillwell.");
 	I("Par contre, on a trouvé un SMS accusateur vous étant adressée.");
 
 	A("...");
-	A("Si vous savez déjà, pourquoi me posez-vous la question ?");
+	A("Si vous étiez déjà au courant, pourquoi me posez-vous la question ?");
 
 	I("Tout simplement pour tester votre sincérité.");
 	I("Je vous conseille de mieux coopérer pour la suite.");
@@ -149,8 +149,8 @@ function Scene_2A_ClarifyingKate(message){
 function Scene_2A_ImportantChoice(){
 	Choose({
 		"Elle s'imaginait des choses entre Frank et moi." : Scene_2A_AFnotTogether,
-		"Elle pensait que je participais aux magouilles de Frank" : Scene_2A_Fmafiosi,
-		"Elle était au courrant que j'entretenais une relation avec Frank" : Scene_2A_AFTogether
+		"Elle pensait que je participais aux magouilles de Frank." : Scene_2A_Fmafiosi,
+		"Elle était au courrant que j'entretenais une relation avec Frank." : Scene_2A_AFTogether
 	});
 }
 
@@ -160,7 +160,7 @@ function Scene_2A_AFnotTogether(message){
 
 	I("Mais alors, qui est Frank pour vous ?");
 
-	A("Juste une connaissance");
+	A("Juste une connaissance.");
 
 	I("Pourquoi elle vous suspectait alors ?");
 
@@ -178,14 +178,16 @@ function Scene_2A_Fmafiosi(message){
 
 	I("C'est à dire ?");
 
-	A("Je ne pense être celle qui va vous apprendre qu'il a la tête d'un gang.");
+	A("Je ne pense pas être celle qui va vous apprendre qu'il est à la tête d'un gang.");
 
 	I("Effectivement, on le connait déjà.");
-	I("Mais alors, pourquoi elle vous suspectez ?");
+	I("Mais quel est le rapport avec vous ?");
+	I("De quoi Mme Stillwell vous suspectait-elle ?");
 
-	A("Disons que je suis très habile avec l'informatique.");
-	A("Du coup, elle a dût penser qu'ils ont eu recours à mes services.");
-	//TODO : variable info
+	A("Disons que je suis particulièrement habile avec l'informatique.");
+	A("Elle a dût penser qu'ils ont eu recours à mes services...");
+
+	AnnaYouHacker = true;
 
 	I("Est-ce le cas ?");
 
@@ -203,22 +205,23 @@ function Scene_2A_AFTogether(message){
 
 	AnnaFrankTogether = true;
 
-	I("Et vous pensez qu'elle aurait pu s'énerver ?");
+	I("Vous pensez qu'elle aurait pu s'énerver ?");
 
-	A("La relation entre Frank et Kate était sur le point de craquer.");
-	A("Ainsi, je ne pensais pas qu'elle s'enflamerai autant");
+	A("La relation entre Frank et Kate était déjà sur le point de craquer.");
+	A("Ils en étaient tous les deux conscients.");
+	A("La réaction de Kate me surprend, je ne pensais pas qu'elle s'enflamerait autant.");
 
 	Scene_2A_Part4();
 }
 
 function Scene_2A_Part4(){
-	I("Passon à la suite.");
+	I("Passons à la suite.");
 	I("Quel était votre lien avec Kate Stillwell ?");
 
 	Choose({
 		"Je ne la connaissais pas personnellement." : Scene_2A_KateIsAStranger,
 		"C'était une amie depuis de nombreuses années." : Scene_2A_KateIsAFriend,
-		"Pour moi c'était juste la femme de Frank" : Scene_2A_KateIsFranksWife
+		"Pour moi c'était juste la femme de Frank." : Scene_2A_KateIsFranksWife
 	});
 }
 
@@ -229,8 +232,8 @@ function Scene_2A_KateIsAStranger(message){
 	I("Suffisamment pour qu'elle ait votre numéro, non ?");
 
 	A("Je ne sais pas comment elle a pu l'avoir !");
-	A("C'est vraiment surprenant");
-	A("J'ai pour habitude de ne pas donner mon numéro à n'importe qui...");
+	A("C'est vraiment surprenant.");
+	A("J'ai pas pour habitude de donner mon numéro à n'importe qui...");
 
 	unknownNumber = true;
 
@@ -241,7 +244,8 @@ function Scene_2A_KateIsAFriend(message){
 	A(message);
 
 	if (AnnaFrankTogether){
-		I("Votre amie, mais vous entreteniez une relation avec son mari ?");
+		I("Votre amie vous dîtes ?");
+		I("Pourtant vous entreteniez une relation avec son mari.");
 
 		A("Je ne crois pas que ce soit illégal, si ?");
 
@@ -252,8 +256,9 @@ function Scene_2A_KateIsAFriend(message){
 	else{
 		I("Est-ce que vous avez une idée de pourquoi elle aurait pu être assassinée ?");
 
-		A("Non, pas du tout !");
-		A("Elle n'a jamais mentionnée avoir d'ennemis, et elle était une personne très appréciée.")
+		A("Non, aucune idée.");
+		A("Elle n'a jamais mentionnée avoir d'ennemi.");
+		A("Et c'était quelqu'un de très apprécié");
 	}
 
 	Scene_2A_Part5();
@@ -270,8 +275,7 @@ function Scene_2A_KateIsFranksWife(message){
 
 	A("Je ne sais pas comment elle a pu l'avoir !");
 	A("C'est vraiment surprenant");
-	A("J'ai pour habitude de ne pas donner mon numéro à n'importe qui...");
-
+	A("J'ai pas pour habitude de donner mon numéro à n'importe qui...");
 	unknownNumber = true;
 
 	Scene_2A_Part5();
@@ -296,7 +300,7 @@ function Scene_2A_After19h(message){
 
 	A("Oui, j'ai juste eu le temps d'entendre des coups de feu et de découvrir le cadavre...");
 
-	I("Et la police est arrivée juste après ?");
+	I("Vous êtes sûre que la police est arrivée juste après ?");
 
 	A("Oui.");
 	A("Maintenant que vous le dîtes, ça semble étrange.");
@@ -366,8 +370,6 @@ function Scene_2A_AfterFrank(message){
 		A("Est-ce que vous savez qui a prévenu la police ?");
 
 		I("...");
-		PlaySound("sfx", "sigh");
-		Wait(3000);
 		I("C'est moi qui pose les questi--");
 
 		whoCalledThePolice = true;
@@ -378,15 +380,14 @@ function Scene_2A_AfterFrank(message){
 }
 
 function Scene_2A_Interrupt(){
-	// ADD sounds (knock knock + opening door) 
 	PlaySound("sfx", "knock_door");
-	Wait(3000);
-	PlaySound("sfx", "opening_door");
 	Wait(3000);
 
 	I("Excusez-moi un moment, s'il vous plaît.");
 
 	// modify image without the inspector
+	PlaySound("sfx", "opening_door");
+	Wait(3000);
 	PlaySound("sfx", "whispering");
 	Wait(3000);
 	PlaySound("sfx", "closing_door");
@@ -396,12 +397,11 @@ function Scene_2A_Interrupt(){
 	PlaySound("sfx", "heartbeat");
 
 	I("Nous allons devoir suspendre cet interrogatoire.");
-	I("Je dois aller remplacer mon collègue Mr. Carter.");
-	I("Il semble que l'autre interrogatoire ait été trop tendue.");
-	I("Ce dernier viendra reprendre l'interrogatoire d'ici peu.");
+	I("Je dois aller remplacer mon collègue, Jerry Carter.");
+	I("Il semble que l'autre interrogatoire ai été très tendu.");
+	I("Mon collègue viendra vous interroger d'ici peu.");
 
-	//TODO : final texts
-
+	Wait(4000);
 	End_Scene_2A();
 }
 
