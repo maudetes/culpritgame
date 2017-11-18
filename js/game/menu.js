@@ -58,12 +58,12 @@ function Launch_Game(){
 
 	Wait(500);
 	Clear();
-	//Start_Scene_1();
+	Start_Scene_1();
 
-	if(player == 1)
-		Start_Scene_2F();
-	else
-		Start_Scene_2A();
+	//if(player == 1)
+	//	Start_Scene_2F();
+	//else
+	//	Start_Scene_2A();
 }
 
 function Credits(message){
