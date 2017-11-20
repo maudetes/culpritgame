@@ -91,7 +91,21 @@ function ChooseIf(character, choices){
 		Choose(choices);
 	}
 	else {
-		//add wait ? or wait server message ? or nothing ?
+		waitingForOther = true;
+
+		var interval = setInterval(function(){
+			if(waitingForOther){
+				if(_queue.length==0){
+					document.getElementById("waiting_for_other").style.visibility = "visible";
+					document.getElementById("waiting_for_other").innerHTML = "En attente de ton/ta partenaire !";
+				}
+			}
+			else {
+				document.getElementById("waiting_for_other").style.visibility = "hidden";
+				clearInterval(interval);
+			}
+
+		},2000);
 	}
 }
 

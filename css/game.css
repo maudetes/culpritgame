@@ -29,6 +29,15 @@ body{
 	text-align: center;
 }
 
+#waiting_for_other{
+	position: absolute;
+	bottom: 45px;
+	width: 100%;
+	text-align: center;
+	color: white;
+	margin-bottom: 10px;
+}
+
 #name_input{
 	background: #222;
 	color: #bbb;

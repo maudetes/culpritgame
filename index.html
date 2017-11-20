@@ -17,6 +17,7 @@
       var socket = io();
       var player;
       var room;
+      var waitingForOther;
 
       socket.on('chat message', function(msg){
         var existing = document.getElementById('messages').innerHTML;
@@ -35,6 +36,7 @@
         <div id="background" height="352" width="470"></div>
         <div id="dialogue"></div>
         <div id="choices"></div>
+        <div id="waiting_for_other" style="visibility: hidden"></div>
         <div id="room_name" style="visibility: hidden">
           <p id="other_name_alert"></p>
           <input id="name_input" type="text" maxlength="20"></input>

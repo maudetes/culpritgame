@@ -23,6 +23,7 @@ function SendChoiceIf(character, room, choice, message){
 }
 
 socket.on('choice', function(data){
+	waitingForOther = false;
 	console.log('recieved package!!!');
 	if (player != data['sender']){
 		map = {"Gang": Gang, "AccuseAnna" : AccuseAnna, "KateWasInnocent" : KateWasInnocent,
