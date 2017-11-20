@@ -8,7 +8,7 @@ function Start_Scene_1(){
 		Show("background","phone_male");
 	else
 		Show("background","phone_female");
-	Wait(5000);
+	Wait(7000);
 	Clear();
 	Show("background","black");
 	Wait(3000);
