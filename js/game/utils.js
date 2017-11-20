@@ -101,3 +101,11 @@ function send(e){
 	document.getElementById('room_name').style.visibility = "hidden";
 	console.log(player);
 }
+
+function focusOnEnter(e){
+	var keycode = e.keyCode || e.which;  //for compatibility with IE < 9
+	if(keycode == 13){ //13 is the enter char code
+	    send();
+	}
+	return true;
+}

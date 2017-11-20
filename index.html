@@ -37,7 +37,7 @@
         <div id="choices"></div>
         <div id="room_name" style="visibility: hidden">
           <p id="other_name_alert"></p>
-          <input id="name_input" type="text" maxlength="20"></input>
+          <input id="name_input" type="text" maxlength="20" onkeypress="return focusOnEnter(event)"></input>
           <button id="name_button" onclick="send()">Envoyer</button>
         </div>
 
