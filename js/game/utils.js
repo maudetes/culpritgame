@@ -44,8 +44,8 @@ socket.on('getStarted', function(){
 		N("Anna Collins t'a rejoint.");
  	else
  		N("Frank Prescott t'attendait.");
- 	N("Attention, tous vos choix auront une importance !");
- 	N("Soyez vigilants, chaque détail peut compter.")
+ 	N("Soyez vigilants, vos choix auront un impact sur votre sort et sur celui de votre partenaire.");
+ 	N("Chaque détail peut compter.")
 	Launch_Game();
 })
 
@@ -101,4 +101,12 @@ function send(e){
 	});
 	document.getElementById('room_name').style.visibility = "hidden";
 	console.log(player);
+}
+
+function focusOnEnter(e){
+	var keycode = e.keyCode || e.which;  //for compatibility with IE < 9
+	if(keycode == 13){ //13 is the enter char code
+	    send();
+	}
+	return true;
 }
