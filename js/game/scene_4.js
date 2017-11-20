@@ -4,10 +4,7 @@ function Start_Scene_4(){
 	
 	/////// SET UP SCENE ////////
 	Clear();
-	if (player == 1)
-		Show("background","interrogation_room_male");
-	else
-		Show("background","interrogation_room_female");
+	Show("background","black");
 	/////////////////////////////
 }
 

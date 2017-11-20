@@ -5,9 +5,9 @@ function Start_Scene_3(){
 	/////// SET UP SCENE ////////
 	Clear();
 	if (player == 1)
-		Show("background","interrogation_room_male");
+		Show("background","scene_3_male");
 	else
-		Show("background","interrogation_room_female");
+		Show("background","scene_3_female");
 	/////////////////////////////
 
 	I("Le reste du jeu n'a pas encore été implémenté.");	

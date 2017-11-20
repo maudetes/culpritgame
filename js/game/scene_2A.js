@@ -12,7 +12,7 @@ function Start_Scene_2A(){
 
 	/////// SET UP SCENE ////////
 	Clear();	
-	Show("background","interrogation_room_female");
+	Show("background","scene_2_female");
 	/////////////////////////////
 
 	I("Bonjour, je suis l'interrogateur Hawkins.");
@@ -385,11 +385,16 @@ function Scene_2A_Interrupt(){
 
 	I("Excusez-moi un moment, s'il vous plaît.");
 
-	// modify image without the inspector
+	Clear();
+	Show("background","scene_2_female_inspector_gone");
+
 	PlaySound("sfx", "opening_door");
 	Wait(3000);
 	PlaySound("sfx", "whispering");
 	Wait(3000);
+
+	Clear();
+	Show("background","scene_2_female");
 	PlaySound("sfx", "closing_door");
 	Wait(3000);
 	// modify image to original
@@ -401,6 +406,8 @@ function Scene_2A_Interrupt(){
 	I("Il semble que l'autre interrogatoire ai été très tendu.");
 	I("Mon collègue viendra vous interroger d'ici peu.");
 
+	Clear();
+	Show("background","scene_2_female_inspector_gone");
 	PlaySound("sfx", "closing_door");
 	Wait(4000);
 	End_Scene_2A();
