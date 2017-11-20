@@ -2,6 +2,8 @@
 
 // Common vars
 var FrankYouLiar = 0;
+var FrankWantsAnnaInPrison = false;
+var FrankHoldUp = false;
 
 function Start_Scene_2F(){
 
@@ -110,14 +112,95 @@ function Scene_2F_ImportantChoice(){
 function Scene_2F_Unfaithful(message){
 	F(message);
 
+	I("Avec ta complice ?");
+
+	Choose({
+		"Je vois pas de qui tu parles ..." : Scene_2F_DontSee,
+		"Complice ? J'y suis pour rien moi." : Scene_2F_FrankInnocent,
+		"Comment un minable comme toi aurait trouvé un lien avec le braquage ?" : Scene_2F_HoldUp
+	});
 }
 
 function Scene_2F_AngryAnna(message){
 	F(message);
+
+	I("C'est pour ça que t'as tué Kate ?");
+
+	F("Nan, c'est pour ça qu'Anna l'a tué.");
+	FrankWantsAnnaInPrison = true;
 
 }
 
 function Scene_2F_AFTogether(message){
 	F(message);
 
+	I("Un crime passionnel, donc.");
+	I("Intéressant ...");
+
+	Choose({
+		"Hey, un désaccord n'implique pas un crime." : Scene_2F_NoCrime,
+		"C'est vrai qu'entre Anna et Kate, je ne sais pas laquelle était la plus jalouse." : Scene_2F_Jealous,
+		"Tu vas trop vite dans tes réflexions mon p'tit gars." : Scene_2F_TooFast
+	});
+}
+
+function Scene_2F_DontSee(){
+	F(message);
+
+	I("Mais oui, bien sûr, joue celui qui ne sait rien.");
+	I("..."); // TODO : I soufle / expire fortement
+	I("Tu sais bien que je parles d'Anna Collins");
+	I("D'ailleurs, elle est actuellement en train d'être interrogée par mon collègue.");
+	I("Donc, si j'étais toi, je ne ferai pas trop le malin.");
+	I("Si vos 2 versions ne concordent pas, tu vas y passer.");
+
+
+}
+
+function Scene_2F_FrankInnocent(){
+	F(message);
+	
+	I("Qui est le coupable alors ?");
+
+	F("Ton coupab-- ...");
+	F("Non.");
+	F("TA coupable est dans la salle d'à coté.");
+	FrankWantsAnnaInPrison = true;
+
+}
+
+function Scene_2F_HoldUp(){
+	F(message);
+	
+	I("Il semblerait que ça ne soit pas moi le minable ici.");
+	I("Au début, j'étais pas venu pour parler de cela.");
+	I("Mais bon, j'en prends note, ça peut toujours être utile");
+	FrankHoldUp = true;
+
+	F("...");
+}
+
+function Scene_2F_NoCrime(){
+	F(message);
+	
+	I("Je ne fais qu'énoncer les possibili--");
+
+	F("T'essayes surtout de m'accuser à tort et sans preuves.");
+	F("Tu perds ton temps avec moi.");
+}
+
+function Scene_2F_Jealous(){
+	F(message);
+
+	I("Donc, pour toi, elle se seraient disputées ?");
+
+	F("C'est fort probable");
+	FrankWantsAnnaInPrison = true;
+}
+
+function Scene_2F_TooFast(){
+	F("Hey, mollo tu veux bien ?");
+	F(message);
+	
+	I("Comment ose-tu me traiter de la sorte ?");
 }
