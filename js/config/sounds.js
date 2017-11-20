@@ -17,4 +17,5 @@ Sound("fist_on_table","sounds/sfx/fist_on_table.ogg");
 Sound("heartbeat","sounds/sfx/heartbeat.ogg");
 Sound("sigh","sounds/sfx/sigh.ogg");
 Sound("laugh_bad_cop","sounds/sfx/laugh_bad_cop.ogg");
+Sound("slamming_door","sounds/sfx/slamming_door.ogg");
 
