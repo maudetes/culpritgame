@@ -11,7 +11,7 @@ function Start_Scene_2F(){
 	/////// SET UP SCENE ////////
 	Clear();
 	
-	Show("background","interrogation_room_male");
+	Show("background","scene_2_male");
 	/////////////////////////////
 
 	I("Bonjour Frank.");
@@ -71,7 +71,7 @@ function Scene_2F_Sms (message){
 
 	F("Elle voulait que je rentre rapidement à la maison.");
 
-	I("Pour quel raison ?");
+	I("Pour quelle raison ?");
 
 	Scene_2F_ImportantChoice();
 }
@@ -104,9 +104,9 @@ function Scene_2F_ClarifyingKate (message){
 
 function Scene_2F_ImportantChoice(){
 	Choose({
-		"Elle pensait que j'étais infidèle" : Scene_2F_Unfaithful,
-		"Elle avait l'air énervée contre Anna" : Scene_2F_AngryAnna,
-		"Elle était au courant que j'entretenais une relation avec Anna" : Scene_2F_AFTogether
+		"Elle pensait que j'étais infidèle." : Scene_2F_Unfaithful,
+		"Elle avait l'air énervée contre Anna." : Scene_2F_AngryAnna,
+		"Elle était au courant que j'entretenais une relation avec Anna." : Scene_2F_AFTogether
 	});
 }
 
@@ -137,7 +137,7 @@ function Scene_2F_AFTogether(message){
 	F(message);
 
 	I("Un crime passionnel, donc.");
-	I("Intéressant ...");
+	I("Intéressant...");
 
 	Choose({
 		"Hey, un désaccord n'implique pas un crime." : Scene_2F_NoCrime,
@@ -150,8 +150,10 @@ function Scene_2F_DontSee(message){
 	F(message);
 
 	I("Mais oui, bien sûr, joue celui qui ne sait rien.");
-	I("..."); // TODO : I soufle / expire fortement
-	I("Tu sais bien que je parles d'Anna Collins");
+	I("...");
+	PlaySound("sfx", "sigh");
+	Wait(3000);
+	I("Tu sais bien que je parles d'Anna Collins.");
 	I("D'ailleurs, elle est actuellement en train d'être interrogée par mon collègue.");
 	I("Donc, si j'étais toi, je ne ferai pas trop le malin.");
 	I("Si vos 2 versions ne concordent pas, tu vas y passer.");
@@ -177,7 +179,7 @@ function Scene_2F_HoldUp(message){
 	
 	I("Il semblerait que ça ne soit pas moi le minable ici.");
 	I("Au début, j'étais pas venu pour parler de cela.");
-	I("Mais bon, j'en prends note, ça peut toujours être utile");
+	I("Mais bon, j'en prends note, ça peut toujours être utile...");
 	FrankHoldUp = true;
 
 	F("...");
@@ -201,7 +203,7 @@ function Scene_2F_Jealous(message){
 
 	I("Donc, pour toi, elle se seraient disputées ?");
 
-	F("C'est fort probable");
+	F("C'est fort probable.");
 	FrankWantsAnnaInPrison = true;
 
 	Scene_2F_FrankRatsOut();
@@ -223,7 +225,8 @@ function Scene_2F_BadCopIsLosingHisShit(){
 
 	I("Gamin ?!");
 	I("Redis ça une seule fois, et... !");
-	// TODO : Bruit de poing sur la table
+	PlaySound("sfx", "fist_on_table");
+	Wait(3000);
 
 	F("... Et quoi ?");
 
@@ -287,7 +290,7 @@ function Scene_2F_NoProof(message){
 	F(message);
 	F("On sait tous les deux que t'en n'as pas assez pour ça.");
 
-	I("Parce que te retrouver sur les lieux du meurtre de ta femme, ce n'est pas une preuve ?");
+	I("Parce que te retrouver sur le lieu du meurtre de ta femme, ce n'est pas une preuve ?");
 	I("D'autant plus vu le contexte tendu avec elle.");
 
 	F("Non, ce n'en est pas une, et tu le sais bien.");
@@ -305,7 +308,7 @@ function Scene_2F_NoJustice(message){
 
 	I("C'est ça, continue comme ça...");
 	I("Tu vas voir s'il y a une justice.");
-	I("Au moins elle est efficace");
+	I("Au moins elle est efficace.");
 
 	F("Pas autant que tu voudrais, hein ?");
 
@@ -348,7 +351,7 @@ function Scene_2F_FrankAngryAboutTheMurderer(message){
 
 function Scene_2F_FrankRatsOut2(message){
 	F(message);
-	F("Je l'ai vu sur la scène du crime");
+	F("Je l'ai vue sur la scène du crime.");
 
 	I("...");
 	I("Au moment du meurtre ?");
@@ -372,7 +375,7 @@ function Scene_2F_FrankCooperatesOnlyWhenHeCan(message){
 
 	I("Ca ne m'aide pas beaucoup.");
 	I("Et c'est pas comme ça que tu vas t'en sortir.");
-	I("Fais un effort");
+	I("Fais un effort...");
 
 	F("Je ne vais pas inventer, si ?");
 	F("C'est ça que tu veux ?");
@@ -393,7 +396,8 @@ function Scene_2F_FrankTeachesBadCopHisJob(){
 	I("Comment oses-tu ?!");
 
 	if(BadCopIsAngry > 2){
-		// TODO : poing sur la table
+		PlaySound("sfx", "fist_on_table");
+		Wait(3000);
 		I("T'es un homme mort !");
 		I("Tu entends ?");
 		I("Un homme mort !");
@@ -407,8 +411,14 @@ function Scene_2F_FrankTeachesBadCopHisJob(){
 }
 
 function Scene_2F_Interrupt(){
-	// TODO : sounds (knock knock + opening door) 
-	//TODO : empty room
+	PlaySound("sfx", "opening_door");
+	Wait(3000);
+	Clear();
+	Show("background","scene_2_male_inspector_gone");
+	PlaySound("sfx", "slamming_door");
+	Wait(3000);
+	PlaySound("sfx", "heartbeat");
+	Wait(8000);
 
 	End_Scene_2F();
 }
