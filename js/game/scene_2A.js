@@ -1,4 +1,4 @@
-// SCENE_2 : BEGINNING OF THE QUESTIONNING
+// SCENE_2 : BEGINNING OF THE QUESTIONNING FOR ANNA
 
 // Common vars
 var unknownNumber = false;

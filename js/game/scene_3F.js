@@ -1,20 +1,17 @@
-// SCENE_3 : CONTINUATION OF THE QUESTIONNING
+// SCENE_3 : CONTINUATION OF THE QUESTIONNING FOR FRANK
 
-function Start_Scene_3(){
+function Start_Scene_3F(){
 	
 	/////// SET UP SCENE ////////
 	Clear();
-	if (player == 1)
-		Show("background","scene_3_male");
-	else
-		Show("background","scene_3_female");
+	Show("background","scene_3_male");
 	/////////////////////////////
 
 	I("Le reste du jeu n'a pas encore été implémenté.");	
 	I("Vous pouvez réactualiser cette page et recommencer l'aventure !");	
 }
 
-function End_Scene_3(){
+function End_Scene_3F(){
 	Clear();
 	Start_Scene_4();
 }
