@@ -74,6 +74,11 @@ socket.on('info', function(info){
 		A = new Character({ align:"right", background:"#B0B4BF", sound:"text_low" });
 	}
 
+	if (player == 1)
+		document.getElementById("waiting_for_other").innerHTML = "Anna réfléchit...";
+	else
+		document.getElementById("waiting_for_other").innerHTML = "Frank réfléchit...";
+
 	room = info['room'];
 	if (player ==1){
 		N("Tu es Frank Prescott.");

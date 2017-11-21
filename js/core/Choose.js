@@ -95,12 +95,10 @@ function ChooseIf(character, choices){
 
 		var interval = setInterval(function(){
 			if(waitingForOther){
-				if(_queue.length==0){
+				if(_queue.length==0)
 					document.getElementById("waiting_for_other").style.visibility = "visible";
-					document.getElementById("waiting_for_other").innerHTML = "En attente de ton/ta partenaire !";
-				} else {
+				else
 					document.getElementById("waiting_for_other").style.visibility = "hidden";
-				}
 			}
 			else {
 				document.getElementById("waiting_for_other").style.visibility = "hidden";
