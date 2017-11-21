@@ -98,11 +98,15 @@ function ChooseIf(character, choices){
 				if(_queue.length==0){
 					document.getElementById("waiting_for_other").style.visibility = "visible";
 					document.getElementById("waiting_for_other").innerHTML = "En attente de ton/ta partenaire !";
+				} else {
+					document.getElementById("waiting_for_other").style.visibility = "hidden";
 				}
 			}
 			else {
 				document.getElementById("waiting_for_other").style.visibility = "hidden";
 				clearInterval(interval);
+
+				// TODO : Check that all intervals have been close at the end of scene_1
 			}
 
 		},2000);
