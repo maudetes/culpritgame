@@ -149,7 +149,7 @@ function Scene_2A_ClarifyingKate(message){
 function Scene_2A_ImportantChoice(){
 	Choose({
 		"Elle s'imaginait des choses entre Frank et moi." : Scene_2A_AFnotTogether,
-		"Elle pensait que je participais aux magouilles de Frank." : Scene_2A_Fmafiosi,
+		"Elle pensait que je participais aux magouilles de son mari." : Scene_2A_Fmafiosi,
 		"Elle était au courrant que j'entretenais une relation avec Frank." : Scene_2A_AFTogether
 	});
 }
