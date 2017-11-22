@@ -7,6 +7,7 @@ var whoCalledThePolice = false;
 var AnnaYouLiar = 0;
 var AnnaWantsFrankInPrison = false;
 var AnnaYouHacker = false;
+var AnnaArrivedAfterFrank = false;
 
 function Start_Scene_2A(){
 
@@ -344,6 +345,8 @@ function Scene_2A_Between21hAnd22h(message){
 }
 
 function Scene_2A_AfterFrank(message){
+	AnnaArrivedAfterFrank = true;
+	
 	A(message);	
 
 	if(AnnaWantsFrankInPrison){
