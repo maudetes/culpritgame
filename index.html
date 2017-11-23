@@ -18,6 +18,8 @@
       var player;
       var room;
       var waitingForOther;
+      var recap;
+      var ready = false;
 
       socket.on('chat message', function(msg){
         var existing = document.getElementById('messages').innerHTML;
@@ -66,7 +68,8 @@
 <script src="js/game/scene_1.js"></script>
 <script src="js/game/scene_2A.js"></script>
 <script src="js/game/scene_2F.js"></script>
-<script src="js/game/scene_3.js"></script>
+<script src="js/game/scene_3A.js"></script>
+<script src="js/game/scene_3F.js"></script>
 <script src="js/game/scene_4.js"></script>
 <script src="js/game/utils.js"></script>
 

@@ -53,7 +53,9 @@ function Scene_2F_NotLongTime(message){
 function Scene_2F_Part2(){
 
 	I("Enfin, bref.");
-	I("Tu connais bien le procédure, mais la loi m'oblige à te la rappeler.");
+	I("Tu connais bien la procédure, mais la loi m'oblige à te la rappeler.");
+	I("Tu es l'un des principaux suspects dans le meurtre de ta femme, Kate Stillwell.");
+	I("Tout ce que tu diras pourra être retenu contre toi.");
 	I("A la fin de cet interrogatoire, justice sera faite.");
 
 	I("Pourquoi étais-tu sur le lieu du crime ?");
@@ -61,7 +63,7 @@ function Scene_2F_Part2(){
 	Choose({
 		"J'ai reçu un SMS de ma femme." : Scene_2F_Sms,
 		"Je rentrais juste de mon travail." : Scene_2F_ComeBackHome,
-		"Je suis venu mettre les choses au clair avec Kate." : Scene_2F_ClarifyingKate
+		"J'étais venu mettre les choses au clair avec ma femme." : Scene_2F_ClarifyingKate
 	});
 
 }
@@ -424,6 +426,17 @@ function Scene_2F_Interrupt(){
 }
 
 function End_Scene_2F(){
+
+	sendRecap({'angry':3});
+
 	Clear();
-	Start_Scene_3F();
+
+	//ne commencer la scene 3 que si ready (par rapport à l'autre joueur)
+	if(ready){
+		Start_Scene_3F();
+	} else {
+		ready = true;
+		N("Les inspecteurs se transmettent les informations.");
+		N("L'interrogatoire devrait reprendre d'ici peu.");
+	}
 }
