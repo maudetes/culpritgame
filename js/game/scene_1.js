@@ -8,7 +8,7 @@ function Start_Scene_1(){
 		Show("background","phone_male");
 	else
 		Show("background","phone_female");
-	Wait(7000);
+	Wait(13000);
 	Clear();
 	Show("background","black");
 	Wait(3000);
@@ -190,6 +190,9 @@ function EndingAgreementNext(message){
 	SendChoiceIf("Frank", room, "EndingAgreementNext", message);
 	F(message);
 	F("Par contre, on précise qu'on est arrivés chacun de notre côté...");
+
+	Wait(6000);
+
 	End_Scene_1();
 }
 
@@ -199,6 +202,8 @@ function End_Scene_1(){
 	N("Elle vous trouve tous les deux aux côtés de la victime.");
 	N("Vous êtes arrêtés en tant que suspects et chacun emmenés dans une salle d'interrogatoire différente.");
 	N("Tout ce que vous direz pourra être retenu contre vous.");
+
+	Wait(6000);
 	
 	if(player == 1)
 		Start_Scene_2F();
