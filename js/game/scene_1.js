@@ -20,7 +20,7 @@ function Start_Scene_1(){
 	else{
 		N("Tu es Anna Collins.");
 		N("Une hackeuse professionnelle qui n'hésite pas à s'allier aux criminels.");
-		N("Depuis quelque temps, tu collabore avec Frank Prescott, le chef de gang le plus influent de la ville.");
+		N("Depuis quelque temps, tu collabores avec Frank Prescott, le chef de gang le plus influent de la ville.");
 		N("Ensemble, vous préparez le braquage du siècle.");
 
 		Wait(3000);
