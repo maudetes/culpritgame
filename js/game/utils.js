@@ -22,6 +22,15 @@ function SendChoiceIf(character, room, choice, message){
 	}
 }
 
+function sendRecap(object){
+	socket = io ();
+	socket.emit('recapToServer', {
+		'room': room,
+		'sender' : player,
+		'recap' : object
+	});
+}
+
 socket.on('choice', function(data){
 	waitingForOther = false;
 	console.log('recieved package!!!');
@@ -37,6 +46,28 @@ socket.on('choice', function(data){
 		};
 		map[data["choice"]](data["message"]);
 	}
+})
+
+socket.on('recap', function(data){
+	console.log('recieved recap!!!');
+	if (player != data['sender']){
+		console.log(data["recap"]);
+		otherRecap = data["recap"];
+	}
+
+	// launch scene3 if ready
+	if (ready){
+		if(player == 1)
+			Start_Scene_3F();
+		else
+			Start_Scene_3A();
+	} else {
+		ready = true;
+		N("Les inspecteurs se transmettent les informations.");
+		N("L'interrogatoire devrait reprendre d'ici peu.");
+	}
+
+
 })
 
 socket.on('getStarted', function(){

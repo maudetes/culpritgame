@@ -18,6 +18,8 @@
       var player;
       var room;
       var waitingForOther;
+      var recap;
+      var ready = false;
 
       socket.on('chat message', function(msg){
         var existing = document.getElementById('messages').innerHTML;

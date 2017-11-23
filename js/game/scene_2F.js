@@ -426,6 +426,17 @@ function Scene_2F_Interrupt(){
 }
 
 function End_Scene_2F(){
+
+	sendRecap({'angry':3});
+
 	Clear();
-	Start_Scene_3F();
+
+	//ne commencer la scene 3 que si ready (par rapport à l'autre joueur)
+	if(ready){
+		Start_Scene_3F();
+	} else {
+		ready = true;
+		N("Les inspecteurs se transmettent les informations.");
+		N("L'interrogatoire devrait reprendre d'ici peu.");
+	}
 }

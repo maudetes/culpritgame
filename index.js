@@ -110,6 +110,15 @@ io.on('connection', function(socket){
   	});
   });
 
+  // manage choicesRecapTransfer
+  socket.on('recapToServer', function(data){
+    console.log('recieved recap from '+ data['sender']+ '!')
+    socket.to(data['room']).emit('recap', {
+      'sender' : data['sender'],
+      'recap' : data['recap'],
+    });
+  });
+
   console.log('a user connected: '+numUsers+' user(s)');
   socket.on('chat message', function(msg){
     console.log('message: ' + msg);
