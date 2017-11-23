@@ -63,7 +63,7 @@ function Scene_2F_Part2(){
 	Choose({
 		"J'ai reçu un SMS de ma femme." : Scene_2F_Sms,
 		"Je rentrais juste de mon travail." : Scene_2F_ComeBackHome,
-		"Je suis venu mettre les choses au clair avec Kate." : Scene_2F_ClarifyingKate
+		"J'étais venu mettre les choses au clair avec ma femme." : Scene_2F_ClarifyingKate
 	});
 
 }
