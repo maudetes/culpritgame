@@ -53,7 +53,7 @@ function Scene_2F_NotLongTime(message){
 function Scene_2F_Part2(){
 
 	I("Enfin, bref.");
-	I("Tu connais bien le procédure, mais la loi m'oblige à te la rappeler.");
+	I("Tu connais bien la procédure, mais la loi m'oblige à te la rappeler.");
 	I("Tu es l'un des principaux suspects dans le meurtre de ta femme, Kate Stillwell.");
 	I("Tout ce que tu diras pourra être retenu contre toi.");
 	I("A la fin de cet interrogatoire, justice sera faite.");
