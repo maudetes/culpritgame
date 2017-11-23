@@ -17,7 +17,7 @@ function Start_Scene_3F(){
 
 	I("Bonjour, je suis l'interrogateur Hawkins.");	
 	I("Excusez mon collègue pour son attitude.");
-	I("Vous commencez à la connaître, il a tendance à s'emporter rapidement...");
+	I("Vous commencez à le connaître, il a tendance à s'emporter rapidement...");
 	I("C'est moi qui vais mener la fin de cet interrogatoire.");
 
 	F("Pas de souci, j'ai l'habitude...");
@@ -41,7 +41,7 @@ function Scene_3F_Part2(message){
 	F(message);
 
 	//TODO: envoyer les variables d'un joueur à l'autre
-	if(){
+	if(true){
 		AnnaFrankAgreedAboutRelationship1 = false;
 
 		I("Etrange...");
@@ -97,7 +97,7 @@ function Scene_3F_Part4(message){
 	}
 
 	//TODO: envoyer les variables d'un joueur à l'autre
-	if(){
+	if(true){
 		AnnaFrankAgreedAboutRelationship2 = false;
 		if(AnnaFrankAgreedAboutRelationship1){
 			I("Etrange...");
