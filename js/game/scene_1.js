@@ -4,12 +4,38 @@ function Start_Scene_1(){
 	
 	/////// INTRO ////////
 	Clear();
-	if (player == 1)
+	if (player == 1){
+		N("Tu es Frank Prescott.");
+		N("Un chef de gang bien connu des services de police.");
+		N("Afin de préparer le braquage du siècle, tu t'es récemment allié à Anna Collins.");
+		N("Tu as déjà eu recours à ses talents de hackeuse dans de précédentes affaires.");
+
+		Wait(3000);
+
+		N("Tu t'apprêtais à rentrer chez toi lorsque tu reçois une série de SMS.");
+		N("Ils t'ont été envoyés par ta femme, Kate Stillwell.");
+		Wait(1000);
 		Show("background","phone_male");
-	else
+	}
+	else{
+		N("Tu es Anna Collins.");
+		N("Une hackeuse professionnelle qui n'hésite pas à s'allier aux criminels.");
+		N("Depuis quelque temps, tu collabore avec Frank Prescott, le chef de gang le plus influent de la ville.");
+		N("Ensemble, vous préparez le braquage du siècle.");
+
+		Wait(3000);
+
+		N("Tu t'apprêtais à rentrer chez toi lorsque tu reçois une série de SMS.");
+		N("Ils t'ont été envoyés par Kate Stillwell, la femme de Frank.");
+		Wait(2000)
 		Show("background","phone_female");
-	Wait(13000);
+	}
+
+	Wait(20000);
+	N("Après les avoir lus, tu te précipites chez Kate.");
+	Wait(5000);
 	Clear();
+
 	Show("background","black");
 	Wait(3000);
 	PlaySound("sfx","gun_shot");
