@@ -427,7 +427,16 @@ function Scene_2F_Interrupt(){
 
 function End_Scene_2F(){
 
-	sendRecap({'angry':3});
+	var recap = { 
+		'BadCopIsAngry' : BadCopIsAngry,
+		'FrankYouLiar' : FrankYouLiar,
+		'FrankWantsAnnaInPrison' : FrankWantsAnnaInPrison,
+		'FrankHoldUp' : FrankHoldUp
+	};
+
+	sendRecap(recap);
+
+	console.log(recap);
 
 	Clear();
 

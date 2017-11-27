@@ -418,7 +418,19 @@ function Scene_2A_Interrupt(){
 
 function End_Scene_2A(){
 
-	sendRecap({'angry':2});
+	var recap = {
+		'AnnaYouLiar' : AnnaYouLiar,
+		'unknownNumber' : unknownNumber,
+		'AnnaFrankTogether' : AnnaFrankTogether,
+		'whoCalledThePolice' : whoCalledThePolice,
+		'AnnaWantsFrankInPrison' : AnnaWantsFrankInPrison,
+		'AnnaYouHacker' : AnnaYouHacker,
+		'AnnaArrivedAfterFrank' : AnnaArrivedAfterFrank
+	};
+
+	sendRecap(recap);
+
+	console.log(recap);
 
 	Clear();
 	//ne commencer la scene 3 que si ready (par rapport à l'autre joueur)
