@@ -1,6 +1,7 @@
 // SCENE_3 : CONTINUATION OF THE QUESTIONNING FOR ANNA
 
 var Immunity = false;
+var AnnaNoticedBadCopBluffed = false;
 
 function Start_Scene_3A(){
 	
@@ -31,7 +32,7 @@ function Start_Scene_3A(){
 
 }
 
-function scene_3A_WontInvent(message){
+function Scene_3A_WontInvent(message){
 	A(message);
 	A("Mais j'imagine que c'est ce que vous voulez, non ?");
 
@@ -50,7 +51,7 @@ function Scene_3A_WillInvent(message){
 	I("Ah !");
 	I("Enfin quelqu'un de raisonnable !");
 
-	AnnaIsGoingToTalk("...");
+	Scene_3A_AnnaIsGoingToTalk("...");
 }
 
 function Scene_3A_AlfredIsNicer(message){
@@ -78,8 +79,11 @@ function Scene_3A_AnnaTrustsFrank(message){
 	//Bonus : different answer depending on Anna ratting on Frank on the previous scene or not
 	if (true){ //TODO : Frank ratted
 		raison = ""; //TODO : depending on rat
-		I("Bah pourtant, il ne s'est pas gêné pour me dire que + raison");
+		I("Bah pourtant, il ne s'est pas gêné pour me dire que " + raison);
 	} else { //Frank did not rat
+
+		AnnaNoticedBadCopBluffed = true;
+
 		I("...");
 
 		A("Je le connais, il ne m'aurait jamais fait ça !");
@@ -99,54 +103,123 @@ function Scene_3A_AnnaIsGoingToTalkOrNot(message){
 	I("Vous vous décidez à le dénoncer ?");
 
 	Choose({
-		"Oui": AnnaIsGoingToTalk,
-		"Non": AnnaIsNotGoingToTalk,
-		"...": AnnaIs
+		"Oui": Scene_3A_AnnaIsGoingToTalk,
+		"Non": Scene_3A_AnnaIsNotGoingToTalk,
+		"...": Scene_3A_AnnaIs
 	})
 }
 
-function AnnaIsGoingToTalk(message){
+function Scene_3A_AnnaIsGoingToTalk(message){
 	A(message);
 
 	AnnaWantsFrankInPrison = true;
+
+	I("Très bien.");
+	I("Vous pouvez détailler.");
+
+	A("Quand je suis arrivée, je l'ai vu penché au-dessus du corps de sa femme.");
+	A("Il venait de la tuer.");
+
+	I("Une idée sur le mobile ?");
+
+	Choose({
+		"Une histoire de crime passionnel.": Scene_3A_AnnaIsSuggestingAMobile,
+		"Leur couple n'allait pas très bien en ce moment.": Scene_3A_AnnaIsSuggestingAMobile,
+		"Sûrement un n-ième désaccord.": Scene_3A_AnnaIsSuggestingAMobile
+	})
 }
 
-function AnnaIsNotGoingToTalk(message){
+function Scene_3A_AnnaIsSuggestingAMobile(message){
 	A(message);
 
+	I("Vous les aviez déjà entendu s'engueuler ?");
+
+	A("Oui.");
+	A("Et plus d'une fois.");
+
+	I("Pafait.");
+	// TODO : en italic : "prend des notes"
 	
+	I("C'est bon j'ai tout ce qu'il me faut.");
+	I("On va s'arrêter là.");
+	I("Merci Mme Collins pour votre coopération");
+	if(Immunity)
+		I("Je n'oublie pas notre accord.");
+
+	End_Scene_3A();
+
 }
 
-function AnnaIs(message){
+function Scene_3A_AnnaIsNotGoingToTalk(message){
 	A(message);
 
-	I("Tu veux une contrepartie, c'est ça ?");
-	I("Je peux rien te promettre.");
-	I("Mais je peux réduire les accusations contre toi si tu coopères.");
+	I("A vos risques et périls.");
+	I("Je vous rappelle que la peine de mort a été rétablie.");
+	I("C'est ce qui vous attend si vous n'arrivez pas à vous innocenter.");
+
+	if(AnnaNoticedBadCopBluffed){ 
+
+		A("Je sais.");
+		A("Mais vous n'avez rien contre Frank, c'est que du bluff !");
+		A("Et je pense que votre collègue, lui, a su m'écouter.");
+		A("En plus, c'est votre supérieur, non ?");
+
+		I("Plus pour longtemps !");
+		// TODO : rire chelou
+		I("Une fois que je réussirai à inculper Frank, je vais prendre du grade.");
+		I("Je serai connu comme celui qui a fait plonger le grand Frank Prescott !");
+		// TODO : rire chelou
+
+		A("...");
+		A("Est-ce de ça dont il s'agit depuis le début ?!");
+
+		I("Fermez-là !");
+		//TODO : bruit de poing sur la table
+		I("J'en ai fini avec vous.");
+		I("Aurevoir Mme Collins");
+
+	} else {
+		A("...");
+		A("J'ai dit tout ce que j'avais à dire à votre collègue.");
+		A("J'espère qu'il prendra les bonnes décisions.");
+
+		I("Je comprends qu'on n'a plus rien à se dire.");
+		I("Je ne vous remercie pas pour votre coopération...");
+		I("Aurevoir Mme Collins");
+	}
+
+}
+
+function Scene_3A_AnnaIs(message){
+	A(message);
+
+	I("Vous voulez une contrepartie, c'est ça ?");
+	I("Je peux rien vous promettre.");
+	I("Mais je peux réduire les accusations contre vous si vous coopérez.");
 
 	I("Du coup ?");
 
 	Choose({
-		"Oui": AnnaIsGoingToTalk,
-		"Non": AnnaIsNotGoingToTalk,
-		"...": AnnaIsIs
+		"Oui": Scene_3A_AnnaIsGoingToTalk,
+		"Non": Scene_3A_AnnaIsNotGoingToTalk,
+		"...": Scene_3A_AnnaIsIs
 	})
 }
 
-function AnnaIsIs(message){
+function Scene_3A_AnnaIsIs(message){
 	A(message);
 
 	Immunity = true;
 
-	I("C'est l'immunité que tu veux ?");
+	I("C'est l'immunité que vous voulez ?");
 	I("...");
 	I("Très bien !");
-	I("Tu le balances, tu t'en sors.");
+	I("Vous le balancez, vous vous en sortez.");
 	I("Ok ?");
 
 	Choose({
-		"Oui": AnnaIsGoingToTalk,
-		"Non": AnnaIsNotGoingToTalk
+		"Oui": Scene_3A_AnnaIsGoingToTalk,
+		"Non": Scene_3A_AnnaIsNotGoingToTalk
 	})
 }
 
