@@ -1,5 +1,7 @@
 // SCENE_3 : CONTINUATION OF THE QUESTIONNING FOR ANNA
 
+var Immunity = false;
+
 function Start_Scene_3A(){
 	
 	/////// SET UP SCENE ////////
@@ -105,14 +107,47 @@ function Scene_3A_AnnaIsGoingToTalkOrNot(message){
 
 function AnnaIsGoingToTalk(message){
 	A(message);
+
+	AnnaWantsFrankInPrison = true;
 }
 
 function AnnaIsNotGoingToTalk(message){
 	A(message);
+
+	
 }
 
 function AnnaIs(message){
 	A(message);
+
+	I("Tu veux une contrepartie, c'est ça ?");
+	I("Je peux rien te promettre.");
+	I("Mais je peux réduire les accusations contre toi si tu coopères.");
+
+	I("Du coup ?");
+
+	Choose({
+		"Oui": AnnaIsGoingToTalk,
+		"Non": AnnaIsNotGoingToTalk,
+		"...": AnnaIsIs
+	})
+}
+
+function AnnaIsIs(message){
+	A(message);
+
+	Immunity = true;
+
+	I("C'est l'immunité que tu veux ?");
+	I("...");
+	I("Très bien !");
+	I("Tu le balances, tu t'en sors.");
+	I("Ok ?");
+
+	Choose({
+		"Oui": AnnaIsGoingToTalk,
+		"Non": AnnaIsNotGoingToTalk
+	})
 }
 
 function End_Scene_3A(){
