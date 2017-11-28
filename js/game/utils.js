@@ -63,8 +63,6 @@ socket.on('recap', function(data){
 			Start_Scene_3A();
 	} else {
 		ready = true;
-		N("Les inspecteurs se transmettent les informations.");
-		N("L'interrogatoire devrait reprendre d'ici peu.");
 	}
 
 
