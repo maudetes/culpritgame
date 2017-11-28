@@ -77,9 +77,9 @@ function Scene_3A_AnnaTrustsFrank(message){
 	A(message);
 
 	//Bonus : different answer depending on Anna ratting on Frank on the previous scene or not
-	if (true){ //TODO : Frank ratted
-		raison = ""; //TODO : depending on rat
-		I("Bah pourtant, il ne s'est pas gêné pour me dire que " + raison);
+	if (otherRecap.FrankWantsAnnaInPrison){
+		raison = ""; //TODO : depending on rat ?
+		I("Bah pourtant, il ne s'est pas gêné pour me dire qu'il te pensait coupable.");
 	} else { //Frank did not rat
 
 		AnnaNoticedBadCopBluffed = true;
