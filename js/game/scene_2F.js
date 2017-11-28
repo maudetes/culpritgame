@@ -87,6 +87,8 @@ function Scene_2F_ComeBackHome (message){
 	I("Pourtant, il me semble que t'as reçu SMS accusateur ?");
 
 	F("...");
+	PlaySound("sfx", "heartbeat");
+	Wait(4000);
 
 	FrankYouLiar++;
 
@@ -228,6 +230,9 @@ function Scene_2F_BadCopIsLosingHisShit(){
 	I("Gamin ?!");
 	I("Redis ça une seule fois, et... !");
 	PlaySound("sfx", "fist_on_table");
+	Wait(3000);
+
+	PlaySound("sfx", "heartbeat");
 	Wait(3000);
 
 	F("... Et quoi ?");
@@ -385,6 +390,9 @@ function Scene_2F_FrankCooperatesOnlyWhenHeCan(message){
 
 	I("Evidemment que si!");
 
+	PlaySound("sfx", "heartbeat");
+	Wait(8000);
+
 	BadCopIsAngry++;
 
 	Scene_2F_FrankTeachesBadCopHisJob();
@@ -399,6 +407,8 @@ function Scene_2F_FrankTeachesBadCopHisJob(){
 
 	if(BadCopIsAngry > 2){
 		PlaySound("sfx", "fist_on_table");
+		Wait(2000);
+		PlaySound("sfx", "heartbeat");
 		Wait(3000);
 		I("T'es un homme mort !");
 		I("Tu entends ?");
