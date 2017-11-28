@@ -46,6 +46,10 @@ function Scene_3F_Part2(message){
 
 		I("Etrange...");
 		I("C'est pas ce que madame Collins m'a raconté.");
+		I("...");
+		PlaySound("sfx", "sigh");
+		Wait(3000);
+		
 		I("A ce rythme là, si vos versions divergent trop vous serez tous les deux jugés coupables.");
 		I("Mais c'est peut être elle qui ment...");
 		I("Je ne peux pas encore délier le vrai du faux.");
@@ -324,7 +328,19 @@ function Scene_3F_Part6(){
 		I("On va en discuter avec mon collègue.");
 		I("Nous vous rendrons notre verdict juste après.");
 	}
-	//TODO: add door sounds, etc.
+
+	Wait(3000);
+	PlaySound("sfx", "opening_door");
+	Wait(3000);
+	Clear();
+	PlaySound("sfx", "closing_door");
+	Wait(4000);
+	//TODO: replace background by inspector_gone
+	//Show("background","scene_3_male_inspector_gone");
+	Show("background","scene_3_male");
+	PlaySound("sfx", "heartbeat");
+	Wait(8000);
+
 	End_Scene_3F();
 }
 
