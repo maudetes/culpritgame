@@ -7,6 +7,8 @@ var whoCalledThePolice = false;
 var AnnaYouLiar = 0;
 var AnnaWantsFrankInPrison = false;
 var AnnaYouHacker = false;
+var AnnaArrivedAfterFrank = false;
+var AnnaKateFriends = false;
 
 function Start_Scene_2A(){
 
@@ -243,6 +245,8 @@ function Scene_2A_KateIsAStranger(message){
 function Scene_2A_KateIsAFriend(message){
 	A(message);
 
+	AnnaKateFriends = true;
+
 	if (AnnaFrankTogether){
 		I("Votre amie vous dîtes ?");
 		I("Pourtant vous entreteniez une relation avec son mari.");
@@ -344,6 +348,8 @@ function Scene_2A_Between21hAnd22h(message){
 }
 
 function Scene_2A_AfterFrank(message){
+	AnnaArrivedAfterFrank = true;
+	
 	A(message);	
 
 	if(AnnaWantsFrankInPrison){
@@ -415,7 +421,20 @@ function Scene_2A_Interrupt(){
 
 function End_Scene_2A(){
 
-	sendRecap({'angry':2});
+	var recap = {
+		'AnnaYouLiar' : AnnaYouLiar,
+		'unknownNumber' : unknownNumber,
+		'AnnaFrankTogether' : AnnaFrankTogether,
+		'whoCalledThePolice' : whoCalledThePolice,
+		'AnnaWantsFrankInPrison' : AnnaWantsFrankInPrison,
+		'AnnaYouHacker' : AnnaYouHacker,
+		'AnnaArrivedAfterFrank' : AnnaArrivedAfterFrank,
+		'AnnaKateFriends' : AnnaKateFriends
+	};
+
+	sendRecap(recap);
+
+	console.log(recap);
 
 	Clear();
 	//ne commencer la scene 3 que si ready (par rapport à l'autre joueur)
