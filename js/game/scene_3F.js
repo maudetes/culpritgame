@@ -40,8 +40,8 @@ function Scene_3F_Part2(message){
 
 	F(message);
 
-	//TODO: envoyer les variables d'un joueur à l'autre
-	if(true){
+	if((otherRecap.AnnaFrankTogether == true && FrankSaidRelionshipWas != "On est amants.")
+		|| (otherRecap.AnnaFrankTogether == false && FrankSaidRelionshipWas == "On est amants.")){
 		AnnaFrankAgreedAboutRelationship1 = false;
 
 		I("Etrange...");
@@ -100,8 +100,7 @@ function Scene_3F_Part4(message){
 		AnnaKateFriends = true;
 	}
 
-	//TODO: envoyer les variables d'un joueur à l'autre
-	if(true){
+	if(otherRecap.AnnaKateFriends != AnnaKateFriends){
 		AnnaFrankAgreedAboutRelationship2 = false;
 		if(AnnaFrankAgreedAboutRelationship1){
 			I("Etrange...");
@@ -269,7 +268,7 @@ function Scene_3F_Around19h(message){
 
 	F("Oui, ils sont arrivés juste après.");
 
-	if(AnnaAskedWhoCalledThePolice){//TODO: get this var from the other player
+	if(otherRecap.whoCalledThePolice){
 		I("Anna a mentionné quelque chose de similaire en effet.");
 		I("On n'a pas encore réussi à trouver qui à appeler la police.");
 	}
@@ -298,7 +297,7 @@ function Scene_3F_After21h30(message){
 function Scene_3F_AfterAnna(message){
 	F(message);
 
-	if(AnnaArrivedAfterFrank){ //TODO: get AnnaArrivedAfterFrank from the other player
+	if(otherRecap.AnnaArrivedAfterFrank){ 
 		I("Amusant.");
 		I("Anna a dit le contraire.");
 

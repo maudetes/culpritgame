@@ -8,6 +8,7 @@ var AnnaYouLiar = 0;
 var AnnaWantsFrankInPrison = false;
 var AnnaYouHacker = false;
 var AnnaArrivedAfterFrank = false;
+var AnnaKateFriends = false;
 
 function Start_Scene_2A(){
 
@@ -244,6 +245,8 @@ function Scene_2A_KateIsAStranger(message){
 function Scene_2A_KateIsAFriend(message){
 	A(message);
 
+	AnnaKateFriends = true;
+
 	if (AnnaFrankTogether){
 		I("Votre amie vous dîtes ?");
 		I("Pourtant vous entreteniez une relation avec son mari.");
@@ -425,7 +428,8 @@ function End_Scene_2A(){
 		'whoCalledThePolice' : whoCalledThePolice,
 		'AnnaWantsFrankInPrison' : AnnaWantsFrankInPrison,
 		'AnnaYouHacker' : AnnaYouHacker,
-		'AnnaArrivedAfterFrank' : AnnaArrivedAfterFrank
+		'AnnaArrivedAfterFrank' : AnnaArrivedAfterFrank,
+		'AnnaKateFriends' : AnnaKateFriends
 	};
 
 	sendRecap(recap);
