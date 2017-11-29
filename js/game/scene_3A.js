@@ -7,14 +7,21 @@ function Start_Scene_3A(){
 	
 	/////// SET UP SCENE ////////
 	Clear();
-	Show("background","scene_3_female");
+	Show("background","scene_3_female_inspector_gone");
 	/////////////////////////////
 
-	// TODO : + murmure and heartbeats ?	
 	//I("Putain de policiers!"); //italic
 	//I("Jamais contents quand je fais mon travail.");
 
-	// TODO : porte + change background
+	Wait(5000);
+	PlaySound("sfx", "whispering");
+	Wait(7000);
+
+	Clear();
+	Show("background","scene_3_female");
+	PlaySound("sfx", "slamming_door");
+	Wait(3000);
+
 	I("Je suis Jerry Carter.");
 	I("Je viens de m'entretenir avec Frank.");
 	I("Ca ne s'est pas très bien passé pour lui.");
@@ -37,6 +44,8 @@ function Scene_3A_WontInvent(message){
 	A("Mais j'imagine que c'est ce que vous voulez, non ?");
 
 	I("...");
+	PlaySound("sfx", "laugh_bad_cop");
+	Wait(4000);
 	I("Tant que les ordures sont en prison, la vérité je m'en moque.");
 
 	A("C'est bon à savoir.");
@@ -138,6 +147,8 @@ function Scene_3A_AnnaIsSuggestingAMobile(message){
 	A("Et plus d'une fois.");
 
 	I("Pafait.");
+	PlaySound("sfx", "laugh_bad_cop");
+	Wait(4000);
 	// TODO : en italic : "prend des notes"
 	
 	I("C'est bon j'ai tout ce qu'il me faut.");
@@ -145,6 +156,8 @@ function Scene_3A_AnnaIsSuggestingAMobile(message){
 	I("Merci Mme Collins pour votre coopération");
 	if(Immunity)
 		I("Je n'oublie pas notre accord.");
+
+	I("On vous tiendra au courant du verdict.");
 
 	End_Scene_3A();
 
@@ -165,18 +178,22 @@ function Scene_3A_AnnaIsNotGoingToTalk(message){
 		A("En plus, c'est votre supérieur, non ?");
 
 		I("Plus pour longtemps !");
-		// TODO : rire chelou
+		PlaySound("sfx", "laugh_bad_cop");
+		Wait(4000);
 		I("Une fois que je réussirai à inculper Frank, je vais prendre du grade.");
 		I("Je serai connu comme celui qui a fait plonger le grand Frank Prescott !");
-		// TODO : rire chelou
+		PlaySound("sfx", "laugh_bad_cop");
+		Wait(4000);
 
 		A("...");
 		A("Est-ce de ça dont il s'agit depuis le début ?!");
 
 		I("Fermez-là !");
-		//TODO : bruit de poing sur la table
+		PlaySound("sfx", "fist_on_table");
+		Wait(5000);
 		I("J'en ai fini avec vous.");
-		I("Aurevoir Mme Collins");
+		I("On vous tiendra au courant du verdict.");
+		I("Aurevoir Mme Collins.");
 
 	} else {
 		A("...");
@@ -184,10 +201,12 @@ function Scene_3A_AnnaIsNotGoingToTalk(message){
 		A("J'espère qu'il prendra les bonnes décisions.");
 
 		I("Je comprends qu'on n'a plus rien à se dire.");
-		I("Je ne vous remercie pas pour votre coopération...");
-		I("Aurevoir Mme Collins");
+		I("Je ne vous remercie pas pour votre coopération...");		
+		I("On vous tiendra au courant du verdict.");
+		I("Aurevoir Mme Collins.");
 	}
 
+	End_Scene_3A();
 }
 
 function Scene_3A_AnnaIs(message){
@@ -243,6 +262,13 @@ function End_Scene_3A(){
 	sendRecap(recap);
 
 	console.log(recap);
+
+	Wait(3000);
+	PlaySound("sfx", "opening_door");
+	Wait(3000);
+	Clear();
+	PlaySound("sfx", "closing_door");
+	Wait(4000);
 
 	Clear();
 	//ne commencer la scene 3 que si ready (par rapport à l'autre joueur)

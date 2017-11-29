@@ -19,3 +19,5 @@ Background("scene_2_female_inspector_gone", "/img/backgrounds/scene_2_female_ins
 ////////// SCENE_3 //////////
 Background("scene_3_male", "/img/backgrounds/scene_3_male.png");
 Background("scene_3_female", "/img/backgrounds/scene_3_female.png");
+Background("scene_3_male_inspector_gone", "/img/backgrounds/scene_3_male_inspector_gone.png");
+Background("scene_3_female_inspector_gone", "/img/backgrounds/scene_3_female_inspector_gone.png");
