@@ -334,9 +334,7 @@ function Scene_3F_Part6(){
 	Clear();
 	PlaySound("sfx", "closing_door");
 	Wait(4000);
-	//TODO: replace background by inspector_gone
-	//Show("background","scene_3_male_inspector_gone");
-	Show("background","scene_3_male");
+	Show("background","scene_3_male_inspector_gone");
 	PlaySound("sfx", "heartbeat");
 	Wait(8000);
 
