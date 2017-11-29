@@ -342,6 +342,32 @@ function Scene_3F_Part6(){
 }
 
 function End_Scene_3F(){
+	var recap = { 
+		// var scene 2F 
+		'BadCopIsAngry' : BadCopIsAngry,
+		'FrankYouLiar' : FrankYouLiar,
+		'FrankWantsAnnaInPrison' : FrankWantsAnnaInPrison,
+		'FrankHoldUp' : FrankHoldUp,
+		// var scene 3F
+		'AnnaFrankTogether' : AnnaFrankTogether,
+		'AnnaFrankAgreedAboutRelationship1' : AnnaFrankAgreedAboutRelationship1,
+		'AnnaFrankAgreedAboutRelationship2' : AnnaFrankAgreedAboutRelationship2,
+		'AnnaKateFriends' : AnnaKateFriends,
+		'FrankSaidRelionshipWas' : FrankSaidRelionshipWas,
+		'FrankBlamesBadCop' : FrankBlamesBadCop	
+	};
+
+
+	sendRecap(recap);
+
+	console.log(recap);
+
 	Clear();
-	Start_Scene_4();
+
+	//ne commencer la scene 4 que si ready (par rapport à l'autre joueur)
+	if(ready){
+		Start_Scene_4();
+	} else {
+		ready = true;
+	}
 }

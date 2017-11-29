@@ -224,6 +224,31 @@ function Scene_3A_AnnaIsIs(message){
 }
 
 function End_Scene_3A(){
+	var recap = {
+		// var scene 2A
+		'AnnaYouLiar' : AnnaYouLiar,
+		'unknownNumber' : unknownNumber,
+		'AnnaFrankTogether' : AnnaFrankTogether,
+		'whoCalledThePolice' : whoCalledThePolice,
+		'AnnaWantsFrankInPrison' : AnnaWantsFrankInPrison,
+		'AnnaYouHacker' : AnnaYouHacker,
+		'AnnaArrivedAfterFrank' : AnnaArrivedAfterFrank,
+		'AnnaKateFriends' : AnnaKateFriends,
+		// var scene 3A
+		'Immunity' : Immunity,
+		'AnnaNoticedBadCopBluffed' : AnnaNoticedBadCopBluffed
+	};
+
+
+	sendRecap(recap);
+
+	console.log(recap);
+
 	Clear();
-	Start_Scene_4();
+	//ne commencer la scene 3 que si ready (par rapport à l'autre joueur)
+	if(ready){
+		Start_Scene_3A();
+	} else {
+		ready = true;
+	}
 }

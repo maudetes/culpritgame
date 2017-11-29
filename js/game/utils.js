@@ -50,21 +50,36 @@ socket.on('choice', function(data){
 
 socket.on('recap', function(data){
 	console.log('recieved recap!!!');
-	if (player != data['sender']){
-		console.log(data["recap"]);
-		otherRecap = data["recap"];
-	}
+	
+	if(otherRecap == null){
+		if (player != data['sender']){
+			console.log(data["recap"]);
+			otherRecap = data["recap"];
+		}
 
-	// launch scene3 if ready
-	if (ready){
-		if(player == 1)
-			Start_Scene_3F();
-		else
-			Start_Scene_3A();
-	} else {
-		ready = true;
+		// launch scene3 if ready
+		if (ready){
+			if(player == 1)
+				Start_Scene_3F();
+			else
+				Start_Scene_3A();
+		} else {
+			ready = true;
+		}
 	}
+	else {
+		if (player != data['sender']){
+			console.log(data["recap"]);
+			otherRecap = data["recap"];
+		}
 
+		// launch scene3 if ready
+		if (ready){
+			Start_Scene_4();
+		} else {
+			ready = true;
+		}
+	}
 
 })
 

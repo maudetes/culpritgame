@@ -1,7 +1,7 @@
 // SCENE_1 : PROLOGUE
 
 function Start_Scene_1(){
-	
+
 	/////// INTRO ////////
 	Clear();
 	if (player == 1){
