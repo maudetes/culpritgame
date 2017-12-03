@@ -95,9 +95,9 @@ socket.on('getStarted', function(){
 
 socket.on("disconnected", function(){
 	if (player==1)
-		alert("Oups ! Ta partenaire s'est déconnectée, réactualise pour recommencer une partie !");
+		if(!alert("Oups ! Ta partenaire s'est déconnectée, réactualise pour recommencer une partie !")){window.location.reload();}
 	else
-		alert("Oups ! Ton partenaire s'est déconnecté, réactualise pour recommencer une partie !");
+		if(!alert("Oups ! Ton partenaire s'est déconnecté, réactualise pour recommencer une partie !")){window.location.reload();}
 })
 
 socket.on('info', function(info){
