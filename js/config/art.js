@@ -1,5 +1,5 @@
 ////////// MENU //////////
-Background("starting_room", "/img/backgrounds/starting_room.gif");
+Background("starting_room", "/img/backgrounds/intro.png");
 
 ////////// UTILS //////////
 //Background("black", "/img/backgrounds/black.png");

@@ -1,5 +1,5 @@
 body{
-	background: white;
+	background: black;
 	overflow: hidden;
 	margin: 0;
 
@@ -63,9 +63,9 @@ body{
 
 #game_container{
 	background: #000;
-	width:100%;
+	width:1000px;
 
-	height:100%;
+	height:750px;
 	/*max-height:640px;*/
 
 	position: absolute;
@@ -386,9 +386,8 @@ body{
 #game #dialogue{
 	position: absolute;
 	top:20px;
-	width:80%;
+	width:100%;
 	cursor: default;
-	padding-left: 140px;
 
 	-webkit-transition: top 0.1s ease-in-out;
 	-moz-transition: top 0.1s ease-in-out;
