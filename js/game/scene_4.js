@@ -116,10 +116,10 @@ function Scene4_GoodEnd(){
 
 function Scene4_FrankGuilty(){
 
-	N("A la fin des intérogatoires, " + ( player == 1 ? "Vous avez" : "Frank a") + " été jugé coupable.");
+	N("A la fin des interrogatoires, " + ( player == 1 ? "vous avez" : "Frank a") + " été jugé coupable.");
 	N("Tandis que pour " + ( player == 1 ? "Anna" : "vous") + ", le jugement a été beaucoup plus clément : la liberté.");
 
-	N("Ceci n'est en réalité pas très éntonnant.");
+	N("Ceci n'est en réalité pas très étonnant.");
 
 	if(player == 1){
 		N("Anna avait tenté de vous incriminer en racontant que vous êtiez le responsable de cette sale affaire.");
@@ -135,24 +135,24 @@ function Scene4_FrankGuilty(){
 
 	// Changment d'ambiance
 
-	N("Vous et " + (player == 1 ? "Anna" : "Frank") + " tout les deux du poste de police.");
-	N("A une différence près : " + (player == 1 ? "vous êtes" : "Frank est") + " entouré de policier.");
+	N("Vous et " + (player == 1 ? "Anna" : "Frank") + " sortez tout les deux du poste de police.");
+	N("A une différence près : " + (player == 1 ? "vous êtes" : "Frank est") + " entouré de policiers.");
 
 	N("Une fois dehors, vous voyez une voiture au loin, celle qui " 
 		+ (player == 1 ? "vous emmenera" : "emmenera Frank") + " au couloir de la mort.");
 
 	if(player == 1){
-		N("Arriver devant la voiture, vous vous retounez.");
-		N("Vous échangez un regard rempli de haine envers Anna.");
-		N("Vous remarquez alors que les inspecteurs Carter et Hawkins sont sortie pour voir le déroulement de l'opération.");
-		N("Vous voyez aussi que Mr Carter vous regarde avec un regard vicieux et satafisfait.");
+		N("Arrivé devant la voiture, vous vous retournez.");
+		N("Vous échangez un regard rempli de haine avec Anna.");
+		N("Vous remarquez alors que les inspecteurs Carter et Hawkins sont sortis pour voir le déroulement de l'opération.");
+		N("Vous voyez aussi que M. Carter vous regarde avec un regard vicieux et satafisfait.");
 		// Todo : portière + démarage voiture
 	}
 	else {
-		N("Arriver devant la voiture, Frank se retourne avec un regard empli de haine.");
+		N("Arrivé devant la voiture, Frank se retourne avec un regard empli de haine.");
 		N("Vous lui rendez son regard avant qu'il ne parte.");
-		N("Vous entendez alors les inspecteurs Carter et Hawkins parlaient.");
-		N("Ces derniers viennent vous voir pour vous expliquer que vous désormais libre, contraiement à Frank.");
+		N("Vous entendez alors les inspecteurs Carter et Hawkins parler.");
+		N("Ces derniers viennent vous voir pour vous expliquer que vous êtes désormais libre, contrairement à Frank.");
 	}
 
 	N("Pensez-vous avoir fait les bons choix ?");
@@ -160,13 +160,13 @@ function Scene4_FrankGuilty(){
 
 function Scene4_AnnaGuilty(){
 
-	N("A la fin des intérogatoires, " + ( player == 2 ? "Vous avez" : "Anna a") + " été jugé coupable.");
+	N("A la fin des interogatoires, " + ( player == 2 ? "vous avez" : "Anna a") + " été jugé coupable.");
 	N("Tandis que pour " + ( player == 2 ? "Frank" : "vous") + ", le jugement a été beaucoup plus clément : la liberté.");
 
-	N("Ceci n'est en réalité pas très éntonnant.");
+	N("Ceci n'est en réalité pas très étonnant.");
 
 	if(player == 2){
-		N("Frank avait tenté de vous incriminer en racontant que vous êtiez le responsable de cette sale affaire.");
+		N("Frank avait tenté de vous incriminer en racontant que vous êtiez la responsable de cette sale affaire.");
 		N("Malgré le fait que cela ressemble à de la désignation gratuite, Frank a été plus convaincante que vous.");
 	}
 	else {
@@ -179,24 +179,24 @@ function Scene4_AnnaGuilty(){
 
 	// Changment d'ambiance
 
-	N("Vous et " + (player == 1 ? "Anna" : "Frank") + " tout les deux du poste de police.");
+	N("Vous et " + (player == 1 ? "Anna" : "Frank") + " sortez tout les deux du poste de police.");
 	N("A une différence près : " + (player == 2 ? "vous êtes" : "Anna est") + " entouré de policier.");
 
 	N("Une fois dehors, vous voyez une voiture au loin, celle qui " 
 		+ (player == 2 ? "vous emmenera" : "emmenera Anna") + " au couloir de la mort.");
 
 	if(player == 2){
-		N("Arriver devant la voiture, vous vous retounez.");
-		N("Vous échangez un regard rempli de haine envers Frank.");
-		N("Vous remarquez alors que les inspecteurs Carter et Hawkins sont sortie pour voir le déroulement de l'opération.");
-		N("Vous voyez aussi que Mr Carter reagrde Frank de travers, comme si les choses ne c'étaient pas passé comme prévu.");
+		N("Arrivée devant la voiture, vous vous retounez.");
+		N("Vous échangez un regard rempli de haine avec Frank.");
+		N("Vous remarquez alors que les inspecteurs Carter et Hawkins sont sortis pour voir le déroulement de l'opération.");
+		N("Vous voyez aussi que Mr Carter reagrde Frank de travers, comme si les choses ne c'étaient pas passées comme prévu.");
 		// Todo : portière + démarage voiture
 	}
 	else {
-		N("Arriver devant la voiture, Anna se retourne avec un regard empli de haine.");
+		N("Arrivée devant la voiture, Anna se retourne avec un regard empli de haine.");
 		N("Vous lui rendez son regard avant qu'elle ne parte.");
-		N("Vous entendez alors les inspecteurs Carter et Hawkins parlaient.");
-		N("Mr Hawkins vient vous voir pour vous expliquer que vous désormais libre, contraiement à Anna.");
+		N("Vous entendez alors les inspecteurs Carter et Hawkins parler.");
+		N("M. Hawkins vient vous voir pour vous expliquer que vous êtes désormais libre, contraiement à Anna.");
 	}
 
 	N("Pensez-vous avoir fait les bons choix ?");
