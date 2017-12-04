@@ -51,7 +51,9 @@ socket.on('choice', function(data){
 socket.on('recap', function(data){
 	console.log('recieved recap!!!');
 	
-	if(otherRecap == null){
+	console.log(otherRecap);
+
+	if(otherRecap === undefined){
 		if (player != data['sender']){
 			console.log(data["recap"]);
 			otherRecap = data["recap"];
@@ -73,7 +75,7 @@ socket.on('recap', function(data){
 			otherRecap = data["recap"];
 		}
 
-		// launch scene3 if ready
+		// launch scene4 if ready
 		if (ready){
 			Start_Scene_4();
 		} else {

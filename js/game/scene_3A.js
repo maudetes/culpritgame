@@ -5,6 +5,8 @@ var AnnaNoticedBadCopBluffed = false;
 
 function Start_Scene_3A(){
 	
+	ready = false;
+
 	/////// SET UP SCENE ////////
 	Clear();
 	Show("background","scene_3_female_inspector_gone");
@@ -271,9 +273,9 @@ function End_Scene_3A(){
 	Wait(4000);
 
 	Clear();
-	//ne commencer la scene 3 que si ready (par rapport à l'autre joueur)
+	//ne commencer la scene 4 que si ready (par rapport à l'autre joueur)
 	if(ready){
-		Start_Scene_3A();
+		Start_Scene_4();
 	} else {
 		ready = true;
 	}
