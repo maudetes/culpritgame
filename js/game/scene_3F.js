@@ -12,7 +12,7 @@ var FrankArrivedAfterAnna = false;
 function Start_Scene_3F(){
 	
 	ready = false;
-	
+
 	/////// SET UP SCENE ////////
 	Clear();
 	Show("background","scene_3_male");
@@ -374,5 +374,6 @@ function End_Scene_3F(){
 		Start_Scene_4();
 	} else {
 		ready = true;
+		N("Les inspecteurs s'échangent leurs informations.");
 	}
 }

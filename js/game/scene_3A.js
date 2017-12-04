@@ -278,5 +278,6 @@ function End_Scene_3A(){
 		Start_Scene_4();
 	} else {
 		ready = true;
+		N("Les inspecteurs s'échangent leurs informations.");
 	}
 }
