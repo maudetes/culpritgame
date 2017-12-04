@@ -90,8 +90,15 @@ function Scene4_GoodEnd(){
 
 	// TODO : bruit coup de feu
 	N("1");
+	PlaySound("sfx", "single_gun_shot");
+	Wait(1000);
 	N("2");
+	PlaySound("sfx", "single_gun_shot");
+	Wait(1000);
 	N("3 coups de feu partirent.");
+	PlaySound("sfx", "single_gun_shot");
+	Wait(2000);
+	Wait(1000);
 
 	N("Enlevant la vie de Kate.");
 
@@ -180,9 +187,13 @@ function Scene4_BadEnd(){
 	else
 		N("Vous voyez aussi Mr Carter regardant Frank avec un regard vicieux et satisfait. ");
 
-	// TODO : bruit de portière + démarrage de voiture
+	Wait(1000);
+	PlaySound("sfx", "car_door_and_engine_start");
+	Wait(4000);
 
 	N("Pensez-vous avoir fait les bons choix ?");
+
+	Wait(8000);
 }
 
 
