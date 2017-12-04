@@ -91,6 +91,7 @@ io.on('connection', function(socket){
 				socket.emit("info", {"player": 2, "room": socket.room});
 				socket.broadcast.to(socket.room).emit('getStarted');
 				socket.emit('getStarted');
+        console.log(rooms);
 	  			return;
 	  		}
 	  	};
@@ -125,7 +126,16 @@ io.on('connection', function(socket){
   });
 
   socket.on('disconnect', function(){
+    // removing the room from the rooms object
+    var deleteIndex;
+    for (key in rooms){
+      if (rooms[key]["name"] == socket.room)
+        deleteIndex = key;
+    }
+    delete rooms[deleteIndex];
   	--numUsers;
+
+    //giving the info to the other player
     console.log('user disconnected: '+numUsers+' left');
     if (socket.room){
       socket.to(socket.room).emit("disconnected");
