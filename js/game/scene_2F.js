@@ -213,7 +213,7 @@ function Scene_2F_Jealous(message){
 	Scene_2F_FrankRatsOut();
 }
 
-function Scene_2F_TooFast(){
+function Scene_2F_TooFast(message){
 	F("Hey, mollo tu veux bien ?");
 	F(message);
 	
@@ -375,6 +375,7 @@ function Scene_2F_FrankRatsOut2(message){
 
 	F("Sale vermine.");
 	F("Je crois que c'est toi qui ne réalises pas bien qui je suis.");
+	Scene_2F_FrankTeachesBadCopHisJob();
 }
 
 function Scene_2F_FrankCooperatesOnlyWhenHeCan(message){
