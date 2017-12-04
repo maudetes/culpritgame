@@ -7,8 +7,11 @@ var AnnaFrankAgreedAboutRelationship2 = false;
 var AnnaKateFriends = false;
 var FrankSaidRelionshipWas;
 var FrankBlamesBadCop = false;
+var FrankArrivedAfterAnna = false;
 
 function Start_Scene_3F(){
+	
+	ready = false;
 	
 	/////// SET UP SCENE ////////
 	Clear();
@@ -296,6 +299,8 @@ function Scene_3F_After21h30(message){
 
 function Scene_3F_AfterAnna(message){
 	F(message);
+
+	FrankArrivedAfterAnna = true;
 
 	if(otherRecap.AnnaArrivedAfterFrank){ 
 		I("Amusant.");

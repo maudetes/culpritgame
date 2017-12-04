@@ -9,31 +9,48 @@ function Start_Scene_4(){
 
 	// On instancie les varaibles manquantes afin d'avoir un code général par la suite
 	if(player == 1){
-		AnnaYouLiar = otherRecap.AnnaYouLiar;
-		unknownNumber = otherRecap.unknownNumber;
-		AnnaFrankTogether = otherRecap.AnnaFrankTogether;
-		whoCalledThePolice = otherRecap.whoCalledThePolice;
-		AnnaWantsFrankInPrison = otherRecap.AnnaWantsFrankInPrison;
-		AnnaYouHacker = otherRecap.AnnaYouHacker;
-		AnnaArrivedAfterFrank = otherRecap.AnnaArrivedAfterFrank;
-		AnnaKateFriends = otherRecap.AnnaKateFriends;
+		// Scene 2A
+		var AnnaYouLiar = otherRecap.AnnaYouLiar;
+		var unknownNumber = otherRecap.unknownNumber;
+		var AnnaFrankTogether = otherRecap.AnnaFrankTogether;
+		var whoCalledThePolice = otherRecap.whoCalledThePolice;
+		var AnnaWantsFrankInPrison = otherRecap.AnnaWantsFrankInPrison;
+		var AnnaYouHacker = otherRecap.AnnaYouHacker;
+		var AnnaArrivedAfterFrank = otherRecap.AnnaArrivedAfterFrank;
+		var AnnaKateFriends = otherRecap.AnnaKateFriends;
 
-		Immunity = otherRecap.Immunity;
-		AnnaNoticedBadCopBluffed = otherRecap.AnnaNoticedBadCopBluffed;
+		// Scene 3A
+		var Immunity = otherRecap.Immunity;
+		var AnnaNoticedBadCopBluffed = otherRecap.AnnaNoticedBadCopBluffed;
 	}
 	else {
-		BadCopIsAngry = otherRecap.BadCopIsAngry;
-		FrankYouLiar = otherRecap.FrankYouLiar;
-		FrankWantsAnnaInPrison = otherRecap.FrankWantsAnnaInPrison;
-		FrankHoldUp = otherRecap.FrankHoldUp;
+		// Scene 2F
+		var BadCopIsAngry = otherRecap.BadCopIsAngry;
+		var FrankYouLiar = otherRecap.FrankYouLiar;
+		var FrankWantsAnnaInPrison = otherRecap.FrankWantsAnnaInPrison;
+		var FrankHoldUp = otherRecap.FrankHoldUp;
 
-		AnnaFrankTogether = otherRecap.AnnaFrankTogether;
-		AnnaFrankAgreedAboutRelationship1 = otherRecap.AnnaFrankAgreedAboutRelationship1;
-		AnnaFrankAgreedAboutRelationship2 = otherRecap.AnnaFrankAgreedAboutRelationship2;
-		AnnaKateFriends = otherRecap.AnnaKateFriends;
-		FrankSaidRelionshipWas = otherRecap.FrankSaidRelionshipWas;
-		FrankBlamesBadCop = otherRecap.FrankBlamesBadCop;
+		// Scene 3F
+		var AnnaFrankTogether = otherRecap.AnnaFrankTogether;
+		var AnnaFrankAgreedAboutRelationship1 = otherRecap.AnnaFrankAgreedAboutRelationship1;
+		var AnnaFrankAgreedAboutRelationship2 = otherRecap.AnnaFrankAgreedAboutRelationship2;
+		var AnnaKateFriends = otherRecap.AnnaKateFriends;
+		var FrankSaidRelionshipWas = otherRecap.FrankSaidRelionshipWas;
+		var FrankBlamesBadCop = otherRecap.FrankBlamesBadCop;
+		var FrankArrivedAfterAnna = otherRecap.FrankArrivedAfterAnna;
 	}
+
+	if( (AnnaYouLiar < 2) && (FrankYouLiar < 2) && (whoCalledThePolice) && (AnnaNoticedBadCopBluffed) && (FrankBlamesBadCop) && (unknownNumber) )
+		Scene4_GoodEnd();
+
+	else if ( (FrankWantsAnnaInPrison) && (AnnaYouLiar >= 2) && (FrankYouLiar < 2) && (AnnaArrivedAfterFrank) && (!FrankArrivedAfterAnna) )
+		Scene4_AnnaGuilty();
+
+	else if ( (AnnaWantsFrankInPrison) && (AnnaYouLiar < 2) && (FrankYouLiar >= 2) && (!AnnaArrivedAfterFrank) && (FrankArrivedAfterAnna) ) 
+		Scene4_FrankGuilty();
+
+	else
+		Scene4_BadEnd();
 
 }
 
@@ -71,12 +88,15 @@ function Scene4_GoodEnd(){
 
 	N("Par réflexe, Jerry essaya de prendre l'arme des main de Kate.");
 
+	// TODO : bruit coup de feu
 	N("1");
 	N("2");
 	N("3 coups de feu partirent.");
 
 	N("Enlevant la vie de Kate.");
 
+
+	// changement d'ambiance : faut-il changer la musqiue ?
 	if(player == 1)
 		N("Vous vous trouvez à l'extérieur du poste de police accompagné d'Anna Collins et M. Hawkins.");
 	else
@@ -88,8 +108,81 @@ function Scene4_GoodEnd(){
 	End_Scene_4();
 }
 
-function Scene4_BadEnd(){
+function Scene4_FrankGuilty(){
+	if(player == 1)
+		N("Vous avez été jugé compable");
+	else 
+		N("Frank a été jugé coupable");
 
+	N("Pensez-vous avoir fait les bons choix ?");
+}
+
+function Scene4_AnnaGuilty(){
+	if(player == 2)
+		N("Vous avez été jugé compable");
+	else 
+		N("Anna a été jugé coupable");
+
+	N("Pensez-vous avoir fait les bons choix ?");
+}
+
+function Scene4_BadEnd(){
+	if(player == 1)
+		N("Suite aux interrogatoires, vous et Anna n'avez pas vraiment convaincu les inspecteurs.");
+	else
+		N("Suite aux interrogatoires, vous et Frank n'avez pas vraiment convaincu les inspecteurs.");
+
+	var link = "";
+	var link2 = "V";
+
+	if(!AnnaFrankAgreedAboutRelationship2 || !AnnaFrankAgreedAboutRelationship1){
+		N("Vous avez notamment donné des versions différentes des faits.");
+		link = "De plus, ";
+	}
+
+	if( (AnnaYouLiar >= 2 && FrankYouLiar < 2) || (AnnaYouLiar < 2 && FrankYouLiar >= 2) ){
+		N(link + "l'un de vous deux a menti.");
+		link2 = "Et v";
+	}
+
+
+	else if ( AnnaYouLiar >= 2 && FrankYouLiar >= 2 ){
+		N(link + "vous avez tout les deux menti.");
+		link2 = "Et v";
+	}
+
+	if( FrankWantsAnnaInPrison && AnnaWantsFrankInPrison )
+		N(link2 + "ous êtes mutuellement accusés.");
+
+
+
+	N("Tout ceci mena les inspecteurs à ne pas vous croire.");
+
+	N("N'ayant quasiment aucune preuve pour vous inculper, les inspecteurs ne pouvaient pas vous condamner à mort.");
+
+	N("Cependant, suite à vos multiples erreurs et à votre présence sur le lieu du crime, \
+	les inspecteurs vous ont tous les deux condamnés à croupir en prison pendant plusieurs années.");
+
+
+
+	if(player == 1)
+		N("Anna et vous sortez du poste de police, direction la voiture qui vous enmenera en prison.");
+	else 
+		N("Frank et vous sortez du poste de police, direction la voiture qui vous enmenera en prison.");
+
+	N("Vous vous retournez afin de regarder derrière vous.");
+
+	N("Vous voyez Mr Hawkins vous regardant avec un regard dur.");
+
+
+	if(player == 1)
+		N("Vous voyez aussi Mr Carter vous regardant avec un regard vicieux et satisfait. ");
+	else
+		N("Vous voyez aussi Mr Carter regardant Frank avec un regard vicieux et satisfait. ");
+
+	// TODO : bruit de portière + démarrage de voiture
+
+	N("Pensez-vous avoir fait les bons choix ?");
 }
 
 
