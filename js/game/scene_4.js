@@ -7,7 +7,7 @@ function Start_Scene_4(){
 	Show("background","black");
 	/////////////////////////////
 
-	// On instancie les varaibles manquantes afin d'avoir un code général par la suite
+	// On instancie les variables manquantes afin d'avoir un code général par la suite
 	if(player == 1){
 		// Scene 2A
 		var AnnaYouLiar = otherRecap.AnnaYouLiar;
@@ -59,19 +59,19 @@ function Scene4_GoodEnd(){
 	N("Suite aux interrogatoires, personne ne pouvait être jugé coupable.");
 
 	if(player == 1)
-		N("Effectivement, votre version des fait et celle d'Anna Collins vous prouvaient innocents tout les deux.");
+		N("Effectivement, votre version des faits et celle d'Anna Collins vous prouvaient innocents tout les deux.");
 	else
-		N("Effectivement, votre version des fait et celle de Frank Prescott vous prouvaient innocents tout les deux.");
+		N("Effectivement, votre version des faits et celle de Frank Prescott vous prouvaient innocents tout les deux.");
 
 
-	N("De plus, aucune preuve trouvée sur la scène de crime ne vous incriminiez.");
-	N("De ce fait, l'inspecteur Hackins pensa qu'il fallait mieux attendre les analyses des scientifiques pour conclure quoique ce soit");
+	N("De plus, aucune preuve trouvée sur la scène de crime ne vous incriminait.");
+	N("De ce fait, l'inspecteur Hackins pensa qu'il fallait mieux attendre les analyses scientifiques pour conclure quoique ce soit.");
 
-	N("Cette décision n'enchenta guère Mr Carter qui devenait de plus en plus anxieux");
+	N("Cette décision n'enchenta guère Mr Carter qui devenait de plus en plus anxieux.");
 	N("Ceci n'était pas totalement étrange, car c'était lui qui avait tué Kate.");
 
 	N("Les preuves l'incriminant tombaient les unes après les autres.");
-	N("Il fut donc invité dans une salle d'interrogatoire, non pas en tant qu'inspecteur, mais en tant que coupable.");
+	N("Il fut donc convié dans une salle d'interrogatoire, non pas en tant qu'inspecteur, mais en tant que coupable.");
 
 	N("Accumulant le stress depuis le début, il ne put s'empêcher d'avouer le meurtre.");
 
@@ -88,7 +88,6 @@ function Scene4_GoodEnd(){
 
 	N("Par réflexe, Jerry essaya de prendre l'arme des main de Kate.");
 
-	// TODO : bruit coup de feu
 	N("1");
 	PlaySound("sfx", "single_gun_shot");
 	Wait(1000);
@@ -105,30 +104,30 @@ function Scene4_GoodEnd(){
 
 	// changement d'ambiance : faut-il changer la musqiue ?
 	if(player == 1)
-		N("Vous vous trouvez à l'extérieur du poste de police accompagné d'Anna Collins et M. Hawkins.");
+		N("Vous vous trouvez à l'extérieur du poste de police accompagné d'Anna Collins et de M. Hawkins.");
 	else
-		N("Vous vous trouvez à l'extérieur du poste de police accompagné de Frank Prescott et M. Hawkins.");
+		N("Vous vous trouvez à l'extérieur du poste de police accompagné de Frank Prescott et de M. Hawkins.");
 	
-	N("Vous voyez plus loin Jerry Carter en train de se faire embarqué dans une voiture, direction le couloir de la mort.");
-	N("Mr Hawkins vous explique qu'ayant trouver le vrai coupable, vous êtes libre.");
+	N("Vous voyez plus loin Jerry Carter en train de se faire embarquer dans une voiture, direction le couloir de la mort.");
+	N("Mr Hawkins vous explique qu'ayant trouvé le vrai coupable, vous êtes libre.");
 
 	End_Scene_4();
 }
 
 function Scene4_FrankGuilty(){
 	if(player == 1)
-		N("Vous avez été jugé compable");
+		N("Vous avez été jugé coupable.");
 	else 
-		N("Frank a été jugé coupable");
+		N("Frank a été jugé coupable.");
 
 	N("Pensez-vous avoir fait les bons choix ?");
 }
 
 function Scene4_AnnaGuilty(){
 	if(player == 2)
-		N("Vous avez été jugé compable");
+		N("Vous avez été jugé coupable.");
 	else 
-		N("Anna a été jugé coupable");
+		N("Anna a été jugé coupable.");
 
 	N("Pensez-vous avoir fait les bons choix ?");
 }
@@ -183,9 +182,9 @@ function Scene4_BadEnd(){
 
 
 	if(player == 1)
-		N("Vous voyez aussi Mr Carter vous regardant avec un regard vicieux et satisfait. ");
+		N("Vous voyez aussi Mr Carter vous regardant avec un regard vicieux et satisfait.");
 	else
-		N("Vous voyez aussi Mr Carter regardant Frank avec un regard vicieux et satisfait. ");
+		N("Vous voyez aussi Mr Carter regardant Frank avec un regard vicieux et satisfait.");
 
 	Wait(1000);
 	PlaySound("sfx", "car_door_and_engine_start");
