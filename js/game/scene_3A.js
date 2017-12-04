@@ -148,7 +148,7 @@ function Scene_3A_AnnaIsSuggestingAMobile(message){
 	A("Oui.");
 	A("Et plus d'une fois.");
 
-	I("Pafait.");
+	I("Parfait.");
 	PlaySound("sfx", "laugh_bad_cop");
 	Wait(4000);
 	// TODO : en italic : "prend des notes"

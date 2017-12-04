@@ -145,7 +145,7 @@ function Scene4_FrankGuilty(){
 		N("Arrivé devant la voiture, vous vous retournez.");
 		N("Vous échangez un regard rempli de haine avec Anna.");
 		N("Vous remarquez alors que les inspecteurs Carter et Hawkins sont sortis pour voir le déroulement de l'opération.");
-		N("Vous voyez aussi que M. Carter vous regarde avec un regard vicieux et satafisfait.");
+		N("Vous voyez aussi que M. Carter vous regarde avec un regard vicieux et satisfait.");
 		
 		Wait(1000);
 		PlaySound("sfx", "car_door_and_engine_start");

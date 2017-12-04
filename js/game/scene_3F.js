@@ -56,7 +56,7 @@ function Scene_3F_Part2(message){
 		I("A ce rythme là, si vos versions divergent trop vous serez tous les deux jugés coupables.");
 		I("Mais c'est peut être elle qui ment...");
 		I("Je ne peux pas encore délier le vrai du faux.");
-		I("Je me ferai une idée par rapport à ce que vous me dites par la suite.");
+		I("Je me ferai une idée par rapport à ce que vous me direz par la suite.");
 	}
 	else{
 		AnnaFrankAgreedAboutRelationship1 = true;
