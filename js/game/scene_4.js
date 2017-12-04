@@ -146,7 +146,10 @@ function Scene4_FrankGuilty(){
 		N("Vous échangez un regard rempli de haine avec Anna.");
 		N("Vous remarquez alors que les inspecteurs Carter et Hawkins sont sortis pour voir le déroulement de l'opération.");
 		N("Vous voyez aussi que M. Carter vous regarde avec un regard vicieux et satafisfait.");
-		// Todo : portière + démarage voiture
+		
+		Wait(1000);
+		PlaySound("sfx", "car_door_and_engine_start");
+		Wait(4000);
 	}
 	else {
 		N("Arrivé devant la voiture, Frank se retourne avec un regard empli de haine.");
@@ -190,7 +193,10 @@ function Scene4_AnnaGuilty(){
 		N("Vous échangez un regard rempli de haine avec Frank.");
 		N("Vous remarquez alors que les inspecteurs Carter et Hawkins sont sortis pour voir le déroulement de l'opération.");
 		N("Vous voyez aussi que Mr Carter reagrde Frank de travers, comme si les choses ne c'étaient pas passées comme prévu.");
-		// Todo : portière + démarage voiture
+		
+		Wait(1000);
+		PlaySound("sfx", "car_door_and_engine_start");
+		Wait(4000);
 	}
 	else {
 		N("Arrivée devant la voiture, Anna se retourne avec un regard empli de haine.");
