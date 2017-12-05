@@ -274,4 +274,5 @@ function Scene4_BadEnd(){
 
 function End_Scene_4(){
 	Clear();
+	Credits();
 }

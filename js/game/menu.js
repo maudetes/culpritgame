@@ -1,3 +1,6 @@
+var gameInfo = false;
+var credits = false;
+
 function Start(){
 
 	$ = {};
@@ -13,7 +16,8 @@ function Start(){
 
 	Choose({
 		"Commencer une partie.": Room,
-		"C'est quoi ce jeu ?": Credits
+		"C'est quoi ce jeu ?": WhatIsThisGame,
+		"Voir les crédits.": ShowCredits
 	});
 }
 
@@ -66,7 +70,8 @@ function Launch_Game(){
 		Start_Scene_2A();*/
 }
 
-function Credits(message){
+function WhatIsThisGame(message){
+	gameInfo = true;
 
 	P(message);
 	
@@ -82,12 +87,40 @@ function Credits(message){
 
 	P("Wow ! Vous avez tout fait vous-même ?");
 
-	N("Non, pas TOUT !");
-	N("De nombreuses inspirations nous viennent du domaine public.")
-	N("Toutes nos sources et inspirations sont citées dans les crédits.")
-	N("Es-tu prêt à jouer maintenant ?")
+	if (credits){
+		N("Non ! Comme dit dans les crédits, on a utilisé beaucoup de ressources en creative commons.");
+		N("Tu peux retourner les lire si besoin.");
+	} else {
+		N("Non, pas TOUT !");
+		N("De nombreuses inspirations nous viennent du domaine public.");
+		N("Toutes nos sources et inspirations sont citées dans les crédits.");
+	}
 
-	Choose({
-			"Commencer la partie.": Room
+	N("Veux-tu jouer maintenant ?");
+
+	if (credits)
+		Choose({
+				"Commencer la partie.": Room,
+				"Revoir les crédits" : ShowCredits
+			});
+	else
+		Choose({
+				"Commencer la partie.": Room,
+				"Voir les crédits." : ShowCredits
+			});
+}
+
+function ShowCredits(message){
+	credits = true;
+	P(message);
+	Credits();
+	if (gameInfo)
+		Choose({
+			"Commencer une partie.": Room
+		});
+	else 
+		Choose({
+			"Commencer une partie.": Room,
+			"C'est quoi ce jeu ?": WhatIsThisGame
 		});
 }
