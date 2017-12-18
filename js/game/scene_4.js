@@ -56,6 +56,9 @@ function Start_Scene_4(){
 
 
 function Scene4_GoodEnd(){
+
+	PlaySound("bg","happy_end",{loop:-1, volume:0.7});
+
 	N("Suite aux interrogatoires, personne ne pouvait être jugé coupable.");
 
 	if(player == 1)
@@ -111,10 +114,14 @@ function Scene4_GoodEnd(){
 	N("Vous voyez plus loin Jerry Carter en train de se faire embarquer dans une voiture, direction le couloir de la mort.");
 	N("Mr Hawkins vous explique qu'ayant trouvé le vrai coupable, vous êtes libre.");
 
+	Wait(8000);
+
 	End_Scene_4();
 }
 
 function Scene4_FrankGuilty(){
+
+	PlaySound("bg","culprit_end",{loop:-1, volume:0.7});
 
 	N("A la fin des interrogatoires, " + ( player == 1 ? "vous avez" : "Frank a") + " été jugé coupable.");
 	N("Tandis que pour " + ( player == 1 ? "Anna" : "vous") + ", le jugement a été beaucoup plus clément : la liberté.");
@@ -159,9 +166,15 @@ function Scene4_FrankGuilty(){
 	}
 
 	N("Pensez-vous avoir fait les bons choix ?");
+
+	Wait(8000);
+
+	End_Scene_4();
 }
 
 function Scene4_AnnaGuilty(){
+
+	PlaySound("bg","culprit_end",{loop:-1, volume:0.7});
 
 	N("A la fin des interogatoires, " + ( player == 2 ? "vous avez" : "Anna a") + " été jugé coupable.");
 	N("Tandis que pour " + ( player == 2 ? "Frank" : "vous") + ", le jugement a été beaucoup plus clément : la liberté.");
@@ -170,7 +183,7 @@ function Scene4_AnnaGuilty(){
 
 	if(player == 2){
 		N("Frank avait tenté de vous incriminer en racontant que vous êtiez la responsable de cette sale affaire.");
-		N("Malgré le fait que cela ressemble à de la désignation gratuite, Frank a été plus convaincante que vous.");
+		N("Malgré le fait que cela ressemble à de la désignation gratuite, Frank a été plus convaincant que vous.");
 	}
 	else {
 		N("Vous aviez tenté d'incriminer ce dernier en racontant qu'il était le responsable de cette sale affaire.");
@@ -206,9 +219,16 @@ function Scene4_AnnaGuilty(){
 	}
 
 	N("Pensez-vous avoir fait les bons choix ?");
+
+	Wait(8000);
+
+	End_Scene_4();
 }
 
 function Scene4_BadEnd(){
+
+	PlaySound("bg","bad_end",{loop:-1, volume:0.7});
+
 	if(player == 1)
 		N("Suite aux interrogatoires, vous et Anna n'avez pas vraiment convaincu les inspecteurs.");
 	else
@@ -248,9 +268,9 @@ function Scene4_BadEnd(){
 
 
 	if(player == 1)
-		N("Anna et vous sortez du poste de police, direction la voiture qui vous enmenera en prison.");
+		N("Anna et vous sortez du poste de police, direction la voiture qui vous emmenera en prison.");
 	else 
-		N("Frank et vous sortez du poste de police, direction la voiture qui vous enmenera en prison.");
+		N("Frank et vous sortez du poste de police, direction la voiture qui vous emmenera en prison.");
 
 	N("Vous vous retournez afin de regarder derrière vous.");
 
@@ -269,10 +289,14 @@ function Scene4_BadEnd(){
 	N("Pensez-vous avoir fait les bons choix ?");
 
 	Wait(8000);
+
+	End_Scene_4();
 }
 
 
 function End_Scene_4(){
-	Clear();
-	Credits();
+	Choose({
+		"Voir les crédits." : function(){P("Voir les crédits"); Credits();},
+		"Recommencer." : function(){location.reload();},
+	});
 }
