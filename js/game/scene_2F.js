@@ -131,7 +131,7 @@ function Scene_2F_AngryAnna(message){
 
 	I("C'est pour ça que t'as tué Kate ?");
 
-	F("Nan, c'est pour ça qu'Anna l'a tué.");
+	F("Nan, c'est pour ça qu'Anna l'a tuée.");
 	FrankWantsAnnaInPrison = true;
 
 	Scene_2F_FrankRatsOut();
