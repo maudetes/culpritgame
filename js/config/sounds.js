@@ -22,6 +22,6 @@ Sound("slamming_door","sounds/sfx/slamming_door.ogg");
 ////////// SCENE_4 /////////////
 Sound("single_gun_shot","sounds/sfx/single_gun_shot.ogg");
 Sound("car_door_and_engine_start","sounds/sfx/car_door_and_engine_start.ogg");
-Sound("happy_end", "sounds/loops/happy_end.mp3");
-Sound("bad_end", "sounds/loops/bad_end.mp3");
-Sound("culprit_end", "sounds/loops/culprit_end.mp3");
+Sound("happy_end", "sounds/loops/happy_end.ogg");
+Sound("bad_end", "sounds/loops/bad_end.ogg");
+Sound("culprit_end", "sounds/loops/culprit_end.ogg");
