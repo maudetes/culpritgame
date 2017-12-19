@@ -35,7 +35,9 @@ function Credits(){
 	//IMAGES
 	N("Enfin, nous avons utilisé des images issues du site Freepix.");
 	N("En voici la liste :");
-	N("");
-	N("");
-	N("");
+	N("Silhouette of a family walking hand in hand de kjpargeter / Freepik sous la CC Attribution license (modifié).");	
+	N("White walls living room interior with red sofa de iconicbestiary / Freepik sous la CC Attribution license (modifié).");	
+	N("Elegant pack of business avatars de freepik sous la CC Attribution license (modifié).");	
+	N("Business meeting silhouettes de freepik sous la CC Attribution license (modifié).");	
+	N("Orange Businessmen Men Group Leader Business disponible sur http://maxpixel.freegreatpicture.com/photo-152572 sous la CC0 license (modifié).");	
 }
