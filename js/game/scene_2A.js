@@ -1,4 +1,4 @@
-// SCENE_2 : BEGINNING OF THE QUESTIONNING FOR ANNA
+// SCENE_2 : BEGINNING OF THE QUESTIONING FOR ANNA
 
 // Common vars
 var unknownNumber = false;
@@ -57,7 +57,7 @@ function Scene_2A_CorpseMurder(message){
 function Scene_2A_Part2(){
 	I("Vous êtes suspecte, ainsi que Frank Prescott.");
 	I("Ce dernier est interrogé par mon collègue Jerry Carter.");
-	I("Je vous rappelle qu'à la suite de cette interrogatoire, justice sera faite.");
+	I("Je vous rappelle qu'à la suite de cet interrogatoire, justice sera faite.");
 
 	Choose({
 		"Oui, je sais ..." : Scene_2A_Aware,
@@ -118,12 +118,12 @@ function Scene_2A_Sms(message){
 function Scene_2A_PanicKate(message){
 	A(message);
 
-	A("Frank commencait à lui faire peur.");
+	A("Frank commençait à lui faire peur.");
 	A("Mais, apparement, je suis arrivée trop tard.");
 
 	AnnaWantsFrankInPrison = true;
 
-	I("C'est bizarre, il y a aucune trace cet appel téléphonique dans \
+	I("C'est bizarre, il n'y a aucune trace de cet appel téléphonique dans \
 		le téléphone de Mme Stillwell.");
 	I("Par contre, on a trouvé un SMS accusateur vous étant adressée.");
 
@@ -313,7 +313,7 @@ function Scene_2A_After19h(message){
 	if (AnnaYouLiar > 0){
 		I("Qu'est-ce que vous insinuez là ?");
 		I("Vous vous rendez bien compte que votre histoire ne tient pas debout ?");
-		I("Vous m'avez déjà menti une fois, je vous avais prévenu de ne pas recommen--");
+		I("Vous m'avez déjà menti une fois, je vous avais prévenue de ne pas recommen--");
 		AnnaYouLiar++;
 	} else {
 		A("Est-ce que vous savez qui a prévenu la police ?");

@@ -20,7 +20,7 @@ function Start_Scene_1(){
 	else{
 		N("Tu es Anna Collins.");
 		N("Une hackeuse professionnelle qui n'hésite pas à s'allier aux criminels.");
-		N("Depuis quelque temps, tu collabores avec Frank Prescott, le chef de gang le plus influent de la ville.");
+		N("Depuis quelques temps, tu collabores avec Frank Prescott, le chef de gang le plus influent de la ville.");
 		N("Ensemble, vous préparez le braquage du siècle.");
 
 		Wait(3000);
@@ -71,11 +71,11 @@ function SceneOneNext(message){
 	A("Elle est morte ?!");
 	F("Elle respire plus...");
 	F("Trois balles en plein coeur...");
-	A("Mais putain qui aurait bien pu lui vouloir du mal ?");
+	A("Mais qui aurait bien pu lui vouloir du mal ?");
 	ChooseIf("Frank", {
-		"C'est peut-être un coup de ces connards de Costa Nostra.": Gang,
 		"J'ai trop d'ennemis pour en être sûr. Ca pourrait même être toi...": AccuseAnna,
-		"Elle n'avait rien à voir là dedans putain !": KateWasInnocent
+		"C'est peut-être un coup de ces mafieux de Costa Nostra.": Gang,
+		"Elle méritait pas ça, elle avait rien à voir là dedans !": KateWasInnocent
 	});
 }
 
@@ -158,7 +158,7 @@ function FrankNoCooperation(message){
 
 function FrankAccuses(message){
 	SendChoiceIf("Frank", room, "FrankAccuses", message);
-	F("Comment ça qu'est-ce quon fait ?!");
+	F("Comment ça qu'est-ce qu'on fait ?!");
 	F(message);
 	ChooseIf("Anna", {
 	"Je suis arrivée en même temps que toi, déconne pas.": AnnaCantBeMe,
@@ -200,7 +200,7 @@ function EndingAgreements(){
 	F("On sait rien sur cette histoire et on vient juste d’arriver..."); //(montrer l’heure)
 	F("On dit qu’on n’a même pas eu le temps de se parler…");
 	A("T’as rien qui pourrait te faire paraître suspect ?");
-	F("A part le fait qu’on est des criminels renommés ?");
+	F("À part le fait qu’on est des criminels renommés ?");
 	F("J’ai rien sur moi en tout cas...");
 	F("Et toi ?");
 	A("Non plus !");

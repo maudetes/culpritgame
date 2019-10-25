@@ -1,4 +1,4 @@
-// SCENE_3 : CONTINUATION OF THE QUESTIONNING FOR FRANK
+// SCENE_3 : CONTINUATION OF THE QUESTIONING FOR FRANK
 
 // Common vars
 var AnnaFrankTogether = false;
@@ -47,13 +47,13 @@ function Scene_3F_Part2(message){
 		|| (otherRecap.AnnaFrankTogether == false && FrankSaidRelionshipWas == "On est amants.")){
 		AnnaFrankAgreedAboutRelationship1 = false;
 
-		I("Etrange...");
+		I("Étrange...");
 		I("C'est pas ce que madame Collins m'a raconté.");
 		I("...");
 		PlaySound("sfx", "sigh");
 		Wait(3000);
 		
-		I("A ce rythme là, si vos versions divergent trop vous serez tous les deux jugés coupables.");
+		I("À ce rythme là, si vos versions divergent trop vous serez tous les deux jugés coupables.");
 		I("Mais c'est peut être elle qui ment...");
 		I("Je ne peux pas encore délier le vrai du faux.");
 		I("Je me ferai une idée par rapport à ce que vous me direz par la suite.");
@@ -106,14 +106,14 @@ function Scene_3F_Part4(message){
 	if(otherRecap.AnnaKateFriends != AnnaKateFriends){
 		AnnaFrankAgreedAboutRelationship2 = false;
 		if(AnnaFrankAgreedAboutRelationship1){
-			I("Etrange...");
-			I("C'est pas ce que Madame Collins m'a raconté.");
+			I("É trange...");
+			I("Ce n'est pas ce que Madame Collins m'a raconté.");
 			I("Je vous laisse le bénéfice du doute.");
 		}
 		else{
 			I("Encore une fois, vos versions ne concordent pas.");
 			I("Cela ne va pas nous aider à trouver le meurtrier.");
-			I("A croire que l'un de vous deux n'a vraiment pas envie qu'on enquête sérieusement.");
+			I("À croire que l'un de vous deux n'a vraiment pas envie qu'on enquête sérieusement.");
 
 			F("Moi je vous dis ce que je sais. Vous me croyez ou non.");
 		}
@@ -131,8 +131,8 @@ function Scene_3F_Part5(){
 
 	F("Est-ce que vous n'êtes pas sensé me demander qui aurait pu en vouloir à ma femme ?");
 
-	I("C'est pas à vous de poser les questions.");
-	I("Mais celle-ci est plutôt pertienente.");
+	I("Ce n'est pas à vous de poser les questions.");
+	I("Mais celle-ci est plutôt pertinente.");
 	I("Vous pensiez à quelqu'un en particulier ?");
 
 	Choose({
@@ -146,13 +146,13 @@ function Scene_3F_FrankBlamesNoOne(message){
 	F(message);
 
 	I("Je vois que monsieur est joueur.");
-	I("On verra quelle attitude t'auras une fois jugé.");
+	I("On verra quelle attitude vous aurez une fois jugé.");
 
 	Scene_3F_Part5();
 }
 function Scene_3F_FrankBlamesHisEnnemies(message){
 	F(message);
-	F("On a sûrement chercher à m'atteindre à travers elle.");
+	F("On a sûrement cherché à m'atteindre à travers elle.");
 
 	I("Pourquoi ?");
 
@@ -177,7 +177,7 @@ function Scene_3F_FrankBlamesHisEnnemiesPart2(message){
 	}
 	else{
 		Choose({
-			"L'autre inspecteur, Monsieur MachinChose." : Scene_3F_FrankBlamesBadCop,
+			"Votre collègue là, Jerry MachinChose." : Scene_3F_FrankBlamesBadCop,
 			"Il y a plus d'une personne à avoir une dent contre moi dans cette ville." : Scene_3F_FrankBlamesHisEnnemiesPart3,
 			"Anna Collins." : Scene_3F_FrankBlamesHisEnnemiesPart3
 		});
@@ -231,7 +231,7 @@ function Scene_3F_FrankBlamesAnna(message){
 	else{
 		F("Je ne sais pas encore.");
 
-		I("Ca me semble être une accusation grauite !");
+		I("Ça me semble être une accusation grauite !");
 	}
 
 	I("Pourquoi vous croirai-je ?");
@@ -255,7 +255,7 @@ function Scene_3F_Part5(){
 
 	F("...");
 
-	I("A quelle heure êtes-vous arrivé sur les lieux du crime.");
+	I("À quelle heure êtes-vous arrivé sur les lieux du crime.");
 
 	Choose({
 		"Aux alentours de 19h." : Scene_3F_Around19h,
@@ -272,8 +272,8 @@ function Scene_3F_Around19h(message){
 	F("Oui, ils sont arrivés juste après.");
 
 	if(otherRecap.whoCalledThePolice){
-		I("Anna a mentionné quelque chose de similaire en effet.");
-		I("On n'a pas encore réussi à trouver qui à appeler la police.");
+		I("Anna a mentionné quelque chose de similaire, en effet.");
+		I("On n'a pas encore réussi à trouver qui a appeler la police.");
 	}
 	else{
 		I("Ok.");
@@ -323,7 +323,7 @@ function Scene_3F_AfterAnna(message){
 
 function Scene_3F_Part6(){
 	I("Bon.");
-	I("Je n'ai pas d'autres questions pour le moment.");
+	I("Je n'ai pas d'autre question pour le moment.");
 	I("Merci pour toutes ces informations");
 	if(FrankBlamesBadCop){
 		I("Je vais enquêter du côté de Jerry Carter.");

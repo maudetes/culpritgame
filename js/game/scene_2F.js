@@ -1,4 +1,4 @@
-// SCENE_2 : BEGINNING OF THE QUESTIONNING FOR FRANK
+// SCENE_2 : BEGINNING OF THE QUESTIONING FOR FRANK
 
 // Common vars
 var FrankYouLiar = 0;
@@ -18,9 +18,9 @@ function Start_Scene_2F(){
 	I("J'espère que je t'ai pas manqué depuis le temps ?");
 
 	Choose({
-		"Non, moins on se voit, mieux on se porte." : Scene_2F_DontMissYou,
+		"Non, moins on se voit, mieux je me porte." : Scene_2F_DontMissYou,
 		"On se connaît ?" : Scene_2F_DoWeKnowEachOther,
-		"Ca ne fait pas si longtemps que l'on s'est vu." : Scene_2F_NotLongTime
+		"Ça ne fait pas si longtemps que l'on s'est vu." : Scene_2F_NotLongTime
 	});
 }
 
@@ -56,7 +56,7 @@ function Scene_2F_Part2(){
 	I("Tu connais bien la procédure, mais la loi m'oblige à te la rappeler.");
 	I("Tu es l'un des principaux suspects dans le meurtre de ta femme, Kate Stillwell.");
 	I("Tout ce que tu diras pourra être retenu contre toi.");
-	I("A la fin de cet interrogatoire, justice sera faite.");
+	I("À la fin de cet interrogatoire, justice sera faite.");
 
 	I("Pourquoi étais-tu sur le lieu du crime ?");
 
@@ -101,7 +101,7 @@ function Scene_2F_ComeBackHome (message){
 function Scene_2F_ClarifyingKate (message){
 	F(message);
 
-	I("A propos de quoi ?");
+	I("À propos de quoi ?");
 
 	Scene_2F_ImportantChoice();
 }
@@ -160,7 +160,7 @@ function Scene_2F_DontSee(message){
 	I("Tu sais bien que je parles d'Anna Collins.");
 	I("D'ailleurs, elle est actuellement en train d'être interrogée par mon collègue.");
 	I("Donc, si j'étais toi, je ne ferai pas trop le malin.");
-	I("Si vos 2 versions ne concordent pas, tu vas y passer.");
+	I("Si vos deux versions ne concordent pas, tu vas y passer.");
 
 	Scene_2F_BadCopIsLosingHisShit();
 }
@@ -170,9 +170,9 @@ function Scene_2F_FrankInnocent(message){
 	
 	I("Qui est le coupable alors ?");
 
-	F("Ton coupab-- ...");
+	F("Ton coupab--");
 	F("Non.");
-	F("TA coupable est dans la salle d'à coté.");
+	F("TA coupable est dans la salle d'à côté.");
 	FrankWantsAnnaInPrison = true;
 
 	Scene_2F_FrankRatsOut();
@@ -196,7 +196,7 @@ function Scene_2F_NoCrime(message){
 	
 	I("Je ne fais qu'énoncer les possibili--");
 
-	F("T'essayes surtout de m'accuser à tort et sans preuves.");
+	F("T'essayes surtout de m'accuser à tort et sans preuve.");
 	F("Tu perds ton temps avec moi.");
 
 	Scene_2F_BadCopIsLosingHisShit();
@@ -228,7 +228,7 @@ function Scene_2F_BadCopIsLosingHisShit(){
 	F("Alors arrête ton cinéma, gamin.");
 
 	I("Gamin ?!");
-	I("Redis ça une seule fois, et... !");
+	I("Redis ça une seule fois, et--");
 	PlaySound("sfx", "fist_on_table");
 	Wait(3000);
 
@@ -257,7 +257,7 @@ function Scene_2F_FrankRatsOut(){
 	F("Pardon ?");
 	F("Tu n'as aucune preuve. Rien.");
 
-	I("Je te permets pas d'être condescendant avec moi.");
+	I("Je ne te permets pas d'être condescendant avec moi.");
 	I("C'est moi qui ait le pouvoir ici, alors fais pas le malin.");
 
 	Scene_2F_Part3();
@@ -272,7 +272,7 @@ function Scene_2F_BadCopIsHappy(){
 	F("Je te conseille d'arrêter de me parler comme ça, gamin.")
 	F("Tu n'as aucune preuve. Rien.");
 
-	I("Je te permets pas d'être condescendant avec moi.");
+	I("Je ne te permets pas d'être condescendant avec moi.");
 	I("C'est moi qui ait le pouvoir ici, alors fais pas le malin.");
 
 	Scene_2F_Part3();
@@ -333,7 +333,7 @@ function Scene_2F_FrankCooperates(message){
 	I("Qui a tué Kate Stillwell.");
 
 	Choose({
-		"Je sais pas, mais il n'a pas intérêt à ce que je le trouve." : Scene_2F_FrankAngryAboutTheMurderer,
+		"Je ne sais pas, mais il n'a pas intérêt à ce que je le trouve." : Scene_2F_FrankAngryAboutTheMurderer,
 		"Anna, j'en suis sûr." : Scene_2F_FrankRatsOut2,
 		"Je ne peux coopérer que sur ce que je sais." : Scene_2F_FrankCooperatesOnlyWhenHeCan
 	});
@@ -346,7 +346,7 @@ function Scene_2F_FrankAngryAboutTheMurderer(message){
 
 	F("Qu'est-ce que tu veux dire ?");
 
-	I("Arrête de jouer l'innocent s'il te plaît.");
+	I("Arrête de jouer l'innocent s'il-te-plaît.");
 	I("Que ce soit dans cette affaire ou dans toutes les autres où tu es trempé jusqu'au cou.");
 
 	F("On parle du meurtre de ma femme là.");
@@ -381,7 +381,7 @@ function Scene_2F_FrankRatsOut2(message){
 function Scene_2F_FrankCooperatesOnlyWhenHeCan(message){
 	F(message);
 
-	I("Ca ne m'aide pas beaucoup.");
+	I("Ça ne m'aide pas beaucoup.");
 	I("Et c'est pas comme ça que tu vas t'en sortir.");
 	I("Fais un effort...");
 

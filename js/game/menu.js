@@ -1,3 +1,5 @@
+// MENU: FIRST DISPLAYED SCREEN
+
 var gameInfo = false;
 var credits = false;
 
@@ -10,8 +12,8 @@ function Start(){
 	//////////////////////////////
 
 	N("THE CULPRIT GAME");
-	N("Un jeu narratif à partager à 2.");
-	N("Est-ce que tu as 20 minutes et un ami pour y jouer ?");
+	N("Un jeu narratif à partager à deux.");
+	N("Est-ce que tu as 20 minutes et un·e ami·e pour y jouer ?");
 	N("N'oublie pas de passer en mode plein écran (F11) et d'utiliser des écouteurs.");
 
 	Choose({
@@ -23,17 +25,17 @@ function Start(){
 
 function Room(message){
 	P(message);
-	N("Veux-tu rejoindre la partie d'un ami, créer une partie ou jouer avec le premier venu ?");
+	N("Veux-tu rejoindre la partie d'un·e ami·e, créer une partie ou jouer avec un·e inconnu·e ?");
 	Choose({
-		"Rejoindre la partie d'un ami.": FindFriend,
+		"Rejoindre la partie d'un·e ami·e.": FindFriend,
 		"Créer une partie.": WaitFriend,
-		"Jouer avec un inconnu, au dépit de ce que me disait ma maman.": FindForeigner
+		"Jouer avec un·e inconnu·e, au dépit de ce que me disait ma maman.": FindForeigner
 	});
 }
 
 function FindFriend(message){
 	P(message);
-	N("Ecris le nom de code que t'as donné ton ami pour le rejoindre.");
+	N("Écris le nom de code que t'as donné ton ami·e pour rejoindre sa partie.");
 	document.getElementById("room_name").style.visibility = "visible";
 	document.getElementById("room_name").title = "findFriend";
 
@@ -41,7 +43,7 @@ function FindFriend(message){
 
 function WaitFriend(message){
 	P(message);
-	N("Ecris un nom de code que tu pourras partager à ton ami pour qu'il te rejoigne.");
+	N("Ecris un nom de code que tu pourras partager à ton ami·e pour pouvoir te rejoindre.");
 	document.getElementById("room_name").style.visibility = "visible";
 	document.getElementById("room_name").title = "waitForFriend";
 }
@@ -88,7 +90,7 @@ function WhatIsThisGame(message){
 	P("Wow ! Vous avez tout fait vous-même ?");
 
 	if (credits){
-		N("Non ! Comme dit dans les crédits, on a utilisé beaucoup de ressources en creative commons.");
+		N("Non ! Comme dit dans les crédits, nous avons utilisé beaucoup de ressources en Creative Commons (CC).");
 		N("Tu peux retourner les lire si besoin.");
 	} else {
 		N("Non, pas TOUT !");
