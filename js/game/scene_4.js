@@ -10,33 +10,33 @@ function Start_Scene_4() {
 	// We instantiate the missing variables to have a code common to the 2 players afterwards.
 	if (player == 1) {
 		// Scene 2A
-		var AnnaYouLiar = otherRecap.AnnaYouLiar;
-		var unknownNumber = otherRecap.unknownNumber;
-		var AnnaFrankTogether = otherRecap.AnnaFrankTogether;
-		var whoCalledThePolice = otherRecap.whoCalledThePolice;
-		var AnnaWantsFrankInPrison = otherRecap.AnnaWantsFrankInPrison;
-		var AnnaYouHacker = otherRecap.AnnaYouHacker;
-		var AnnaArrivedAfterFrank = otherRecap.AnnaArrivedAfterFrank;
-		var AnnaKateFriends = otherRecap.AnnaKateFriends;
+		AnnaYouLiar = otherRecap.AnnaYouLiar;
+		unknownNumber = otherRecap.unknownNumber;
+		AnnaFrankTogether = otherRecap.AnnaFrankTogether;
+		whoCalledThePolice = otherRecap.whoCalledThePolice;
+		AnnaWantsFrankInPrison = otherRecap.AnnaWantsFrankInPrison;
+		AnnaYouHacker = otherRecap.AnnaYouHacker;
+		AnnaArrivedAfterFrank = otherRecap.AnnaArrivedAfterFrank;
+		AnnaKateFriends = otherRecap.AnnaKateFriends;
 
 		// Scene 3A
-		var Immunity = otherRecap.Immunity;
-		var AnnaNoticedBadCopBluffed = otherRecap.AnnaNoticedBadCopBluffed;
+		Immunity = otherRecap.Immunity;
+		AnnaNoticedBadCopBluffed = otherRecap.AnnaNoticedBadCopBluffed;
 	} else {
 		// Scene 2F
-		var BadCopIsAngry = otherRecap.BadCopIsAngry;
-		var FrankYouLiar = otherRecap.FrankYouLiar;
-		var FrankWantsAnnaInPrison = otherRecap.FrankWantsAnnaInPrison;
-		var FrankHoldUp = otherRecap.FrankHoldUp;
+		BadCopIsAngry = otherRecap.BadCopIsAngry;
+		FrankYouLiar = otherRecap.FrankYouLiar;
+		FrankWantsAnnaInPrison = otherRecap.FrankWantsAnnaInPrison;
+		FrankHoldUp = otherRecap.FrankHoldUp;
 
 		// Scene 3F
-		var AnnaFrankTogether = otherRecap.AnnaFrankTogether;
-		var AnnaFrankAgreedAboutRelationship1 = otherRecap.AnnaFrankAgreedAboutRelationship1;
-		var AnnaFrankAgreedAboutRelationship2 = otherRecap.AnnaFrankAgreedAboutRelationship2;
-		var AnnaKateFriends = otherRecap.AnnaKateFriends;
-		var FrankSaidRelationshipWas = otherRecap.FrankSaidRelationshipWas;
-		var FrankBlamesBadCop = otherRecap.FrankBlamesBadCop;
-		var FrankArrivedAfterAnna = otherRecap.FrankArrivedAfterAnna;
+		AnnaFrankTogether = otherRecap.AnnaFrankTogether;
+		AnnaFrankAgreedAboutRelationship1 = otherRecap.AnnaFrankAgreedAboutRelationship1;
+		AnnaFrankAgreedAboutRelationship2 = otherRecap.AnnaFrankAgreedAboutRelationship2;
+		AnnaKateFriends = otherRecap.AnnaKateFriends;
+		FrankSaidRelationshipWas = otherRecap.FrankSaidRelationshipWas;
+		FrankBlamesBadCop = otherRecap.FrankBlamesBadCop;
+		FrankArrivedAfterAnna = otherRecap.FrankArrivedAfterAnna;
 	}
 
 	if ((AnnaYouLiar < 2) && (FrankYouLiar < 2) && (whoCalledThePolice) && (AnnaNoticedBadCopBluffed

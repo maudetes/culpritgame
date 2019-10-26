@@ -165,19 +165,18 @@ function Scene_3F_FrankBlamesHisEnemiesPart2(message) {
 
 	I("Avez-vous des noms ?");
 
-	if(BadCopIsAngry >= 2){
-		Choose({
-			"M. Putito, chef du gang Cosa Nostra." : Scene_3F_FrankBlamesHisEnnemiesPart3,
-			"Il y a plus d'une personne à avoir une dent contre moi dans cette ville." : Scene_3F_FrankBlamesHisEnnemiesPart3,
-			"Anna Collins." : Scene_3F_FrankBlamesHisEnnemiesPart3
-		});
-	}
-	else{
-		Choose({
-			"Votre collègue là, Jerry MachinChose." : Scene_3F_FrankBlamesBadCop,
-			"Il y a plus d'une personne à avoir une dent contre moi dans cette ville." : Scene_3F_FrankBlamesHisEnnemiesPart3,
-			"Anna Collins." : Scene_3F_FrankBlamesHisEnnemiesPart3
-		});
+	if (BadCopIsAngry >= 2) {
+	    Choose({
+            "Votre collègue là, Jerry MachinChose." : Scene_3F_FrankBlamesBadCop,
+            "Il y a plus d'une personne à avoir une dent contre moi dans cette ville." : Scene_3F_FrankBlamesHisEnemiesPart3,
+            "Anna Collins." : Scene_3F_FrankBlamesHisEnemiesPart3
+        });
+	} else {
+	    Choose({
+            "M. Putito, chef du gang Cosa Nostra." : Scene_3F_FrankBlamesHisEnemiesPart3,
+            "Il y a plus d'une personne à avoir une dent contre moi dans cette ville." : Scene_3F_FrankBlamesHisEnemiesPart3,
+            "Anna Collins." : Scene_3F_FrankBlamesHisEnemiesPart3
+        });
 	}
 }
 
