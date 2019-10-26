@@ -1,10 +1,10 @@
-// SCENE_1 : PROLOGUE
+// SCENE_1: PROLOGUE
 
 function Start_Scene_1(){
 
 	/////// INTRO ////////
 	Clear();
-	if (player == 1){
+	if (player == 1) {
 		N("Tu es Frank Prescott.");
 		N("Un chef de gang bien connu des services de police.");
 		N("Afin de préparer le braquage du siècle, tu t'es récemment allié à Anna Collins.");
@@ -16,8 +16,7 @@ function Start_Scene_1(){
 		N("Ils t'ont été envoyés par ta femme, Kate Stillwell.");
 		Wait(1000);
 		Show("background","phone_male");
-	}
-	else{
+	} else {
 		N("Tu es Anna Collins.");
 		N("Une hackeuse professionnelle qui n'hésite pas à s'allier aux criminels.");
 		N("Depuis quelques temps, tu collabores avec Frank Prescott, le chef de gang le plus influent de la ville.");
@@ -44,10 +43,11 @@ function Start_Scene_1(){
 	Wait(5000);
 	/////////////////////////////
 
-	if (player == 1)
+	if (player == 1) {
 		Show("background","scene1_male");
-	else
+	} else {
 		Show("background","scene1_female");
+    }
 
 	F("Putain, non ! Kate !");
 	A("Merde !");
@@ -63,7 +63,7 @@ function Start_Scene_1(){
 	});
 }
 
-function SceneOneNext(message){
+function SceneOneNext(message) {
 	SendChoiceIf("Anna", room, "SceneOneNext", message);
 	A(message);
 	F("J'en sais rien !");
@@ -79,7 +79,7 @@ function SceneOneNext(message){
 	});
 }
 
-function Gang(message){
+function Gang(message) {
 	SendChoiceIf("Frank", room, "Gang", message);
 	F(message);
 	F("Le gang a du flairer qu'on préparait un truc...");
@@ -88,7 +88,7 @@ function Gang(message){
 	Siren();
 }
 
-function AccuseAnna(message){
+function AccuseAnna(message) {
 	SendChoiceIf("Frank", room, "AccuseAnna", message);
 	F(message);
 	ChooseIf("Anna", {
@@ -98,33 +98,33 @@ function AccuseAnna(message){
 	});
 }
 
-function KateWasInnocent(message){
+function KateWasInnocent(message) {
 	SendChoiceIf("Frank", room, "KateWasInnocent", message);
 	F(message);
 	Siren();
 }
 
-function AnnaSavedYou(message){
+function AnnaSavedYou(message) {
 	SendChoiceIf("Anna", room, "AnnaSavedYou", message);
 	A(message);
 	A("J'tai sauvé la mise plusieurs fois, déconne pas !");
 	Siren();
 }
 
-function AnnaIsNotKidding(message){
+function AnnaIsNotKidding(message) {
 	SendChoiceIf("Anna", room, "AnnaIsNotKidding", message);
 	A(message);
 	A("Si je voulais te faire plonger, tu remonterais pas à la surface...");
 	Siren();
 }
 
-function AnnaAccusesFrank(message){
+function AnnaAccusesFrank(message) {
 	SendChoiceIf("Anna", room, "AnnaAccusesFrank", message);
 	A(message);
 	Siren();
 }
 
-function Siren(){
+function Siren() {
 	PlaySound("sfx","police_siren");
 	Wait(2000);
 	F("Merde, les flics !");
@@ -136,7 +136,7 @@ function Siren(){
 	});
 }
 
-function FrankCooperation(message){
+function FrankCooperation(message) {
 	SendChoiceIf("Frank", room, "FrankCooperation", message);
 	F(message);
 	ChooseIf("Anna", {
@@ -146,7 +146,7 @@ function FrankCooperation(message){
 	});
 }
 
-function FrankNoCooperation(message){
+function FrankNoCooperation(message) {
 	SendChoiceIf("Frank", room, "FrankNoCooperation", message);
 	F(message);
 	ChooseIf("Anna", {
@@ -156,7 +156,7 @@ function FrankNoCooperation(message){
 	});
 }
 
-function FrankAccuses(message){
+function FrankAccuses(message) {
 	SendChoiceIf("Frank", room, "FrankAccuses", message);
 	F("Comment ça qu'est-ce qu'on fait ?!");
 	F(message);
@@ -167,33 +167,33 @@ function FrankAccuses(message){
 	});
 }
 
-function BothWantCooperation(message){
+function BothWantCooperation(message) {
 	SendChoiceIf("Anna", room, "BothWantCooperation", message);
 	A(message);
 	EndingAgreements();
 }
 
-function AnnaAnswers(message){
+function AnnaAnswers(message) {
 	SendChoiceIf("Anna", room, "AnnaAnswers", message);
 	A(message);
 	End_Scene_1();
 }
 
-function AnnaCantBeMe(message){
+function AnnaCantBeMe(message) {
 	SendChoiceIf("Anna", room, "AnnaCantBeMe", message);	
 	A("Mais ça peut pas être moi !");
 	A(message);
 	End_Scene_1();
 }
 
-function AnnaCantGoToPrison(message){
+function AnnaCantGoToPrison(message) {
 	SendChoiceIf("Anna", room, "AnnaCantGoToPrison", message);	
 	A("Sérieusement ?!");
 	A(message);
 	End_Scene_1();
 }
 
-function EndingAgreements(){
+function EndingAgreements() {
 	A("Pas un mot sur le braquage !");
 	A("Et on est ici à cause du SMS, ok ?");
 	F("Ok...");
@@ -212,7 +212,7 @@ function EndingAgreements(){
 	"Oui, mais on dit que c’était seulement l’histoire d’un soir...": EndingAgreementNext
 	});
 }
-function EndingAgreementNext(message){
+function EndingAgreementNext(message) {
 	SendChoiceIf("Frank", room, "EndingAgreementNext", message);
 	F(message);
 	F("Par contre, on précise qu'on est arrivés chacun de notre côté...");
@@ -222,7 +222,7 @@ function EndingAgreementNext(message){
 	End_Scene_1();
 }
 
-function End_Scene_1(){
+function End_Scene_1() {
 	Clear();
 	N("La police est arrivée sur place.");
 	N("Elle vous trouve tous les deux aux côtés de la victime.");
@@ -231,8 +231,9 @@ function End_Scene_1(){
 
 	Wait(6000);
 	
-	if(player == 1)
+	if (player == 1) {
 		Start_Scene_2F();
-	else
+	} else {
 		Start_Scene_2A();
+    }
 }

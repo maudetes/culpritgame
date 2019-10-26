@@ -1,4 +1,4 @@
-// SCENE_2 : BEGINNING OF THE QUESTIONING FOR ANNA
+// SCENE_2: BEGINNING OF THE QUESTIONING FOR ANNA
 
 // Common vars
 var unknownNumber = false;
@@ -10,7 +10,7 @@ var AnnaYouHacker = false;
 var AnnaArrivedAfterFrank = false;
 var AnnaKateFriends = false;
 
-function Start_Scene_2A(){
+function Start_Scene_2A() {
 
 	/////// SET UP SCENE ////////
 	Clear();	
@@ -27,7 +27,7 @@ function Start_Scene_2A(){
 	});	
 }
 
-function Scene_2A_KateMurder(message){
+function Scene_2A_KateMurder(message) {
 	A(message);
 
 	I("En effet, c'est bien pour cette raison.");
@@ -36,7 +36,7 @@ function Scene_2A_KateMurder(message){
 
 }
 
-function Scene_2A_LeaveAlone(message){
+function Scene_2A_LeaveAlone(message) {
 	A(message);
 
 	I("Vous avez été retrouvée sur la scène d'un meurtre.");
@@ -45,7 +45,7 @@ function Scene_2A_LeaveAlone(message){
 	Scene_2A_Part2();
 }
 
-function Scene_2A_CorpseMurder(message){
+function Scene_2A_CorpseMurder(message) {
 	A(message);
 
 	I("Jouez pas au plus fin avec moi, on est pas ici pour rigoler.");
@@ -54,7 +54,7 @@ function Scene_2A_CorpseMurder(message){
 	Scene_2A_Part2();
 }
 
-function Scene_2A_Part2(){
+function Scene_2A_Part2() {
 	I("Vous êtes suspecte, ainsi que Frank Prescott.");
 	I("Ce dernier est interrogé par mon collègue Jerry Carter.");
 	I("Je vous rappelle qu'à la suite de cet interrogatoire, justice sera faite.");
@@ -63,10 +63,10 @@ function Scene_2A_Part2(){
 		"Oui, je sais ..." : Scene_2A_Aware,
 		"J'ai le droit à un avocat ?" : Scene_2A_Avocado,
 		"Je suis pas sûre qu'il y ait une justice dans ce pays." : Scene_2A_Revolution
-	})
+	});
 }
 
-function Scene_2A_Aware(message){
+function Scene_2A_Aware(message) {
 	A(message);
 
 	I("Très bien, vous savez à quoi vous attendre.");
@@ -74,7 +74,7 @@ function Scene_2A_Aware(message){
 	Scene_2A_Part3();
 }
 
-function Scene_2A_Avocado(message){
+function Scene_2A_Avocado(message) {
 	A(message);
 
 	I("Quoi ? Vous avez déjà faim ?");
@@ -88,7 +88,7 @@ function Scene_2A_Avocado(message){
 	Scene_2A_Part3();
 }
 
-function Scene_2A_Revolution(message){
+function Scene_2A_Revolution(message) {
 	A(message);
 
 	I("On est pas ici pour débattre sur la justice.");
@@ -97,7 +97,7 @@ function Scene_2A_Revolution(message){
 	Scene_2A_Part3();
 }
 
-function Scene_2A_Part3(){
+function Scene_2A_Part3() {
 	I("Revenons-en aux faits.");
 	I("Pouvez-vous m'expliquer ce que vous faisiez sur le lieu du crime ?");
 
@@ -108,14 +108,14 @@ function Scene_2A_Part3(){
 	});
 }
 
-function Scene_2A_Sms(message){
+function Scene_2A_Sms(message) {
 	A(message);
 	A("Elle voulait que j'aille chez elle.");
 
 	Scene_2A_ImportantChoice();
 }
 
-function Scene_2A_PanicKate(message){
+function Scene_2A_PanicKate(message) {
 	A(message);
 
 	A("Frank commençait à lui faire peur.");
@@ -140,7 +140,7 @@ function Scene_2A_PanicKate(message){
 	Scene_2A_ImportantChoice();
 }
 
-function Scene_2A_ClarifyingKate(message){
+function Scene_2A_ClarifyingKate(message) {
 	A(message);
 
 	I("A quel sujet ?");
@@ -148,7 +148,7 @@ function Scene_2A_ClarifyingKate(message){
 	Scene_2A_ImportantChoice();
 }
 
-function Scene_2A_ImportantChoice(){
+function Scene_2A_ImportantChoice() {
 	Choose({
 		"Elle s'imaginait des choses entre Frank et moi." : Scene_2A_AFnotTogether,
 		"Elle pensait que je participais aux magouilles de son mari." : Scene_2A_Fmafiosi,
@@ -175,7 +175,7 @@ function Scene_2A_AFnotTogether(message){
 	Scene_2A_Part4();
 }
 
-function Scene_2A_Fmafiosi(message){
+function Scene_2A_Fmafiosi(message) {
 	A(message);
 
 	I("C'est à dire ?");
@@ -202,7 +202,7 @@ function Scene_2A_Fmafiosi(message){
 	Scene_2A_Part4();
 }
 
-function Scene_2A_AFTogether(message){
+function Scene_2A_AFTogether(message) {
 	A(message);
 
 	AnnaFrankTogether = true;
@@ -216,7 +216,7 @@ function Scene_2A_AFTogether(message){
 	Scene_2A_Part4();
 }
 
-function Scene_2A_Part4(){
+function Scene_2A_Part4() {
 	I("Passons à la suite.");
 	I("Quel était votre lien avec Kate Stillwell ?");
 
@@ -227,7 +227,7 @@ function Scene_2A_Part4(){
 	});
 }
 
-function Scene_2A_KateIsAStranger(message){
+function Scene_2A_KateIsAStranger(message) {
 	A(message);
 	A("Je voyais bien qui elle était, mais je ne lui avais jamais parlé.");
 
@@ -242,12 +242,12 @@ function Scene_2A_KateIsAStranger(message){
 	Scene_2A_Part5();
 }
 
-function Scene_2A_KateIsAFriend(message){
+function Scene_2A_KateIsAFriend(message) {
 	A(message);
 
 	AnnaKateFriends = true;
 
-	if (AnnaFrankTogether){
+	if (AnnaFrankTogether) {
 		I("Votre amie vous dîtes ?");
 		I("Pourtant vous entreteniez une relation avec son mari.");
 
@@ -256,8 +256,7 @@ function Scene_2A_KateIsAFriend(message){
 		I("...");
 		PlaySound("sfx", "sigh");
 		Wait(3000);
-	}
-	else{
+	} else {
 		I("Est-ce que vous avez une idée de pourquoi elle aurait pu être assassinée ?");
 
 		A("Non, aucune idée.");
@@ -268,7 +267,7 @@ function Scene_2A_KateIsAFriend(message){
 	Scene_2A_Part5();
 }
 
-function Scene_2A_KateIsFranksWife(message){
+function Scene_2A_KateIsFranksWife(message) {
 	A(message);
 
 	I("Mais elle vous connaissait, elle ?");
@@ -285,7 +284,7 @@ function Scene_2A_KateIsFranksWife(message){
 	Scene_2A_Part5();
 }
 
-function Scene_2A_Part5(){
+function Scene_2A_Part5() {
 	I("Continuons.");
 	I("Pouvez-vous me dire à quelle heure vous êtes arrivée chez Kate Stillwell ?");
 
@@ -294,10 +293,9 @@ function Scene_2A_Part5(){
 		"Entre 21h et 22h." : Scene_2A_Between21hAnd22h,
 		"Euuuh... Juste après Frank." : Scene_2A_AfterFrank
 	});
-
 }
 
-function Scene_2A_After19h(message){
+function Scene_2A_After19h(message) {
 	A(message);
 
 	I("A peine 2-3 minutes avant l'arrivée de la police, donc ?");
@@ -310,7 +308,7 @@ function Scene_2A_After19h(message){
 	A("Maintenant que vous le dîtes, ça semble étrange.");
 	A("Surtout que leur maison est en pleine campagne.");
 
-	if (AnnaYouLiar > 0){
+	if (AnnaYouLiar > 0) {
 		I("Qu'est-ce que vous insinuez là ?");
 		I("Vous vous rendez bien compte que votre histoire ne tient pas debout ?");
 		I("Vous m'avez déjà menti une fois, je vous avais prévenue de ne pas recommen--");
@@ -329,7 +327,7 @@ function Scene_2A_After19h(message){
 	Scene_2A_Interrupt();
 }
 
-function Scene_2A_Between21hAnd22h(message){
+function Scene_2A_Between21hAnd22h(message) {
 	A(message);	
 
 	I("...");
@@ -347,12 +345,12 @@ function Scene_2A_Between21hAnd22h(message){
 
 }
 
-function Scene_2A_AfterFrank(message){
+function Scene_2A_AfterFrank(message) {
 	AnnaArrivedAfterFrank = true;
 	
 	A(message);	
 
-	if(AnnaWantsFrankInPrison){
+	if (AnnaWantsFrankInPrison) {
 		I("Ah bah oui bien sûr.");
 		I("Vous êtes de moins en moins convaincante...");
 		I("Vous lui en voulez vraiment à Frank ?");
@@ -360,8 +358,7 @@ function Scene_2A_AfterFrank(message){
 		AnnaYouLiar++;
 
 		A("Non, pas du tou--.");
-	}
-	else {
+	} else {
 		I("Il était arrivé depuis longtemps ?");
 
 		A("Je ne sais pas.");
@@ -382,10 +379,9 @@ function Scene_2A_AfterFrank(message){
 	}
 
 	Scene_2A_Interrupt();
-
 }
 
-function Scene_2A_Interrupt(){
+function Scene_2A_Interrupt() {
 	PlaySound("sfx", "knock_door");
 	Wait(3000);
 
@@ -437,8 +433,9 @@ function End_Scene_2A(){
 	console.log(recap);
 
 	Clear();
-	//ne commencer la scene 3 que si ready (par rapport à l'autre joueur)
-	if(ready){
+
+	// Wait for the other player to be ready before starting the next scene.
+	if (ready) {
 		Start_Scene_3A();
 	} else {
 		ready = true;

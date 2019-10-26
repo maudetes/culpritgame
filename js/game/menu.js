@@ -3,7 +3,7 @@
 var gameInfo = false;
 var credits = false;
 
-function Start(){
+function Start() {
 
 	$ = {};
 	
@@ -23,7 +23,7 @@ function Start(){
 	});
 }
 
-function Room(message){
+function Room(message) {
 	P(message);
 	N("Veux-tu rejoindre la partie d'un·e ami·e, créer une partie ou jouer avec un·e inconnu·e ?");
 	Choose({
@@ -33,7 +33,7 @@ function Room(message){
 	});
 }
 
-function FindFriend(message){
+function FindFriend(message) {
 	P(message);
 	N("Écris le nom de code que t'as donné ton ami·e pour rejoindre sa partie.");
 	document.getElementById("room_name").style.visibility = "visible";
@@ -41,20 +41,20 @@ function FindFriend(message){
 
 }
 
-function WaitFriend(message){
+function WaitFriend(message) {
 	P(message);
 	N("Ecris un nom de code que tu pourras partager à ton ami·e pour pouvoir te rejoindre.");
 	document.getElementById("room_name").style.visibility = "visible";
 	document.getElementById("room_name").title = "waitForFriend";
 }
 
-function FindForeigner(message){
+function FindForeigner(message) {
 	P(message);
 	socket = io();
 	socket.emit('FindForeigner');
 }
 
-function Launch_Game(){
+function Launch_Game() {
 
 	N("Voici votre histoire...");
 
@@ -65,14 +65,9 @@ function Launch_Game(){
 	Wait(500);
 	Clear();
 	Start_Scene_1();
-
-	/*if(player == 1)
-		Start_Scene_2F();
-	else
-		Start_Scene_2A();*/
 }
 
-function WhatIsThisGame(message){
+function WhatIsThisGame(message) {
 	gameInfo = true;
 
 	P(message);
@@ -89,7 +84,7 @@ function WhatIsThisGame(message){
 
 	P("Wow ! Vous avez tout fait vous-même ?");
 
-	if (credits){
+	if (credits) {
 		N("Non ! Comme dit dans les crédits, nous avons utilisé beaucoup de ressources en Creative Commons (CC).");
 		N("Tu peux retourner les lire si besoin.");
 	} else {
@@ -100,29 +95,31 @@ function WhatIsThisGame(message){
 
 	N("Veux-tu jouer maintenant ?");
 
-	if (credits)
+	if (credits) {
 		Choose({
 				"Commencer la partie.": Room,
 				"Revoir les crédits" : ShowCredits
 			});
-	else
+	} else {
 		Choose({
 				"Commencer la partie.": Room,
 				"Voir les crédits." : ShowCredits
 			});
+    }
 }
 
-function ShowCredits(message){
+function ShowCredits(message) {
 	credits = true;
 	P(message);
 	Credits();
-	if (gameInfo)
+	if (gameInfo) {
 		Choose({
 			"Commencer une partie.": Room
 		});
-	else 
+	} else {
 		Choose({
 			"Commencer une partie.": Room,
 			"C'est quoi ce jeu ?": WhatIsThisGame
 		});
+    }
 }

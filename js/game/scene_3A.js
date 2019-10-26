@@ -1,9 +1,9 @@
-// SCENE_3 : CONTINUATION OF THE QUESTIONNING FOR ANNA
+// SCENE_3: CONTINUATION OF THE QUESTIONING FOR ANNA
 
 var Immunity = false;
 var AnnaNoticedBadCopBluffed = false;
 
-function Start_Scene_3A(){
+function Start_Scene_3A() {
 	
 	ready = false;
 
@@ -26,7 +26,7 @@ function Start_Scene_3A(){
 
 	I("Je suis Jerry Carter.");
 	I("Je viens de m'entretenir avec Frank.");
-	I("Ca ne s'est pas très bien passé pour lui.");
+	I("Ça ne s'est pas très bien passé pour lui.");
 
 	// A dire dans tous les cas ? Ou que si Frank n'a pas trahi Anna ?
 	I("J'espère pour vous que vous serez plus coopérative.");
@@ -38,11 +38,11 @@ function Start_Scene_3A(){
 		"C'est bon, je dirai tout ce que vous voulez entendre." : Scene_3A_WillInvent,
 		"Votre collègue était plus sympathique." : Scene_3A_AlfredIsNicer
 	});
-
 }
 
-function Scene_3A_WontInvent(message){
+function Scene_3A_WontInvent(message) {
 	A(message);
+
 	A("Mais j'imagine que c'est ce que vous voulez, non ?");
 
 	I("...");
@@ -57,16 +57,18 @@ function Scene_3A_WontInvent(message){
 	Scene_3A_FrankRattedOnYou();
 }
 
-function Scene_3A_WillInvent(message){
+function Scene_3A_WillInvent(message) {
 	A(message);
+
 	I("Ah !");
 	I("Enfin quelqu'un de raisonnable !");
 
 	Scene_3A_AnnaIsGoingToTalk("...");
 }
 
-function Scene_3A_AlfredIsNicer(message){
+function Scene_3A_AlfredIsNicer(message) {
 	A(message);
+
 	A("Pas étonnant que l'interrogatoire de Frank se soit mal passé.");
 
 	I("Pas si mal passé, parce que j'ai eu des avoeux.");
@@ -74,24 +76,25 @@ function Scene_3A_AlfredIsNicer(message){
 	Scene_3A_FrankRattedOnYou();
 }
 
-function Scene_3A_FrankRattedOnYou(){
+function Scene_3A_FrankRattedOnYou() {
 	I("Frank vous a balancée.");
 
 	Choose({
 		"Quoi ? Ce c****** ! ": Scene_3A_AnnaIsGoingToTalkOrNot,
 		"Vous bluffez...": Scene_3A_AnnaTrustsFrank,
-		"Ca ne m'étonne pas." : Scene_3A_AnnaIsGoingToTalkOrNot
-	})
+		"Ça ne m'étonne pas." : Scene_3A_AnnaIsGoingToTalkOrNot
+	});
 }
 
-function Scene_3A_AnnaTrustsFrank(message){
+function Scene_3A_AnnaTrustsFrank(message) {
 	A(message);
 
-	//Bonus : different answer depending on Anna ratting on Frank on the previous scene or not
-	if (otherRecap.FrankWantsAnnaInPrison){
-		raison = ""; //TODO : depending on rat ?
+	// Bonus : different answers depending on Anna ratting on Frank on the previous scene or not.
+	if (otherRecap.FrankWantsAnnaInPrison) {
+		raison = ""; // TODO : depending on rat?
 		I("Bah pourtant, il ne s'est pas gêné pour me dire qu'il te pensait coupable.");
-	} else { //Frank did not rat
+
+	} else { // Frank did not rat.
 
 		AnnaNoticedBadCopBluffed = true;
 
@@ -102,13 +105,13 @@ function Scene_3A_AnnaTrustsFrank(message){
 		I("Ok, ok c'est bon.");
 		I("Je tentais juste de vous tester.");
 		I("Je dois admettre que pour un escroc, il est pas du genre à balancer.");
-		I("On va voir ce qu'il en est de vous");
+		I("On va voir ce qu'il en est de vous.");
 	}
 
 	Scene_3A_AnnaIsGoingToTalkOrNot();
 }
 
-function Scene_3A_AnnaIsGoingToTalkOrNot(message){
+function Scene_3A_AnnaIsGoingToTalkOrNot(message) {
 	A(message);
 
 	I("Vous vous décidez à le dénoncer ?");
@@ -117,10 +120,10 @@ function Scene_3A_AnnaIsGoingToTalkOrNot(message){
 		"Oui": Scene_3A_AnnaIsGoingToTalk,
 		"Non": Scene_3A_AnnaIsNotGoingToTalk,
 		"...": Scene_3A_AnnaIs
-	})
+	});
 }
 
-function Scene_3A_AnnaIsGoingToTalk(message){
+function Scene_3A_AnnaIsGoingToTalk(message) {
 	A(message);
 
 	AnnaWantsFrankInPrison = true;
@@ -137,10 +140,10 @@ function Scene_3A_AnnaIsGoingToTalk(message){
 		"Une histoire de crime passionnel.": Scene_3A_AnnaIsSuggestingAMobile,
 		"Leur couple n'allait pas très bien en ce moment.": Scene_3A_AnnaIsSuggestingAMobile,
 		"Sûrement un n-ième désaccord.": Scene_3A_AnnaIsSuggestingAMobile
-	})
+	});
 }
 
-function Scene_3A_AnnaIsSuggestingAMobile(message){
+function Scene_3A_AnnaIsSuggestingAMobile(message) {
 	A(message);
 
 	I("Vous les aviez déjà entendu s'engueuler ?");
@@ -151,28 +154,29 @@ function Scene_3A_AnnaIsSuggestingAMobile(message){
 	I("Parfait.");
 	PlaySound("sfx", "laugh_bad_cop");
 	Wait(4000);
-	// TODO : en italic : "prend des notes"
+	// TODO : write "prends des notes" in italic & add sfx sound.
 	
 	I("C'est bon j'ai tout ce qu'il me faut.");
 	I("On va s'arrêter là.");
 	I("Merci Mme Collins pour votre coopération");
-	if(Immunity)
+
+	if (Immunity) {
 		I("Je n'oublie pas notre accord.");
+    }
 
 	I("On vous tiendra au courant du verdict.");
 
 	End_Scene_3A();
-
 }
 
-function Scene_3A_AnnaIsNotGoingToTalk(message){
+function Scene_3A_AnnaIsNotGoingToTalk(message) {
 	A(message);
 
 	I("A vos risques et périls.");
 	I("Je vous rappelle que la peine de mort a été rétablie.");
 	I("C'est ce qui vous attend si vous n'arrivez pas à vous innocenter.");
 
-	if(AnnaNoticedBadCopBluffed){ 
+	if (AnnaNoticedBadCopBluffed) {
 
 		A("Je sais.");
 		A("Mais vous n'avez rien contre Frank, c'est que du bluff !");
@@ -211,7 +215,7 @@ function Scene_3A_AnnaIsNotGoingToTalk(message){
 	End_Scene_3A();
 }
 
-function Scene_3A_AnnaIs(message){
+function Scene_3A_AnnaIs(message) {
 	A(message);
 
 	I("Vous voulez une contrepartie, c'est ça ?");
@@ -224,10 +228,10 @@ function Scene_3A_AnnaIs(message){
 		"Oui": Scene_3A_AnnaIsGoingToTalk,
 		"Non": Scene_3A_AnnaIsNotGoingToTalk,
 		"...": Scene_3A_AnnaIsIs
-	})
+	});
 }
 
-function Scene_3A_AnnaIsIs(message){
+function Scene_3A_AnnaIsIs(message) {
 	A(message);
 
 	Immunity = true;
@@ -241,10 +245,10 @@ function Scene_3A_AnnaIsIs(message){
 	Choose({
 		"Oui": Scene_3A_AnnaIsGoingToTalk,
 		"Non": Scene_3A_AnnaIsNotGoingToTalk
-	})
+	});
 }
 
-function End_Scene_3A(){
+function End_Scene_3A() {
 	var recap = {
 		// var scene 2A
 		'AnnaYouLiar' : AnnaYouLiar,
@@ -260,7 +264,6 @@ function End_Scene_3A(){
 		'AnnaNoticedBadCopBluffed' : AnnaNoticedBadCopBluffed
 	};
 
-
 	sendRecap(recap);
 
 	console.log(recap);
@@ -273,8 +276,9 @@ function End_Scene_3A(){
 	Wait(4000);
 
 	Clear();
-	//ne commencer la scene 4 que si ready (par rapport à l'autre joueur)
-	if(ready){
+
+	// Wait for the other player to be ready before starting the next scene.
+	if (ready) {
 		Start_Scene_4();
 	} else {
 		ready = true;

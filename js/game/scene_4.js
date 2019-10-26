@@ -1,14 +1,14 @@
-// SCENE_4 : EPILOGUE
+// SCENE_4: EPILOGUE
 
-function Start_Scene_4(){
+function Start_Scene_4() {
 	
 	/////// SET UP SCENE ////////
 	Clear();
 	Show("background","black");
 	/////////////////////////////
 
-	// On instancie les variables manquantes afin d'avoir un code général par la suite
-	if(player == 1){
+	// We instantiate the missing variables to have a code common to the 2 players afterwards.
+	if (player == 1) {
 		// Scene 2A
 		var AnnaYouLiar = otherRecap.AnnaYouLiar;
 		var unknownNumber = otherRecap.unknownNumber;
@@ -22,8 +22,7 @@ function Start_Scene_4(){
 		// Scene 3A
 		var Immunity = otherRecap.Immunity;
 		var AnnaNoticedBadCopBluffed = otherRecap.AnnaNoticedBadCopBluffed;
-	}
-	else {
+	} else {
 		// Scene 2F
 		var BadCopIsAngry = otherRecap.BadCopIsAngry;
 		var FrankYouLiar = otherRecap.FrankYouLiar;
@@ -35,37 +34,40 @@ function Start_Scene_4(){
 		var AnnaFrankAgreedAboutRelationship1 = otherRecap.AnnaFrankAgreedAboutRelationship1;
 		var AnnaFrankAgreedAboutRelationship2 = otherRecap.AnnaFrankAgreedAboutRelationship2;
 		var AnnaKateFriends = otherRecap.AnnaKateFriends;
-		var FrankSaidRelionshipWas = otherRecap.FrankSaidRelionshipWas;
+		var FrankSaidRelationshipWas = otherRecap.FrankSaidRelationshipWas;
 		var FrankBlamesBadCop = otherRecap.FrankBlamesBadCop;
 		var FrankArrivedAfterAnna = otherRecap.FrankArrivedAfterAnna;
 	}
 
-	if( (AnnaYouLiar < 2) && (FrankYouLiar < 2) && (whoCalledThePolice) && (AnnaNoticedBadCopBluffed || FrankBlamesBadCop || unknownNumber) )
+	if ((AnnaYouLiar < 2) && (FrankYouLiar < 2) && (whoCalledThePolice) && (AnnaNoticedBadCopBluffed
+	        || FrankBlamesBadCop || unknownNumber)) {
 		Scene4_GoodEnd();
 
-	else if ( (FrankWantsAnnaInPrison) && ((AnnaYouLiar >= FrankYouLiar ) || AnnaArrivedAfterFrank || !FrankArrivedAfterAnna) )
+	} else if ((FrankWantsAnnaInPrison) && ((AnnaYouLiar >= FrankYouLiar ) || AnnaArrivedAfterFrank
+	        || !FrankArrivedAfterAnna)) {
 		Scene4_AnnaGuilty();
 
-	else if ( (AnnaWantsFrankInPrison) && ((AnnaYouLiar <= FrankYouLiar ) || !AnnaArrivedAfterFrank || FrankArrivedAfterAnna) ) 
+	} else if ((AnnaWantsFrankInPrison) && ((AnnaYouLiar <= FrankYouLiar ) || !AnnaArrivedAfterFrank
+	        || FrankArrivedAfterAnna)) {
 		Scene4_FrankGuilty();
 
-	else
+	} else {
 		Scene4_BadEnd();
-
+    }
 }
 
 
-function Scene4_GoodEnd(){
+function Scene4_GoodEnd() {
 
 	PlaySound("bg","happy_end",{loop:-1, volume:0.7});
 
 	N("Suite aux interrogatoires, personne ne pouvait être jugé coupable.");
 
-	if(player == 1)
+	if (player == 1) {
 		N("Effectivement, votre version des faits et celle d'Anna Collins vous prouvaient innocents tout les deux.");
-	else
+	} else {
 		N("Effectivement, votre version des faits et celle de Frank Prescott vous prouvaient innocents tout les deux.");
-
+    }
 
 	N("De plus, aucune preuve trouvée sur la scène de crime ne vous incriminait.");
 	N("De ce fait, l'inspecteur Hawkins pensa qu'il fallait mieux attendre les analyses scientifiques pour conclure quoique ce soit.");
@@ -78,11 +80,10 @@ function Scene4_GoodEnd(){
 
 	N("Accumulant le stress depuis le début, il ne put s'empêcher d'avouer le meurtre.");
 
-	if(player == 1){
+	if (player == 1) {
 		N("Il expliqua que pour lui, vous étiez une vrai plaie, et qu'il fallait vous éradiquer du monde public.");
 		N("Pour y arriver, il voulut mettre la pression sur Kate, votre femme.");
-	}
-	else{
+	} else{
 		N("Il expliqua que pour lui, Frank était une vrai plaie, et qu'il fallait l'éradiquer du monde public.");
 		N("Pour y arriver, il voulut mettre la pression sur Kate, la femme de Frank.");
 	}
@@ -104,12 +105,12 @@ function Scene4_GoodEnd(){
 
 	N("Enlevant la vie de Kate.");
 
-
-	// changement d'ambiance : faut-il changer la musqiue ?
-	if(player == 1)
+	// Mood change.
+	if (player == 1) {
 		N("Vous vous trouvez à l'extérieur du poste de police accompagné d'Anna Collins et de M. Hawkins.");
-	else
+	} else {
 		N("Vous vous trouvez à l'extérieur du poste de police accompagnée de Frank Prescott et de M. Hawkins.");
+    }
 	
 	N("Vous voyez plus loin Jerry Carter en train de se faire embarquer dans une voiture, direction le couloir de la mort.");
 	N("M. Hawkins vous explique qu'ayant trouvé le vrai coupable, vous êtes libre.");
@@ -119,7 +120,7 @@ function Scene4_GoodEnd(){
 	End_Scene_4();
 }
 
-function Scene4_FrankGuilty(){
+function Scene4_FrankGuilty() {
 
 	PlaySound("bg","culprit_end",{loop:-1, volume:0.7});
 
@@ -128,27 +129,24 @@ function Scene4_FrankGuilty(){
 
 	N("Ceci n'est en réalité pas très étonnant.");
 
-	if(player == 1){
+	if (player == 1) {
 		N("Anna avait tenté de vous incriminer en racontant que vous êtiez le responsable de cette sale affaire.");
 		N("Malgré le fait que cela ressemble à de la désignation gratuite, Anna a été plus convaincante que vous.");
-	}
-	else {
+	} else {
 		N("Vous aviez tenté d'incriminer ce dernier en racontant qu'il était le responsable de cette sale affaire.");
 		N("Malgré le fait que cela ressemble à de la désignation gratuite, vous avez été plus convaincante que Frank.");
 	}
 
 	N("Ce qui amena à cette décision.");
 
-
-	// Changment d'ambiance
-
+	// Mood change.
 	N("Vous et " + (player == 1 ? "Anna" : "Frank") + " sortez tout les deux du poste de police.");
 	N("A une différence près : " + (player == 1 ? "vous êtes" : "Frank est") + " entouré de policiers.");
 
 	N("Une fois dehors, vous voyez une voiture au loin, celle qui " 
 		+ (player == 1 ? "vous emmenera" : "emmenera Frank") + " au couloir de la mort.");
 
-	if(player == 1){
+	if (player == 1) {
 		N("Arrivé devant la voiture, vous vous retournez.");
 		N("Vous échangez un regard rempli de haine avec Anna.");
 		N("Vous remarquez alors que les inspecteurs Carter et Hawkins sont sortis pour voir le déroulement de l'opération.");
@@ -157,8 +155,7 @@ function Scene4_FrankGuilty(){
 		Wait(1000);
 		PlaySound("sfx", "car_door_and_engine_start");
 		Wait(4000);
-	}
-	else {
+	} else {
 		N("Arrivé devant la voiture, Frank se retourne avec un regard empli de haine.");
 		N("Vous lui rendez son regard avant qu'il ne parte.");
 		N("Vous entendez alors les inspecteurs Carter et Hawkins parler.");
@@ -172,7 +169,7 @@ function Scene4_FrankGuilty(){
 	End_Scene_4();
 }
 
-function Scene4_AnnaGuilty(){
+function Scene4_AnnaGuilty() {
 
 	PlaySound("bg","culprit_end",{loop:-1, volume:0.7});
 
@@ -181,19 +178,17 @@ function Scene4_AnnaGuilty(){
 
 	N("Ceci n'est en réalité pas très étonnant.");
 
-	if(player == 2){
+	if (player == 2) {
 		N("Frank avait tenté de vous incriminer en racontant que vous êtiez la responsable de cette sale affaire.");
 		N("Malgré le fait que cela ressemble à de la désignation gratuite, Frank a été plus convaincant que vous.");
-	}
-	else {
+	} else {
 		N("Vous aviez tenté d'incriminer ce dernier en racontant qu'il était le responsable de cette sale affaire.");
 		N("Malgré le fait que cela ressemble à de la désignation gratuite, vous avez été plus convaincante que Frank.");
 	}
 
 	N("Ce qui amena à cette décision.");
 
-
-	// Changment d'ambiance
+	// Mood change.
 
 	N("Vous et " + (player == 1 ? "Anna" : "Frank") + " sortez tout les deux du poste de police.");
 	N("À une différence près : " + (player == 2 ? "vous êtes" : "Anna est") + " entouré de policier.");
@@ -201,7 +196,7 @@ function Scene4_AnnaGuilty(){
 	N("Une fois dehors, vous voyez une voiture au loin, celle qui " 
 		+ (player == 2 ? "vous emmenera" : "emmenera Anna") + " au couloir de la mort.");
 
-	if(player == 2){
+	if (player == 2) {
 		N("Arrivée devant la voiture, vous vous retounez.");
 		N("Vous échangez un regard rempli de haine avec Frank.");
 		N("Vous remarquez alors que les inspecteurs Carter et Hawkins sont sortis pour voir le déroulement de l'opération.");
@@ -210,12 +205,11 @@ function Scene4_AnnaGuilty(){
 		Wait(1000);
 		PlaySound("sfx", "car_door_and_engine_start");
 		Wait(4000);
-	}
-	else {
+	} else {
 		N("Arrivée devant la voiture, Anna se retourne avec un regard empli de haine.");
 		N("Vous lui rendez son regard avant qu'elle ne parte.");
 		N("Vous entendez alors les inspecteurs Carter et Hawkins parler.");
-		N("M. Hawkins vient vous voir pour vous expliquer que vous êtes désormais libre, contraiement à Anna.");
+		N("M. Hawkins vient vous voir pour vous expliquer que vous êtes désormais libre, contrairement à Anna.");
 	}
 
 	N("Pensez-vous avoir fait les bons choix ?");
@@ -225,38 +219,36 @@ function Scene4_AnnaGuilty(){
 	End_Scene_4();
 }
 
-function Scene4_BadEnd(){
+function Scene4_BadEnd() {
 
 	PlaySound("bg","bad_end",{loop:-1, volume:0.7});
 
-	if(player == 1)
+	if (player == 1) {
 		N("Suite aux interrogatoires, vous et Anna n'avez pas vraiment convaincus les inspecteurs.");
-	else
+	} else {
 		N("Suite aux interrogatoires, vous et Frank n'avez pas vraiment convaincus les inspecteurs.");
+    }
 
 	var link = "";
 	var link2 = "V";
 
-	if(!AnnaFrankAgreedAboutRelationship2 || !AnnaFrankAgreedAboutRelationship1){
+	if (!AnnaFrankAgreedAboutRelationship2 || !AnnaFrankAgreedAboutRelationship1) {
 		N("Vous avez notamment donné des versions différentes des faits.");
 		link = "De plus, ";
 	}
 
-	if( (AnnaYouLiar >= 2 && FrankYouLiar < 2) || (AnnaYouLiar < 2 && FrankYouLiar >= 2) ){
+    // TODO: Weird useless "Et v" below.
+	if ((AnnaYouLiar >= 2 && FrankYouLiar < 2) || (AnnaYouLiar < 2 && FrankYouLiar >= 2)) {
 		N(link + "l'un de vous deux a menti.");
 		link2 = "Et v";
-	}
-
-
-	else if ( AnnaYouLiar >= 2 && FrankYouLiar >= 2 ){
+	} else if (AnnaYouLiar >= 2 && FrankYouLiar >= 2) {
 		N(link + "vous avez tout les deux menti.");
 		link2 = "Et v";
 	}
 
-	if( FrankWantsAnnaInPrison && AnnaWantsFrankInPrison )
+	if (FrankWantsAnnaInPrison && AnnaWantsFrankInPrison) {
 		N(link2 + "ous êtes mutuellement accusés.");
-
-
+    }
 
 	N("Tout ceci mena les inspecteurs à ne pas vous croire.");
 
@@ -265,22 +257,22 @@ function Scene4_BadEnd(){
 	N("Cependant, suite à vos multiples erreurs et à votre présence sur le lieu du crime, \
 	les inspecteurs vous ont tous les deux condamnés à croupir en prison pendant plusieurs années.");
 
-
-
-	if(player == 1)
+	if (player == 1) {
 		N("Anna et vous sortez du poste de police, direction la voiture qui vous emmenera en prison.");
-	else 
+	} else {
 		N("Frank et vous sortez du poste de police, direction la voiture qui vous emmenera en prison.");
+    }
 
 	N("Vous vous retournez, afin de regarder derrière vous.");
 
 	N("Vous voyez M. Hawkins vous regarder avec un regard dur.");
 
 
-	if(player == 1)
+	if (player == 1) {
 		N("Vous voyez aussi M. Carter vous regarder avec un regard vicieux et satisfait.");
-	else
+	} else {
 		N("Vous voyez aussi M. Carter regarder Frank avec un regard vicieux et satisfait.");
+    }
 
 	Wait(1000);
 	PlaySound("sfx", "car_door_and_engine_start");
@@ -293,8 +285,8 @@ function Scene4_BadEnd(){
 	End_Scene_4();
 }
 
-
-function End_Scene_4(){
+// TODO: Dead lock on credits ending.
+function End_Scene_4() {
 	Choose({
 		"Voir les crédits." : function(){P("Voir les crédits"); Credits();},
 		"Recommencer." : function(){location.reload();},

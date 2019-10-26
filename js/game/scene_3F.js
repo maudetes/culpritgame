@@ -1,15 +1,15 @@
-// SCENE_3 : CONTINUATION OF THE QUESTIONING FOR FRANK
+// SCENE_3: CONTINUATION OF THE QUESTIONING FOR FRANK
 
 // Common vars
 var AnnaFrankTogether = false;
 var AnnaFrankAgreedAboutRelationship1 = false;
 var AnnaFrankAgreedAboutRelationship2 = false;
 var AnnaKateFriends = false;
-var FrankSaidRelionshipWas;
+var FrankSaidRelationshipWas;
 var FrankBlamesBadCop = false;
 var FrankArrivedAfterAnna = false;
 
-function Start_Scene_3F(){
+function Start_Scene_3F() {
 	
 	ready = false;
 
@@ -38,13 +38,13 @@ function Start_Scene_3F(){
 	});
 }
 
-function Scene_3F_Part2(message){
-	FrankSaidRelionshipWas = message;
+function Scene_3F_Part2(message) {
+	FrankSaidRelationshipWas = message;
 
 	F(message);
 
-	if((otherRecap.AnnaFrankTogether == true && FrankSaidRelionshipWas != "On est amants.")
-		|| (otherRecap.AnnaFrankTogether == false && FrankSaidRelionshipWas == "On est amants.")){
+	if ((otherRecap.AnnaFrankTogether && FrankSaidRelationshipWas != "On est amants.")
+		|| (!otherRecap.AnnaFrankTogether && FrankSaidRelationshipWas == "On est amants.")) {
 		AnnaFrankAgreedAboutRelationship1 = false;
 
 		I("Étrange...");
@@ -57,8 +57,7 @@ function Scene_3F_Part2(message){
 		I("Mais c'est peut être elle qui ment...");
 		I("Je ne peux pas encore délier le vrai du faux.");
 		I("Je me ferai une idée par rapport à ce que vous me direz par la suite.");
-	}
-	else{
+	} else {
 		AnnaFrankAgreedAboutRelationship1 = true;
 
 		I("C'est ce qu'elle m'a dit, oui.");
@@ -67,7 +66,7 @@ function Scene_3F_Part2(message){
 
 }
 
-function Scene_3F_Part3(){
+function Scene_3F_Part3() {
 	I("D'ailleurs...");
 	I("Pouvez-vous me dire quelle était la relation entre votre femme et Anna ?");
 
@@ -78,7 +77,7 @@ function Scene_3F_Part3(){
 	});
 }
 
-function Scene_3F_WhyDoesItMatter(message){
+function Scene_3F_WhyDoesItMatter(message) {
 	F(message);
 
 	I("...");
@@ -96,29 +95,27 @@ function Scene_3F_WhyDoesItMatter(message){
 	});
 }
 
-function Scene_3F_Part4(message){
+function Scene_3F_Part4(message) {
 	F(message);
 
-	if(message === "Elles étaient amies."){
+	if (message === "Elles étaient amies.") {
 		AnnaKateFriends = true;
 	}
 
-	if(otherRecap.AnnaKateFriends != AnnaKateFriends){
+	if (otherRecap.AnnaKateFriends != AnnaKateFriends) {
 		AnnaFrankAgreedAboutRelationship2 = false;
-		if(AnnaFrankAgreedAboutRelationship1){
-			I("É trange...");
+		if (AnnaFrankAgreedAboutRelationship1) {
+			I("Étrange...");
 			I("Ce n'est pas ce que Madame Collins m'a raconté.");
 			I("Je vous laisse le bénéfice du doute.");
-		}
-		else{
+		} else {
 			I("Encore une fois, vos versions ne concordent pas.");
 			I("Cela ne va pas nous aider à trouver le meurtrier.");
 			I("À croire que l'un de vous deux n'a vraiment pas envie qu'on enquête sérieusement.");
 
 			F("Moi je vous dis ce que je sais. Vous me croyez ou non.");
 		}
-	}
-	else{
+	} else {
 		AnnaFrankAgreedAboutRelationship2 = true;
 
 		I("Très bien, c'est noté.");
@@ -126,8 +123,8 @@ function Scene_3F_Part4(message){
 	Scene_3F_Part5();
 }
 
-function Scene_3F_Part5(){
-	I("Continuous.");
+function Scene_3F_Part5() {
+	I("Continuons.");
 
 	F("Est-ce que vous n'êtes pas sensé me demander qui aurait pu en vouloir à ma femme ?");
 
@@ -136,34 +133,34 @@ function Scene_3F_Part5(){
 	I("Vous pensiez à quelqu'un en particulier ?");
 
 	Choose({
-		"Elle n'avait pas d'ennemi. Mais j'imagine que vous savez bien que ce n'est pas mon cas." : Scene_3F_FrankBlamesHisEnnemies,
+		"Elle n'avait pas d'ennemi. Mais j'imagine que vous savez bien que ce n'est pas mon cas." : Scene_3F_FrankBlamesHisEnemies,
 		"Anna." : Scene_3F_FrankBlamesAnna,
 		"Non. C'était juste pour vous apprendre à faire votre boulot." : Scene_3F_FrankBlamesNoOne 
 	});
 }
 
-function Scene_3F_FrankBlamesNoOne(message){
+function Scene_3F_FrankBlamesNoOne(message) {
 	F(message);
 
 	I("Je vois que monsieur est joueur.");
 	I("On verra quelle attitude vous aurez une fois jugé.");
 
-	Scene_3F_Part5();
+	Scene_3F_Part6();
 }
-function Scene_3F_FrankBlamesHisEnnemies(message){
+function Scene_3F_FrankBlamesHisEnemies(message) {
 	F(message);
 	F("On a sûrement cherché à m'atteindre à travers elle.");
 
 	I("Pourquoi ?");
 
 	Choose({
-		"Pour m'envoyer en prison." : Scene_3F_FrankBlamesHisEnnemiesPart2,
-		"Pour me faire tomber et prendre ma place." : Scene_3F_FrankBlamesHisEnnemiesPart2,
-		"Par vengeance, peut-être ?" : Scene_3F_FrankBlamesHisEnnemiesPart2
+		"Pour m'envoyer en prison." : Scene_3F_FrankBlamesHisEnemiesPart2,
+		"Pour me faire tomber et prendre ma place." : Scene_3F_FrankBlamesHisEnemiesPart2,
+		"Par vengeance, peut-être ?" : Scene_3F_FrankBlamesHisEnemiesPart2
 	});
 }
 
-function Scene_3F_FrankBlamesHisEnnemiesPart2(message){
+function Scene_3F_FrankBlamesHisEnemiesPart2(message) {
 	F(message);
 
 	I("Avez-vous des noms ?");
@@ -184,22 +181,22 @@ function Scene_3F_FrankBlamesHisEnnemiesPart2(message){
 	}
 }
 
-function Scene_3F_FrankBlamesHisEnnemiesPart3(message){
+function Scene_3F_FrankBlamesHisEnemiesPart3(message) {
 	F(message);
 
-	//TODO: add vars about whom was blamed by Frank
-	if(message === "Anna Collins."){
+	//TODO: add vars about whom was blamed by Frank.
+	if (message === "Anna Collins.") {
 		FrankWantsAnnaInPrison ++;
-		//var Anna
+		// var Anna
 	}
 	F("Je vous conseille vraiment d'aller regarder de ce côté là.");
 
 	I("C'est noté");
 
-	Scene_3F_Part5();
+	Scene_3F_Part6();
 }
 
-function Scene_3F_FrankBlamesBadCop(message){
+function Scene_3F_FrankBlamesBadCop(message) {
 	FrankBlamesBadCop = true;
 
 	F(message);
@@ -212,23 +209,21 @@ function Scene_3F_FrankBlamesBadCop(message){
 	I("...");
 	I("C'est noté");
 
-	Scene_3F_Part5();
+	Scene_3F_Part6();
 }
 
-function Scene_3F_FrankBlamesAnna(message){
+function Scene_3F_FrankBlamesAnna(message) {
 	FrankWantsAnnaInPrison ++;
 
 	F(message);
 
 	I("Pourquoi ?");
 
-	if(AnnaFrankTogether){
+	if (AnnaFrankTogether){
 		F("Par jalousie, c'est sûr !");
-	}
-	else if(AnnaKateFriends){
+	} else if (AnnaKateFriends) {
 		F("Il y avait des tensions importantes entre les deux récemment.");
-	}
-	else{
+	} else{
 		F("Je ne sais pas encore.");
 
 		I("Ça me semble être une accusation grauite !");
@@ -236,20 +231,19 @@ function Scene_3F_FrankBlamesAnna(message){
 
 	I("Pourquoi vous croirai-je ?");
 
-	if(AnnaFrankAgreedAboutRelationship1 && AnnaFrankAgreedAboutRelationship2){
+	if (AnnaFrankAgreedAboutRelationship1 && AnnaFrankAgreedAboutRelationship2) {
 		F("Parce que c'est ma femme qui est morte !");
 		F("Ce n'est pas moi qui l'ai tuée.");
 		F("Et la seule autre personne sur la scène du crime, c'était Anna.");
-	}
-	else{
+	} else{
 		F("Moi je vous dis la vérité et elle vous ment.");
 		F("Evidemment qu'elle paraît suspecte.");
 		F("Elle a forcément quelque chose à cacher.");
 	}
-	Scene_3F_Part5();
+	Scene_3F_Part6();
 }
 
-function Scene_3F_Part5(){
+function Scene_3F_Part6() {
 	I("OK.");
 	I("On va pouvoir continuer l'interrogatoire dans l'ordre, si vous voulez bien.");
 
@@ -264,24 +258,23 @@ function Scene_3F_Part5(){
 	});
 }
 
-function Scene_3F_Around19h(message){
+function Scene_3F_Around19h(message) {
 	F(message);
 
 	I("Juste avant d'être interpellé par la police donc.");
 
 	F("Oui, ils sont arrivés juste après.");
 
-	if(otherRecap.whoCalledThePolice){
+	if (otherRecap.whoCalledThePolice){
 		I("Anna a mentionné quelque chose de similaire, en effet.");
 		I("On n'a pas encore réussi à trouver qui a appeler la police.");
-	}
-	else{
+	} else{
 		I("Ok.");
 	}
-	Scene_3F_Part6();
+	Scene_3F_Part7();
 }
 
-function Scene_3F_After21h30(message){
+function Scene_3F_After21h30(message) {
 	F(message);
 
 	I("...");
@@ -294,41 +287,38 @@ function Scene_3F_After21h30(message){
 
 	I("Vous ne vous aidez pas en mentant.");
 
-	Scene_3F_Part6();
+	Scene_3F_Part7();
 }
 
-function Scene_3F_AfterAnna(message){
+function Scene_3F_AfterAnna(message) {
 	F(message);
 
 	FrankArrivedAfterAnna = true;
 
-	if(otherRecap.AnnaArrivedAfterFrank){ 
+	if (otherRecap.AnnaArrivedAfterFrank) {
 		I("Amusant.");
 		I("Anna a dit le contraire.");
 
-	}
-	else if(FrankWantsAnnaInPrison >= 2){
+	} else if(FrankWantsAnnaInPrison >= 2) {
 		I("Vous voulez vraiment qu'Anna aille en prison, non ?");
 
 		F("Je vous dis juste la vérité.");
-	}
-	else{
+	} else {
 		I("Hum.");
 		I("C'est noté.");
 	}
-	Scene_3F_Part6();
+	Scene_3F_Part7();
 }
 
-//TODO: add questions about balistic results
+// TODO: add questions about balistic results.
 
-function Scene_3F_Part6(){
+function Scene_3F_Part7() {
 	I("Bon.");
 	I("Je n'ai pas d'autre question pour le moment.");
 	I("Merci pour toutes ces informations");
-	if(FrankBlamesBadCop){
+	if (FrankBlamesBadCop) {
 		I("Je vais enquêter du côté de Jerry Carter.");
-	}
-	else{
+	} else{
 		I("On va en discuter avec mon collègue.");
 		I("Nous vous rendrons notre verdict juste après.");
 	}
@@ -346,7 +336,7 @@ function Scene_3F_Part6(){
 	End_Scene_3F();
 }
 
-function End_Scene_3F(){
+function End_Scene_3F() {
 	var recap = { 
 		// var scene 2F 
 		'BadCopIsAngry' : BadCopIsAngry,
@@ -358,10 +348,9 @@ function End_Scene_3F(){
 		'AnnaFrankAgreedAboutRelationship1' : AnnaFrankAgreedAboutRelationship1,
 		'AnnaFrankAgreedAboutRelationship2' : AnnaFrankAgreedAboutRelationship2,
 		'AnnaKateFriends' : AnnaKateFriends,
-		'FrankSaidRelionshipWas' : FrankSaidRelionshipWas,
+		'FrankSaidRelationshipWas' : FrankSaidRelationshipWas,
 		'FrankBlamesBadCop' : FrankBlamesBadCop	
 	};
-
 
 	sendRecap(recap);
 
@@ -369,8 +358,8 @@ function End_Scene_3F(){
 
 	Clear();
 
-	//ne commencer la scene 4 que si ready (par rapport à l'autre joueur)
-	if(ready){
+	// Wait for the other player to be ready before starting the next scene.
+	if (ready) {
 		Start_Scene_4();
 	} else {
 		ready = true;

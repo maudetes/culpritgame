@@ -1,4 +1,4 @@
-// SCENE_2 : BEGINNING OF THE QUESTIONING FOR FRANK
+// SCENE_2: BEGINNING OF THE QUESTIONING FOR FRANK
 
 // Common vars
 var FrankYouLiar = 0;
@@ -6,7 +6,7 @@ var FrankWantsAnnaInPrison = false;
 var FrankHoldUp = false;
 var BadCopIsAngry = 0;
 
-function Start_Scene_2F(){
+function Start_Scene_2F() {
 
 	/////// SET UP SCENE ////////
 	Clear();
@@ -24,30 +24,30 @@ function Start_Scene_2F(){
 	});
 }
 
-function Scene_2F_DontMissYou(message){
+function Scene_2F_DontMissYou(message) {
 	F(message);
 
 	I("C'est pas faux.");
 
-	Scene_2F_Part2()
+	Scene_2F_Part2();
 }
 
-function Scene_2F_DoWeKnowEachOther(message){
+function Scene_2F_DoWeKnowEachOther(message) {
 	F(message);
 	
 	I("Hahaha !");
 	I("Je vois que tu fais toujours ton malin.");
 	I("T'es tellement connu des services, tu vas finir par plonger.");
 
-	Scene_2F_Part2()
+	Scene_2F_Part2();
 }
 
-function Scene_2F_NotLongTime(message){
+function Scene_2F_NotLongTime(message) {
 	F(message);
 	
 	I("Je vois que tu perds pas le Nord.");
 
-	Scene_2F_Part2()
+	Scene_2F_Part2();
 }
 
 function Scene_2F_Part2(){
@@ -65,10 +65,9 @@ function Scene_2F_Part2(){
 		"Je rentrais juste de mon travail." : Scene_2F_ComeBackHome,
 		"J'étais venu mettre les choses au clair avec ma femme." : Scene_2F_ClarifyingKate
 	});
-
 }
 
-function Scene_2F_Sms (message){
+function Scene_2F_Sms (message) {
 	F(message);
 
 	F("Elle voulait que je rentre rapidement à la maison.");
@@ -94,11 +93,10 @@ function Scene_2F_ComeBackHome (message){
 
 	I("T'avais un problème avec ta femme, non ?")
 
-
 	Scene_2F_ImportantChoice();
 }
 
-function Scene_2F_ClarifyingKate (message){
+function Scene_2F_ClarifyingKate (message) {
 	F(message);
 
 	I("À propos de quoi ?");
@@ -106,7 +104,7 @@ function Scene_2F_ClarifyingKate (message){
 	Scene_2F_ImportantChoice();
 }
 
-function Scene_2F_ImportantChoice(){
+function Scene_2F_ImportantChoice() {
 	Choose({
 		"Elle pensait que j'étais infidèle." : Scene_2F_Unfaithful,
 		"Elle avait l'air énervée contre Anna." : Scene_2F_AngryAnna,
@@ -114,7 +112,7 @@ function Scene_2F_ImportantChoice(){
 	});
 }
 
-function Scene_2F_Unfaithful(message){
+function Scene_2F_Unfaithful(message) {
 	F(message);
 
 	I("Avec ta complice ?");
@@ -126,7 +124,7 @@ function Scene_2F_Unfaithful(message){
 	});
 }
 
-function Scene_2F_AngryAnna(message){
+function Scene_2F_AngryAnna(message) {
 	F(message);
 
 	I("C'est pour ça que t'as tué Kate ?");
@@ -137,7 +135,7 @@ function Scene_2F_AngryAnna(message){
 	Scene_2F_FrankRatsOut();
 }
 
-function Scene_2F_AFTogether(message){
+function Scene_2F_AFTogether(message) {
 	F(message);
 
 	I("Un crime passionnel, donc.");
@@ -150,7 +148,7 @@ function Scene_2F_AFTogether(message){
 	});
 }
 
-function Scene_2F_DontSee(message){
+function Scene_2F_DontSee(message) {
 	F(message);
 
 	I("Mais oui, bien sûr, joue celui qui ne sait rien.");
@@ -165,7 +163,7 @@ function Scene_2F_DontSee(message){
 	Scene_2F_BadCopIsLosingHisShit();
 }
 
-function Scene_2F_FrankInnocent(message){
+function Scene_2F_FrankInnocent(message) {
 	F(message);
 	
 	I("Qui est le coupable alors ?");
@@ -178,7 +176,7 @@ function Scene_2F_FrankInnocent(message){
 	Scene_2F_FrankRatsOut();
 }
 
-function Scene_2F_HoldUp(message){
+function Scene_2F_HoldUp(message) {
 	F(message);
 	
 	I("Il semblerait que ça ne soit pas moi le minable ici.");
@@ -191,7 +189,7 @@ function Scene_2F_HoldUp(message){
 	Scene_2F_BadCopIsHappy();
 }
 
-function Scene_2F_NoCrime(message){
+function Scene_2F_NoCrime(message) {
 	F(message);
 	
 	I("Je ne fais qu'énoncer les possibili--");
@@ -202,7 +200,7 @@ function Scene_2F_NoCrime(message){
 	Scene_2F_BadCopIsLosingHisShit();
 }
 
-function Scene_2F_Jealous(message){
+function Scene_2F_Jealous(message) {
 	F(message);
 
 	I("Donc, pour toi, elle se seraient disputées ?");
@@ -213,7 +211,7 @@ function Scene_2F_Jealous(message){
 	Scene_2F_FrankRatsOut();
 }
 
-function Scene_2F_TooFast(message){
+function Scene_2F_TooFast(message) {
 	F("Hey, mollo tu veux bien ?");
 	F(message);
 	
@@ -222,7 +220,7 @@ function Scene_2F_TooFast(message){
 	Scene_2F_BadCopIsLosingHisShit();
 }
 
-function Scene_2F_BadCopIsLosingHisShit(){
+function Scene_2F_BadCopIsLosingHisShit() {
 
 	F("Tu n'as aucune preuve. Rien.");
 	F("Alors arrête ton cinéma, gamin.");
@@ -246,7 +244,7 @@ function Scene_2F_BadCopIsLosingHisShit(){
 	Scene_2F_Part3();
 }
 
-function Scene_2F_FrankRatsOut(){
+function Scene_2F_FrankRatsOut() {
 	I("J'aurais pas cru que tu m'aurais aidé gentiment comme ça.");
 
 	F("Qu'on se mette d'accord, si je balance ma collègue, je suis libre.");
@@ -264,7 +262,7 @@ function Scene_2F_FrankRatsOut(){
 
 }
 
-function Scene_2F_BadCopIsHappy(){
+function Scene_2F_BadCopIsHappy() {
 	I("J'aurais pas cru que tu m'aurais aidé gentiment comme ça.");
 	I("J'ai même pas eu besoin de faire monter la pression pour que tu te mettes à table.");
 	I("Frank Prescott n'est plus la légende qu'il était, si ?");
@@ -278,7 +276,7 @@ function Scene_2F_BadCopIsHappy(){
 	Scene_2F_Part3();
 }
 
-function Scene_2F_Part3(){
+function Scene_2F_Part3() {
 	I("Tu ferais mieux de coopérer maintenant.");
 
 	F("On va voir ça.");
@@ -293,7 +291,7 @@ function Scene_2F_Part3(){
 	});
 }
 
-function Scene_2F_NoProof(message){
+function Scene_2F_NoProof(message) {
 	F(message);
 	F("On sait tous les deux que t'en n'as pas assez pour ça.");
 
@@ -310,7 +308,7 @@ function Scene_2F_NoProof(message){
 	Scene_2F_FrankTeachesBadCopHisJob();
 }
 
-function Scene_2F_NoJustice(message){
+function Scene_2F_NoJustice(message) {
 	F(message);
 
 	I("C'est ça, continue comme ça...");
@@ -325,7 +323,7 @@ function Scene_2F_NoJustice(message){
 	Scene_2F_FrankTeachesBadCopHisJob();
 }
 
-function Scene_2F_FrankCooperates(message){
+function Scene_2F_FrankCooperates(message) {
 	F(message);
 
 	F("Qu'est-ce que tu veux entendre ?");
@@ -339,7 +337,7 @@ function Scene_2F_FrankCooperates(message){
 	});
 }
 
-function Scene_2F_FrankAngryAboutTheMurderer(message){
+function Scene_2F_FrankAngryAboutTheMurderer(message) {
 	F(message);
 
 	I("Parce que toi, tu n'as rien à te reprocher peut-être ?");
@@ -356,7 +354,7 @@ function Scene_2F_FrankAngryAboutTheMurderer(message){
 	Scene_2F_FrankTeachesBadCopHisJob();
 }
 
-function Scene_2F_FrankRatsOut2(message){
+function Scene_2F_FrankRatsOut2(message) {
 	F(message);
 	F("Je l'ai vue sur la scène du crime.");
 
@@ -378,7 +376,7 @@ function Scene_2F_FrankRatsOut2(message){
 	Scene_2F_FrankTeachesBadCopHisJob();
 }
 
-function Scene_2F_FrankCooperatesOnlyWhenHeCan(message){
+function Scene_2F_FrankCooperatesOnlyWhenHeCan(message) {
 	F(message);
 
 	I("Ça ne m'aide pas beaucoup.");
@@ -399,14 +397,14 @@ function Scene_2F_FrankCooperatesOnlyWhenHeCan(message){
 	Scene_2F_FrankTeachesBadCopHisJob();
 }
 
-function Scene_2F_FrankTeachesBadCopHisJob(){
+function Scene_2F_FrankTeachesBadCopHisJob() {
 	F("...");
 	F("Bon, on n'avance pas beaucoup.");
 	F("Faut que je t'apprenne à faire ton métier et à poser les questions ?");
 
 	I("Comment oses-tu ?!");
 
-	if(BadCopIsAngry > 2){
+	if (BadCopIsAngry >= 2) {
 		PlaySound("sfx", "fist_on_table");
 		Wait(2000);
 		PlaySound("sfx", "heartbeat");
@@ -423,7 +421,7 @@ function Scene_2F_FrankTeachesBadCopHisJob(){
 	Scene_2F_Interrupt();
 }
 
-function Scene_2F_Interrupt(){
+function Scene_2F_Interrupt() {
 	PlaySound("sfx", "opening_door");
 	Wait(3000);
 	Clear();
@@ -436,7 +434,7 @@ function Scene_2F_Interrupt(){
 	End_Scene_2F();
 }
 
-function End_Scene_2F(){
+function End_Scene_2F() {
 
 	var recap = { 
 		'BadCopIsAngry' : BadCopIsAngry,
@@ -451,8 +449,8 @@ function End_Scene_2F(){
 
 	Clear();
 
-	//ne commencer la scene 3 que si ready (par rapport à l'autre joueur)
-	if(ready){
+	// Wait for the other player to be ready before starting the next scene.
+	if (ready) {
 		Start_Scene_3F();
 	} else {
 		ready = true;
