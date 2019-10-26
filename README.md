@@ -8,7 +8,7 @@ It has been created in 2017 in the context of the IC06 course of the UTC school.
 
 ### Play to this game
 To play, both players will have to start the game in their web browser.
-The Culprit Game is hosted online and directly available at https://culpritgame.herokuapp.com/.
+The Culprit Game is hosted online and directly available at https://theculpritgame.herokuapp.com/.
 
 ### Deploy the game locally
 Instead of using the version deployed at herokuapp, you also have the possibility to deploy the game locally.
