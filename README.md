@@ -14,9 +14,16 @@ The Culprit Game is hosted online and directly available at https://theculpritga
 Instead of using the version deployed at herokuapp, you also have the possibility to deploy the game locally.
 To do so, you have to:
 * Download and install `Node.js` : https://nodejs.org/en/ (includes `npm`).
-* Go to the root folder of the game in a shell and enter the following commands:
-```
+* Execute the following commands in a shell:
+```bash
+# Get the project.
+git clone https://github.com/maudetes/culpritgame.git
+cd culpritgame/
+
+# Install it.
 npm install 
-node index.js # to start the server
+
+# Start the server locally.
+node index.js
 ```
 * Open a browser to http://localhost:3000/ (or replace 'localhost' by the IP address of the computer hosting the server)
